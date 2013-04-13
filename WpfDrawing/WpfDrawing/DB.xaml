@@ -1,0 +1,48 @@
+﻿<Window x:Class="WpfDrawing.DB"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:xx="clr-namespace:WpfDrawing"
+        Title="DB" Height="281" Width="612">
+    <Grid>
+        <Grid.Resources>
+            <xx:BitmapConverter x:Key="bmpConverter"/>
+        </Grid.Resources>
+        <DockPanel>
+            <Menu DockPanel.Dock="Top">
+                <MenuItem Header="File">
+                    <MenuItem Header="Create new db" Command="{x:Static xx:Commands.CommandCreateDb}"/>
+                    <MenuItem Header="Open db" Command="{x:Static xx:Commands.CommandOpenDB}"/>
+                    <MenuItem Header="Add record" Command="{x:Static xx:Commands.CommandAddToDb}"/>
+
+                </MenuItem>
+            </Menu>
+            <DataGrid Name="dataGrid" AutoGenerateColumns="False"   BeginningEdit="dataGrid_BeginningEdit" FrozenColumnCount="3" CanUserSortColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="#" Width="100" Binding="{Binding Path=.[0]}"/>
+                    <DataGridTextColumn Header="Genus" Width="100" Binding="{Binding Path=.[1]}"/>
+                    <DataGridTemplateColumn Header="Picture" Width="120" >
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image MaxWidth="200" Stretch="Uniform"  Source="{Binding  IsAsync=True, Converter={StaticResource bmpConverter}}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTextColumn Header="Species" Width="100" Binding="{Binding Path=.[2]}"/>
+                    <DataGridTextColumn Header="Synonymy" Width="200" Binding="{Binding Path=.[3]}"/>
+                    <DataGridTextColumn Header="Shell" Width="80" Binding="{Binding Path=.[4]}"/>
+                    <DataGridTextColumn Header="Init shell" Width="80" Binding="{Binding Path=.[5]}"/>
+                    <DataGridTextColumn Header="Crop" Width="80" Binding="{Binding Path=.[6]}"/>
+                    <DataGridTextColumn Header="Key-edge" Width="80" Binding="{Binding Path=.[7]}"/>
+                    <DataGridTextColumn Header="front-end" Width="80" Binding="{Binding Path=.[8]}"/>
+                    <DataGridTextColumn Header="rear-end" Width="80" Binding="{Binding Path=.[9]}"/>
+                    <DataGridTextColumn Header="ventral-margin" Width="80" Binding="{Binding Path=.[10]}"/>
+                    <DataGridTextColumn Header="growth lines" Width="80" Binding="{Binding Path=.[11]}"/>
+                    <DataGridTextColumn Header="sculpture" Width="80" Binding="{Binding Path=.[12]}"/>
+                    <DataGridTextColumn Header="compare" Width="80" Binding="{Binding Path=.[13]}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+
+        </DockPanel>
+
+    </Grid>
+</Window>
