@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using System.Collections.Generic;
+using System.Windows;
+using MolluskRecognition.DataModels;
 
 namespace MolluskRecognition
 {
@@ -27,7 +29,13 @@ namespace MolluskRecognition
 		/// </summary>
 		private void SearchButton_Click(object sender, RoutedEventArgs e)
 		{
-			SearchWindow main = new SearchWindow();
+			SearchWindow main =
+				new SearchWindow(new List<Feature>
+				                 	{
+				                 		new Feature("First"),
+				                 		new Feature("Second")
+				                 			{SubFeatures = new List<Feature> {new Feature("4545454"), new Feature("fjsljfio")}}
+				                 	});
 			main.ShowDialog();
 		}
 

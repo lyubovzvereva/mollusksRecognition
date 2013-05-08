@@ -61,6 +61,7 @@
     <Compile Include="CatalogWindow.xaml.cs">
       <DependentUpon>CatalogWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DataModels\Feature.cs" />
     <Compile Include="MapsWindow.xaml.cs">
       <DependentUpon>MapsWindow.xaml</DependentUpon>
     </Compile>

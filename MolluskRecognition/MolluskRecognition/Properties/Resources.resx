@@ -126,6 +126,9 @@
   <data name="SearchButtonText" xml:space="preserve">
     <value>Поиск</value>
   </data>
+  <data name="SearchWindowTitle" xml:space="preserve">
+    <value>Поиск</value>
+  </data>
   <data name="StartWindowTitle" xml:space="preserve">
     <value>Выбор режима работы</value>
   </data>

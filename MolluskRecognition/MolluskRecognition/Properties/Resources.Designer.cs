@@ -88,6 +88,15 @@ namespace MolluskRecognition.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Поиск.
+        /// </summary>
+        public static string SearchWindowTitle {
+            get {
+                return ResourceManager.GetString("SearchWindowTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Выбор режима работы.
         /// </summary>
         public static string StartWindowTitle {
