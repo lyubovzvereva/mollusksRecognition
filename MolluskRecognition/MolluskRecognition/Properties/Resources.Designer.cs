@@ -61,11 +61,47 @@ namespace MolluskRecognition.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Добавить признак.
+        /// </summary>
+        public static string AddFeatureButtonText {
+            get {
+                return ResourceManager.GetString("AddFeatureButtonText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Добавление нового признака.
+        /// </summary>
+        public static string AddFeaturePopupTitle {
+            get {
+                return ResourceManager.GetString("AddFeaturePopupTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Добавить подпризнак.
+        /// </summary>
+        public static string AddSubFeatureButtonText {
+            get {
+                return ResourceManager.GetString("AddSubFeatureButtonText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Каталог НДМ.
         /// </summary>
         public static string CatalogButtonText {
             get {
                 return ResourceManager.GetString("CatalogButtonText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Название:.
+        /// </summary>
+        public static string FeatureNameLabel {
+            get {
+                return ResourceManager.GetString("FeatureNameLabel", resourceCulture);
             }
         }
         

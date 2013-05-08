@@ -117,8 +117,20 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AddFeatureButtonText" xml:space="preserve">
+    <value>Добавить признак</value>
+  </data>
+  <data name="AddFeaturePopupTitle" xml:space="preserve">
+    <value>Добавление нового признака</value>
+  </data>
+  <data name="AddSubFeatureButtonText" xml:space="preserve">
+    <value>Добавить подпризнак</value>
+  </data>
   <data name="CatalogButtonText" xml:space="preserve">
     <value>Каталог НДМ</value>
+  </data>
+  <data name="FeatureNameLabel" xml:space="preserve">
+    <value>Название:</value>
   </data>
   <data name="MapButtonText" xml:space="preserve">
     <value>Карты</value>

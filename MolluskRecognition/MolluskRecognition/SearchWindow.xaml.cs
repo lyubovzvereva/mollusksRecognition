@@ -22,30 +22,39 @@ namespace MolluskRecognition
 		{
 			this.features = features;
             InitializeComponent();
-			FillFeaturesList(features);
+			FillFeaturesList(features, 0);
 		}
 
-		/// <summary>
-		/// Отобразить список свойст
-		/// </summary>
-		/// <param name="list"></param>
-    	private void FillFeaturesList(List<Feature> list)
+    	/// <summary>
+    	/// Отобразить список свойст
+    	/// </summary>
+    	private void FillFeaturesList(IEnumerable<Feature> list, int marginLeft)
     	{
+			Thickness mar = new Thickness(marginLeft, 0, 0, 0);
     		foreach(Feature feature in list)
     		{
-    			Label label = new Label {Content = feature.Name};
+    			Label label = new Label {Content = feature.Name, Margin = mar};
     			this.FeaturesStackPanel.Children.Add(label);
 
 				if (feature.SubFeatures != null && feature.SubFeatures.Count > 0)
 				{
-					FillFeaturesList(feature.SubFeatures);
+					FillFeaturesList(feature.SubFeatures, marginLeft+10);
 				}
 				else
 				{
-					TextBox textBox = new TextBox {Text = feature.Value};
+					TextBox textBox = new TextBox {Text = feature.Value, Margin = mar};
 					this.FeaturesStackPanel.Children.Add(textBox);
 				}
     		}
     	}
+
+		/// <summary>
+		/// Событие нажатия на кнопку "Добавить признак"
+		/// </summary>
+		private void AddFeature_Click(object sender, RoutedEventArgs e)
+		{
+			AddFeaturePopup addFeature = new AddFeaturePopup();
+			addFeature.ShowDialog();
+		}
     }
 }
