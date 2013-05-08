@@ -27,7 +27,7 @@ namespace MolluskRecognition
 		/// </summary>
 		private void SearchButton_Click(object sender, RoutedEventArgs e)
 		{
-			MainWindow main = new MainWindow();
+			SearchWindow main = new SearchWindow();
 			main.ShowDialog();
 		}
 

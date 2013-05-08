@@ -1,4 +1,4 @@
-﻿<Window x:Class="MolluskRecognition.MainWindow"
+﻿<Window x:Class="MolluskRecognition.SearchWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Добавление новых данных" Height="495" Width="769" WindowStartupLocation="CenterScreen" WindowState="Maximized">
