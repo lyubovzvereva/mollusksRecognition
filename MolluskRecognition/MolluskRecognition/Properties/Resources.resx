@@ -132,6 +132,9 @@
   <data name="FeatureNameLabel" xml:space="preserve">
     <value>Название:</value>
   </data>
+  <data name="LoadButtonText" xml:space="preserve">
+    <value>Загрузить изображение</value>
+  </data>
   <data name="MapButtonText" xml:space="preserve">
     <value>Карты</value>
   </data>
@@ -140,6 +143,9 @@
   </data>
   <data name="SearchWindowTitle" xml:space="preserve">
     <value>Поиск</value>
+  </data>
+  <data name="SelectedItemsText" xml:space="preserve">
+    <value>Выборка</value>
   </data>
   <data name="StartWindowTitle" xml:space="preserve">
     <value>Выбор режима работы</value>

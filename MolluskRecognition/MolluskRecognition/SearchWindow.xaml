@@ -20,8 +20,12 @@
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal" 
                     Grid.Row="0">
-            <Button Margin="10" Padding="5,2">Загрузить</Button>
-            <Button Margin="10" Padding="5,2">Выборка</Button>
+            <Button Margin="10" 
+                    Padding="5,2"
+                    x:Name="loadImageButton"
+                    Content="{x:Static Properties:Resources.LoadButtonText}" Click="loadImageButton_Click" ></Button>
+            <Button Margin="10" Padding="5,2"
+                    Content="{x:Static Properties:Resources.SelectedItemsText}"></Button>
             <StackPanel.Background>
                 <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
                     <GradientStop Color="ForestGreen" Offset="0" />
@@ -55,7 +59,9 @@
             <Image Grid.Column="1"
                    Grid.RowSpan="2"
                    Width="Auto"
-                   Height="Auto" Source="/MolluskRecognition;component/Images/1292705G.jpg">
+                   Height="Auto"
+                   x:Name="molluskImage"
+                   Source="/MolluskRecognition;component/Images/1292705G.jpg">
                 
             </Image>
         </Grid>
