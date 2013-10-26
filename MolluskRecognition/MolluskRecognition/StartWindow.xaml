@@ -30,14 +30,17 @@
         <Button Grid.Row="0"
                 Name="CatalogButton"
                 Margin="20" 
-                Content="{x:Static Properties:Resources.CatalogButtonText}" Click="CatalogButton_Click" />
+                Content="{x:Static Properties:Resources.CatalogButtonText}"
+                Command="{Binding ShowCatalogCommand}"/>
         <Button Grid.Row="1"
                 Name="SearchButton"
                 Margin="20" 
-                Content="{x:Static Properties:Resources.SearchButtonText}" Click="SearchButton_Click" />
+                Content="{x:Static Properties:Resources.SearchButtonText}" 
+                Command="{Binding SearchCommand}" />
         <Button Grid.Row="2" 
                 Name="MapButton"
                 Margin="20" 
-                Content="{x:Static Properties:Resources.MapButtonText}" Click="MapButton_Click" />
+                Content="{x:Static Properties:Resources.MapButtonText}" 
+                Command="{Binding ShowMapCommand}" />
     </Grid>
 </Window>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MolluskRecognition.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,11 +17,39 @@ namespace MolluskRecognition
 	/// <summary>
 	/// Interaction logic for CatalogWindow.xaml
 	/// </summary>
-	public partial class CatalogWindow : Window
+    public partial class CatalogWindow : Window, ICatalogView
 	{
+        /// <summary>
+        /// Constructor
+        /// </summary>
 		public CatalogWindow()
 		{
 			InitializeComponent();
 		}
-	}
+
+        /// <summary>
+        /// Activate view
+        /// </summary>
+        public void Activate(Window owner)
+        {
+            this.Owner = owner;
+            this.ShowDialog();
+        }
+
+        /// <summary>
+        /// Deactivate view
+        /// </summary>
+        public void Deactivate()
+        {
+            this.Close();
+        }
+
+        /// <summary>
+        /// Set data context for the view
+        /// </summary>
+        public void SetDataContext(Presenters.CatalogPresenter presenter)
+        {
+            this.DataContext = presenter;
+        }
+    }
 }
