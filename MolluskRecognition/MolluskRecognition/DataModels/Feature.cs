@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Simple.Data;
 
 namespace MolluskRecognition.DataModels
 {
