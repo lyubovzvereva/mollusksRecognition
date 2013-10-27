@@ -1,8 +1,182 @@
 ﻿<Window x:Class="MolluskRecognition.CatalogWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="CatalogWindow" Height="300" Width="300" WindowStartupLocation="CenterOwner">
+        Title="Добавление нового экземпляра" 
+        MinHeight="300" 
+        MinWidth="600" 
+        WindowStartupLocation="CenterOwner" 
+        WindowState="Maximized">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <GroupBox BorderBrush="Black"
+                  BorderThickness="2"
+                  Padding="5"
+                  Margin="5"
+                  Grid.Row="0"
+                  Header="Выбор рода и вида">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Row="0"
+                           Grid.Column="0"
+                           Text="Род:"/>
+                <ComboBox Grid.Row="0"
+                          Grid.Column="1"/>
+                <Button Content="+"
+                        Grid.Row="0"
+                        Grid.Column="2"/>
+                <TextBlock Grid.Row="1"
+                           Grid.Column="0"
+                           Text="Вид:"/>
+                <ComboBox Grid.Row="1"
+                          Grid.Column="1"/>
+                <Button Content="+"
+                        Grid.Row="1"
+                        Grid.Column="2"/>
+
+                <TextBlock Grid.Row="0"
+                           Grid.Column="3"
+                           Text="Автор:"/>
+                <TextBlock Grid.Row="0"
+                           Grid.Column="4"
+                           Text="here is author"/>
+                <TextBlock Grid.Row="1"
+                           Grid.Column="3"
+                           Text="Возраст:"/>
+                <TextBlock Grid.Row="1"
+                           Grid.Column="4"
+                           Text="here is возраст"/>
+
+            </Grid>
+        </GroupBox>
         
+        <GroupBox Grid.Row="1" 
+                  Header="Заполнение физических параметров. Размеры"
+                  BorderBrush="Black"
+                  BorderThickness="2"
+                  Margin="5"
+                  Padding="5"
+                  >
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Row="0"
+                           Grid.Column="0"
+                           Text="L:"/>
+                <TextBox Grid.Row="0"
+                           Grid.Column="1"
+                           Text="here is L"/>
+                
+                <TextBlock Grid.Row="1"
+                           Grid.Column="0"
+                           Text="l:"/>
+                <TextBox Grid.Row="1"
+                           Grid.Column="1"
+                           Text="here is l"/>
+                
+                <TextBlock Grid.Row="2"
+                           Grid.Column="0"
+                           Text="l1:"/>
+                <TextBox Grid.Row="2"
+                           Grid.Column="1"
+                           Text="here is l1"/>
+
+                <TextBlock Grid.Row="3"
+                           Grid.Column="0"
+                           Text="l2:"/>
+                <TextBox Grid.Row="3"
+                           Grid.Column="1"
+                           Text="here is l2"/>
+
+                <TextBlock Grid.Row="4"
+                           Grid.Column="0"
+                           Text="H:"/>
+                <TextBox Grid.Row="4"
+                           Grid.Column="1"
+                           Text="here is H"/>
+
+                <TextBlock Grid.Row="5"
+                           Grid.Column="0"
+                           Text="D:"/>
+                <TextBox Grid.Row="5"
+                           Grid.Column="1"
+                           Text="here is D"/>
+            </Grid>
+        </GroupBox>
+        
+        <GroupBox Grid.Row="2"
+                  BorderBrush="Black"
+                  BorderThickness="2"
+                  Margin="5"
+                  Padding="5"
+                  Header="Общие характеристики">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBox Grid.Row="0"
+                         Grid.Column="0"
+                         Text="Скульптура"
+                         />
+                <ComboBox Grid.Row="0"
+                          Grid.Column="1"
+                          />
+
+                <TextBox Grid.Row="1"
+                         Grid.Column="0"
+                         Text="Тип начальной раковины"
+                         />
+                <ComboBox Grid.Row="1"
+                          Grid.Column="1"
+                          />
+
+                <TextBox Grid.Row="2"
+                         Grid.Column="0"
+                         Text="Типы сочленения заднего и переднего замочных краев"
+                         />
+                <ComboBox Grid.Row="2"
+                          Grid.Column="1"
+                          />
+            </Grid>
+        </GroupBox>
+        
+        <GroupBox Grid.Row="3"
+                  BorderBrush="Black"
+                  BorderThickness="2"
+                  Margin="5"
+                  Padding="5"
+                  Header="Подробное описание">
+            
+        </GroupBox>
     </Grid>
 </Window>
