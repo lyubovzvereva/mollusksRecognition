@@ -24,6 +24,11 @@ namespace MolluskRecognition.Presenters
         private CatalogPresenter catalogPresenter;
 
         /// <summary>
+        /// Search window presenter
+        /// </summary>
+        private SearchPresenter searchPresenter;
+
+        /// <summary>
         /// Catalog view
         /// </summary>
         private ICatalogView catalogView;
@@ -158,7 +163,8 @@ namespace MolluskRecognition.Presenters
         /// </summary>
         private void ShowSearchWindow()
         {
-            //todo
+            searchPresenter = new SearchPresenter(mainView.GetSearchView(), mainView.GetWindowHandler());
+            searchPresenter.Activate();
         }
 
         /// <summary>

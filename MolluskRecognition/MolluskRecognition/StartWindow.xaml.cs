@@ -57,5 +57,13 @@ namespace MolluskRecognition
         {
             return new CatalogWindow();
         }
+
+        /// <summary>
+        /// Get search view
+        /// </summary>
+        public ISearchView GetSearchView()
+        {
+            return new SearchWindow();
+        }
     }
 }

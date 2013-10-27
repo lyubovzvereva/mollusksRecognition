@@ -6,13 +6,14 @@ using Microsoft.Win32;
 using System.Windows.Media.Imaging;
 using System;
 using System.Windows.Media;
+using MolluskRecognition.Views;
 
 namespace MolluskRecognition
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class SearchWindow : Window
+    public partial class SearchWindow : Window, ISearchView
     {
         /// <summary>
         /// Список признаков
@@ -27,6 +28,14 @@ namespace MolluskRecognition
             this.features = features;
             InitializeComponent();
             FillFeaturesList(features, 0);
+        }
+
+        /// <summary>
+        /// Default constructor
+        /// </summary>
+        public SearchWindow()
+        {
+            InitializeComponent();
         }
 
         /// <summary>
@@ -106,6 +115,31 @@ namespace MolluskRecognition
                     MessageBox.Show("произошла ошибка! Это не изображение! Попробуйте снова.");
                 }
             }
+        }
+
+        /// <summary>
+        /// Activate vie
+        /// </summary>
+        public void Activate(Window owner)
+        {
+            this.Owner = owner;
+            this.ShowDialog();
+        }
+
+        /// <summary>
+        /// Deactivate view
+        /// </summary>
+        public void Deactivate()
+        {
+            this.Close();
+        }
+
+        /// <summary>
+        /// Set data context for view
+        /// </summary>
+        public void SetDataContext(Presenters.SearchPresenter presenter)
+        {
+            this.DataContext = presenter;
         }
     }
 }

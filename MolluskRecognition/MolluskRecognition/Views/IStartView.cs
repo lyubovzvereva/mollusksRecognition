@@ -36,5 +36,10 @@ namespace MolluskRecognition.Views
         /// Get catalog view
         /// </summary>
         ICatalogView GetCatalogView();
+
+        /// <summary>
+        /// Get search view
+        /// </summary>
+        ISearchView GetSearchView();
     }
 }

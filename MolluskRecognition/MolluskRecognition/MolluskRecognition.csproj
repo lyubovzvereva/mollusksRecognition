@@ -64,11 +64,13 @@
     </Compile>
     <Compile Include="Presenters\CatalogPresenter.cs" />
     <Compile Include="Presenters\MainPresenter.cs" />
+    <Compile Include="Presenters\SearchPresenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="StartWindow.xaml.cs">
       <DependentUpon>StartWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ICatalogView.cs" />
+    <Compile Include="Views\ISearchView.cs" />
     <Compile Include="Views\IStartView.cs" />
     <Page Include="AddFeaturePopup.xaml">
       <SubType>Designer</SubType>
