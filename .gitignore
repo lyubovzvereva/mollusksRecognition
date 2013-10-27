@@ -166,16 +166,7 @@ pip-log.txt
 #####################################################
 # Project specific
 
-*.dll
 *.exe
 *.db3
-*.nupkg
-*.nuspec
-*.db3
-*.nupkg
-*.nuspec
-*.ps1
-repositories.config
-
 
 
