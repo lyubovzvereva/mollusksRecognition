@@ -123,20 +123,101 @@
   <data name="AddFeaturePopupTitle" xml:space="preserve">
     <value>Добавление нового признака</value>
   </data>
+  <data name="AddNewElementTitle" xml:space="preserve">
+    <value>Добавление нового экземпляра</value>
+  </data>
   <data name="AddSubFeatureButtonText" xml:space="preserve">
     <value>Добавить подпризнак</value>
+  </data>
+  <data name="AgeLabel" xml:space="preserve">
+    <value>Возраст:</value>
+  </data>
+  <data name="AlfaLabel" xml:space="preserve">
+    <value>угол альфа (угол между замочным краем и главной диагональю):</value>
+  </data>
+  <data name="AuthorLabel" xml:space="preserve">
+    <value>Автор:</value>
+  </data>
+  <data name="BackEndLabel" xml:space="preserve">
+    <value>Задний конец:</value>
+  </data>
+  <data name="BettaLabel" xml:space="preserve">
+    <value>угол бетта (верхний дорзальный угол, верхнезадний):</value>
+  </data>
+  <data name="BrushnoyEdgeLabel" xml:space="preserve">
+    <value>Брюшной край:</value>
   </data>
   <data name="CatalogButtonText" xml:space="preserve">
     <value>Каталог НДМ</value>
   </data>
+  <data name="CommonHaracteristicsHeader" xml:space="preserve">
+    <value>Общие характеристики</value>
+  </data>
+  <data name="CompareLabel" xml:space="preserve">
+    <value>Сравнение:</value>
+  </data>
+  <data name="CutsHeader" xml:space="preserve">
+    <value>Срезы</value>
+  </data>
+  <data name="DetailDescriptionHeader" xml:space="preserve">
+    <value>Подробное описание</value>
+  </data>
+  <data name="DLabel" xml:space="preserve">
+    <value>D (длина диагонали), мм.:</value>
+  </data>
+  <data name="EditButtonText" xml:space="preserve">
+    <value>Редактировать</value>
+  </data>
   <data name="FeatureNameLabel" xml:space="preserve">
     <value>Название:</value>
+  </data>
+  <data name="FrontEndLabel" xml:space="preserve">
+    <value>Передний конец:</value>
+  </data>
+  <data name="HLabel" xml:space="preserve">
+    <value>H (высота раковины), мм.:</value>
+  </data>
+  <data name="InitialShellLabel" xml:space="preserve">
+    <value>Начальная раковина:</value>
+  </data>
+  <data name="InitialShellTypeLabel" xml:space="preserve">
+    <value>Тип начальной раковины</value>
+  </data>
+  <data name="l1Label" xml:space="preserve">
+    <value>l1 (длина малого плеча), мм.:</value>
+  </data>
+  <data name="l2Label" xml:space="preserve">
+    <value>l2 (длина большого плеча), мм.:</value>
+  </data>
+  <data name="LLabel" xml:space="preserve">
+    <value>L (длина раковины), мм.:</value>
   </data>
   <data name="LoadButtonText" xml:space="preserve">
     <value>Загрузить изображение</value>
   </data>
+  <data name="LocationHeader" xml:space="preserve">
+    <value>Расположение</value>
+  </data>
+  <data name="lzLabel" xml:space="preserve">
+    <value>l (длина замочного края), мм.:</value>
+  </data>
   <data name="MapButtonText" xml:space="preserve">
     <value>Карты</value>
+  </data>
+  <data name="OrderNumberCollectionLabel" xml:space="preserve">
+    <value>№ коллекции:</value>
+  </data>
+  <data name="PhysicalParametersHeader" xml:space="preserve">
+    <value>Заполнение физических параметров. Размеры</value>
+  </data>
+  <data name="PositionInCollectionHeader" xml:space="preserve">
+    <value>Положение в коллекции</value>
+  </data>
+  <data name="SampleOrderNumber" xml:space="preserve">
+    <value>№ образца:</value>
+  </data>
+  <data name="Sculpture" xml:space="preserve">
+    <value>Скульптура:</value>
   </data>
   <data name="SearchButtonText" xml:space="preserve">
     <value>Поиск</value>
@@ -147,7 +228,25 @@
   <data name="SelectedItemsText" xml:space="preserve">
     <value>Выборка</value>
   </data>
+  <data name="ShellLabel" xml:space="preserve">
+    <value>Раковина:</value>
+  </data>
+  <data name="SpeciesAndGenusHeader" xml:space="preserve">
+    <value>Выбор рода и вида</value>
+  </data>
+  <data name="SpotsLabel" xml:space="preserve">
+    <value>Макушки:</value>
+  </data>
   <data name="StartWindowTitle" xml:space="preserve">
     <value>Выбор режима работы</value>
+  </data>
+  <data name="SynonymyLabel" xml:space="preserve">
+    <value>Синонимика:</value>
+  </data>
+  <data name="YearLabel" xml:space="preserve">
+    <value>Год:</value>
+  </data>
+  <data name="ZamochniyEdge" xml:space="preserve">
+    <value>Замочный край:</value>
   </data>
 </root>
