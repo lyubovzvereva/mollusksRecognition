@@ -81,7 +81,13 @@
                               Grid.Column="1"
                               Margin="5,-2,0,2"
                               ItemsSource="{Binding Genuses}"
-                              SelectedItem="{Binding SelectedGenus}"/>
+                              SelectedItem="{Binding SelectedGenus}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Path=Name}"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
                     <Button Content="+"
                             Grid.Row="0"
                             Grid.Column="2"
@@ -94,7 +100,13 @@
                               Grid.Column="1"
                               Margin="5,0,0,0"
                               ItemsSource="{Binding SpeciesList}"
-                              SelectedItem="{Binding SelectedSpecies}"/>
+                              SelectedItem="{Binding SelectedSpecies}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Path=Name}"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
                     <Button Content="+"
                         Grid.Row="1"
                         Grid.Column="2"
@@ -105,33 +117,33 @@
                            Text="{x:Static Properties:Resources.AuthorLabel}"/>
                     <TextBlock Grid.Row="0"
                            Grid.Column="4"
-                           Text="here is author"/>
+                           Text="{Binding SelectedGenus.Author}"/>
                     <TextBlock Grid.Row="0"
                            Grid.Column="5"
                            Text="{x:Static Properties:Resources.YearLabel}"/>
                     <TextBlock Grid.Row="0"
-                           Grid.Column="6"
-                           Text="here is год"/>
+                               Grid.Column="6"
+                               Text="{Binding SelectedGenus.Year}"/>
 
 
                     <TextBlock Grid.Row="1"
                            Grid.Column="3"
-                           Text="Автор:"/>
+                           Text="{x:Static Properties:Resources.AuthorLabel}"/>
                     <TextBlock Grid.Row="1"
                            Grid.Column="4"
-                           Text="{x:Static Properties:Resources.AuthorLabel}"/>
+                           Text="{Binding SelectedSpecies.Author}"/>
                     <TextBlock Grid.Row="1"
                            Grid.Column="5"
                            Text="{x:Static Properties:Resources.YearLabel}"/>
                     <TextBlock Grid.Row="1"
                            Grid.Column="6"
-                           Text="here is год"/>
+                           Text="{Binding SelectedSpecies.Year}"/>
                     <TextBlock Grid.Row="1"
                            Grid.Column="7"
                            Text="{x:Static Properties:Resources.AgeLabel}"/>
                     <TextBlock Grid.Row="1"
                            Grid.Column="8"
-                           Text="here is возраст"/>
+                           Text="{Binding SelectedSpecies.Age}"/>
 
                 </Grid>
             </GroupBox>
@@ -409,12 +421,14 @@
                         HorizontalAlignment="Left"
                         Margin="5"
                         Padding="5"
-                        MinWidth="100"/>
+                        MinWidth="100"
+                        Command="{Binding SaveCommand}"/>
                 <Button Content="{x:Static Properties:Resources.CancelButtonText}"
                         HorizontalAlignment="Left"
                         Margin="5"
                         Padding="5"
-                        MinWidth="100"/>
+                        MinWidth="100"
+                        Command="{Binding CancelCommand}"/>
             </StackPanel>
         </Grid>
     </ScrollViewer>

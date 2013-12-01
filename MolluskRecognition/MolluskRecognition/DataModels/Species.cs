@@ -28,7 +28,7 @@ namespace MolluskRecognition.DataModels
         /// <summary>
         /// Age of the species
         /// </summary>
-        public int Age { get; set; }
+        public string Age { get; set; }
 
         /// <summary>
         /// Synonymy description of the species

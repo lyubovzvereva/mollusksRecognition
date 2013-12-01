@@ -7,6 +7,8 @@ using System.Windows;
 using System.Collections.ObjectModel;
 using MolluskRecognition.DataModels;
 using System.ComponentModel;
+using System.Windows.Input;
+using MolluskRecognition.Commands;
 
 namespace MolluskRecognition.Presenters
 {
@@ -36,6 +38,8 @@ namespace MolluskRecognition.Presenters
         /// </summary>
         public void Activate()
         {
+            Genuses = new ObservableCollection<Genus> { new Genus { Author = "author name", Name = "some genus name", Year = DateTime.Today } };
+            SpeciesList = new ObservableCollection<Species> { new Species { Name = "some species name", Age = "some age", Author = "some author", Year = DateTime.Today.AddYears(-10) } };
             view.SetDataContext(this);
             view.Activate(windowHandler);
         }
@@ -94,6 +98,7 @@ namespace MolluskRecognition.Presenters
 
         /// <summary>
         /// List of available species
+        /// todo: get it from selected genus
         /// </summary>
         public ObservableCollection<Species> SpeciesList
         {
@@ -121,6 +126,93 @@ namespace MolluskRecognition.Presenters
                 OnPropertyChanged("SelectedSpecies");
             }
         }
+        #region command bindings
+        /// <summary>
+        /// Command to save all
+        /// </summary>
+        private ICommand saveCommand;
+
+        /// <summary>
+        /// Command to save all
+        /// </summary>
+        public ICommand SaveCommand
+        {
+            get
+            {
+                if (saveCommand == null)
+                {
+                    saveCommand = new RelayCommand(x => Save(), x => CanSave());
+                }
+                return saveCommand;
+            }
+            set
+            {
+                saveCommand = value;
+            }
+        }
+
+        /// <summary>
+        /// Command to cancel
+        /// </summary>
+        private ICommand cancelCommand;
+
+        /// <summary>
+        /// Command to cancel
+        /// </summary>
+        public ICommand CancelCommand
+        {
+            get
+            {
+                if (cancelCommand == null)
+                {
+                    cancelCommand = new RelayCommand(x => Cancel(), x => CanCancel());
+                }
+                return cancelCommand;
+            }
+            set
+            {
+                cancelCommand = value;
+            }
+        }
+
+
+        #region commands methods
+        /// <summary>
+        /// If can cancel
+        /// </summary>
+        private bool CanCancel()
+        {
+            return true;
+        }
+
+        /// <summary>
+        /// Cancelling
+        /// </summary>
+        private void Cancel()
+        {
+            this.Deactivate();
+        }
+
+        /// <summary>
+        /// If can save enterred data
+        /// </summary>
+        private bool CanSave()
+        {
+            return true;
+        }
+
+        /// <summary>
+        /// Saving data
+        /// </summary>
+        private void Save()
+        {
+            MessageBox.Show("Saved");
+            this.Deactivate();
+        }
+
+        #endregion command methods
+        #endregion command bindings
+
 
         #endregion fields bindings
         #endregion bindings
