@@ -1,10 +1,15 @@
 ﻿<Window x:Class="MolluskRecognition.CatalogWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:Properties="clr-namespace:MolluskRecognition.Properties" 
+        xmlns:Properties="clr-namespace:MolluskRecognition.Properties"
+        xmlns:d ="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
         Title="{x:Static Properties:Resources.AddNewElementTitle}"
+        d:DesignWidth="1000"
+        d:DesignHeight ="1000"
+        Width="900" 
         Height="700" 
-        Width="700" 
         WindowStartupLocation="CenterOwner" 
         WindowState="Maximized">
     <Window.Resources>
@@ -35,342 +40,382 @@
             <Setter Property="Padding" Value="5,0"/>
         </Style>
     </Window.Resources>
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <GroupBox Grid.Row="0"
+    <ScrollViewer>
+        <Grid ScrollViewer.VerticalScrollBarVisibility="Auto">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+               
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <GroupBox Grid.Row="0"
                   Grid.ColumnSpan="2"
                   Header="{x:Static Properties:Resources.SpeciesAndGenusHeader}">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition />
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition />
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <TextBlock Grid.Row="0"
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Row="0"
                            Grid.Column="0"
                            Text="Род:"/>
-                <ComboBox Grid.Row="0"
-                          Grid.Column="1"
-                          Margin="5,0,0,0"/>
-                <Button Content="+"
-                        Grid.Row="0"
-                        Grid.Column="2"
-                        Margin="0,0,5,0"/>
-                <TextBlock Grid.Row="1"
+                    <ComboBox Grid.Row="0"
+                              Grid.Column="1"
+                              Margin="5,-2,0,2"
+                              ItemsSource="{Binding Genuses}"
+                              SelectedItem="{Binding SelectedGenus}"/>
+                    <Button Content="+"
+                            Grid.Row="0"
+                            Grid.Column="2"
+                            Margin="0,0,5,0"
+                            />
+                    <TextBlock Grid.Row="1"
                            Grid.Column="0"
                            Text="Вид:"/>
-                <ComboBox Grid.Row="1"
-                          Grid.Column="1"
-                          Margin="5,0,0,0"/>
-                <Button Content="+"
+                    <ComboBox Grid.Row="1"
+                              Grid.Column="1"
+                              Margin="5,0,0,0"
+                              ItemsSource="{Binding SpeciesList}"
+                              SelectedItem="{Binding SelectedSpecies}"/>
+                    <Button Content="+"
                         Grid.Row="1"
                         Grid.Column="2"
                         Margin="0,0,5,0"/>
 
-                <TextBlock Grid.Row="0"
+                    <TextBlock Grid.Row="0"
                            Grid.Column="3"
                            Text="{x:Static Properties:Resources.AuthorLabel}"/>
-                <TextBlock Grid.Row="0"
+                    <TextBlock Grid.Row="0"
                            Grid.Column="4"
                            Text="here is author"/>
-                <TextBlock Grid.Row="0"
+                    <TextBlock Grid.Row="0"
                            Grid.Column="5"
                            Text="{x:Static Properties:Resources.YearLabel}"/>
-                <TextBlock Grid.Row="0"
+                    <TextBlock Grid.Row="0"
                            Grid.Column="6"
                            Text="here is год"/>
-                
 
-                <TextBlock Grid.Row="1"
+
+                    <TextBlock Grid.Row="1"
                            Grid.Column="3"
                            Text="Автор:"/>
-                <TextBlock Grid.Row="1"
+                    <TextBlock Grid.Row="1"
                            Grid.Column="4"
                            Text="{x:Static Properties:Resources.AuthorLabel}"/>
-                <TextBlock Grid.Row="1"
+                    <TextBlock Grid.Row="1"
                            Grid.Column="5"
                            Text="{x:Static Properties:Resources.YearLabel}"/>
-                <TextBlock Grid.Row="1"
+                    <TextBlock Grid.Row="1"
                            Grid.Column="6"
                            Text="here is год"/>
-                <TextBlock Grid.Row="1"
+                    <TextBlock Grid.Row="1"
                            Grid.Column="7"
                            Text="{x:Static Properties:Resources.AgeLabel}"/>
-                <TextBlock Grid.Row="1"
+                    <TextBlock Grid.Row="1"
                            Grid.Column="8"
                            Text="here is возраст"/>
 
-            </Grid>
-        </GroupBox>
-        
-        <GroupBox Grid.Row="1" 
+                </Grid>
+            </GroupBox>
+
+            <!--todo: move it to edit photo view-->
+            <!--<GroupBox Grid.Row="1" 
                   Header="{x:Static Properties:Resources.PhysicalParametersHeader}"
                   Grid.ColumnSpan="2"
                   >
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <TextBlock Grid.Row="0"
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Row="0"
                            Grid.Column="0"
                            Text="{x:Static Properties:Resources.LLabel}"/>
-                <TextBox Grid.Row="0"
+                    <TextBox Grid.Row="0"
                            Grid.Column="1"
                            Text="here is L"/>
-                
-                <TextBlock Grid.Row="1"
+
+                    <TextBlock Grid.Row="1"
                            Grid.Column="0"
                            Text="{x:Static Properties:Resources.lzLabel}"/>
-                <TextBox Grid.Row="1"
+                    <TextBox Grid.Row="1"
                            Grid.Column="1"
                            Text="here is l"/>
-                
-                <TextBlock Grid.Row="2"
+
+                    <TextBlock Grid.Row="2"
                            Grid.Column="0"
                            Text="{x:Static Properties:Resources.l1Label}"/>
-                <TextBox Grid.Row="2"
+                    <TextBox Grid.Row="2"
                            Grid.Column="1"
                            Text="here is l1"/>
 
-                <TextBlock Grid.Row="3"
+                    <TextBlock Grid.Row="3"
                            Grid.Column="0"
                            Text="{x:Static Properties:Resources.l2Label}"/>
-                <TextBox Grid.Row="3"
+                    <TextBox Grid.Row="3"
                            Grid.Column="1"
                            Text="here is l2"/>
 
-                <TextBlock Grid.Row="4"
+                    <TextBlock Grid.Row="4"
                            Grid.Column="0"
                            Text="{x:Static Properties:Resources.HLabel}"/>
-                <TextBox Grid.Row="4"
+                    <TextBox Grid.Row="4"
                            Grid.Column="1"
                            Text="here is H"/>
 
-                <TextBlock Grid.Row="5"
+                    <TextBlock Grid.Row="5"
                            Grid.Column="0"
                            Text="{x:Static Properties:Resources.DLabel}"/>
-                <TextBox Grid.Row="5"
+                    <TextBox Grid.Row="5"
                            Grid.Column="1"
                            Text="here is D"/>
 
-                <TextBlock Grid.Row="6"
+                    <TextBlock Grid.Row="6"
                            Grid.Column="0"
                            Text="{x:Static Properties:Resources.BettaLabel}"/>
-                <TextBox Grid.Row="6"
+                    <TextBox Grid.Row="6"
                            Grid.Column="1"
                            Text="here is угол бетта"/>
 
-                <TextBlock Grid.Row="7"
+                    <TextBlock Grid.Row="7"
                            Grid.Column="0"
                            Text="{x:Static Properties:Resources.AlfaLabel}"/>
-                <TextBox Grid.Row="7"
+                    <TextBox Grid.Row="7"
                            Grid.Column="1"
                            Text="here is угол бетта"/>
-            </Grid>
-        </GroupBox>
-        
-        <GroupBox Grid.Row="3"
+                </Grid>
+            </GroupBox>-->
+
+            <GroupBox Grid.Row="3"
                   Header="{x:Static Properties:Resources.CommonHaracteristicsHeader}">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <TextBox Grid.Row="0"
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Row="0"
                          Grid.Column="0"
                          Text="{x:Static Properties:Resources.Sculpture}"
                          />
-                <ComboBox Grid.Row="0"
+                    <ComboBox Grid.Row="0"
                           Grid.Column="1"
                           />
 
-                <TextBox Grid.Row="1"
+                    <TextBlock Grid.Row="1"
                          Grid.Column="0"
                          Text="{x:Static Properties:Resources.InitialShellTypeLabel}"
                          />
-                <ComboBox Grid.Row="1"
+                    <ComboBox Grid.Row="1"
                           Grid.Column="1"
                           />
 
-               
-            </Grid>
-        </GroupBox>
-        
-        <GroupBox Grid.Row="2"
+
+                </Grid>
+            </GroupBox>
+
+            <GroupBox Grid.Row="2"
                   Grid.ColumnSpan="2"
                   Header="{x:Static Properties:Resources.DetailDescriptionHeader}">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-            <TextBlock Grid.Row="0"
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Row="0"
                        Grid.Column="0"
                        Text="{x:Static Properties:Resources.SynonymyLabel}"/>
-            <TextBox Grid.Row="0"
+                    <TextBox Grid.Row="0"
                      Grid.Column="1"
                      Text=""/>
 
-                <TextBlock Grid.Row="1"
+                    <TextBlock Grid.Row="1"
                            Grid.Column="0"
                            Text="{x:Static Properties:Resources.ShellLabel}"/>
-                <TextBox Grid.Row="1"
+                    <TextBox Grid.Row="1"
                          Grid.Column="1"
                          Text=""/>
 
-                <TextBlock Grid.Row="2"
+                    <TextBlock Grid.Row="2"
                            Grid.Column="0"
                            Text="{x:Static Properties:Resources.InitialShellTypeLabel}"/>
-                <TextBox Grid.Row="2"
+                    <TextBox Grid.Row="2"
                          Grid.Column="1"
                          Text=""/>
 
-                <TextBlock Grid.Row="3"
+                    <TextBlock Grid.Row="3"
                            Grid.Column="0"
                            Text="{x:Static Properties:Resources.SpotsLabel}"/>
-                <TextBox Grid.Row="3"
+                    <TextBox Grid.Row="3"
                          Grid.Column="1"
                          Text=""/>
 
-                <TextBlock Grid.Row="4"
+                    <TextBlock Grid.Row="4"
                            Grid.Column="0"
                            Text="{x:Static Properties:Resources.ZamochniyEdge}"/>
-                <TextBox Grid.Row="4"
+                    <TextBox Grid.Row="4"
                          Grid.Column="1"
                          Text=""/>
 
-                <TextBlock Grid.Row="5"
+                    <TextBlock Grid.Row="5"
                            Grid.Column="0"
                            Text="{x:Static Properties:Resources.FrontEndLabel}"/>
-                <TextBox Grid.Row="5"
+                    <TextBox Grid.Row="5"
                          Grid.Column="1"
                          Text=""/>
 
-                <TextBlock Grid.Row="6"
+                    <TextBlock Grid.Row="6"
                            Grid.Column="0"
                            Text="{x:Static Properties:Resources.BackEndLabel}"/>
-                <TextBox Grid.Row="6"
+                    <TextBox Grid.Row="6"
                          Grid.Column="1"
                          Text=""/>
 
-                <TextBlock Grid.Row="7"
+                    <TextBlock Grid.Row="7"
                            Grid.Column="0"
                            Text="{x:Static Properties:Resources.BrushnoyEdgeLabel}"/>
-                <TextBox Grid.Row="7"
+                    <TextBox Grid.Row="7"
                          Grid.Column="1"
                          Text=""/>
 
-                <TextBlock Grid.Row="8"
+                    <TextBlock Grid.Row="8"
                            Grid.Column="0"
                            Text="{x:Static Properties:Resources.Sculpture}"/>
-                <TextBox Grid.Row="8"
+                    <TextBox Grid.Row="8"
                          Grid.Column="1"
                          Text=""/>
 
-                <TextBlock Grid.Row="9"
+                    <TextBlock Grid.Row="9"
                            Grid.Column="0"
                            Text="{x:Static Properties:Resources.CompareLabel}"/>
-                <TextBox Grid.Row="9"
+                    <TextBox Grid.Row="9"
                          Grid.Column="1"
                          Text=""/>
-            </Grid>
-        </GroupBox>
-
-        <GroupBox Grid.Row="3"
+                </Grid>
+            </GroupBox>
+            <!--todo: move to photo window-->
+            <!--<GroupBox Grid.Row="3"
                   Grid.Column="1"
                   Header="{x:Static Properties:Resources.PositionInCollectionHeader}">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <!--#образца и номер коллекции-->
-                <TextBlock Grid.Row="0"
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    --><!--#образца и номер коллекции--><!--
+                    <TextBlock Grid.Row="0"
                            Grid.Column="0"
                            Text="{x:Static Properties:Resources.OrderNumberCollectionLabel}"/>
-                <TextBox Grid.Row="0"
+                    <TextBox Grid.Row="0"
                          Grid.Column="1"/>
 
-                <TextBlock Grid.Row="1"
+                    <TextBlock Grid.Row="1"
                            Grid.Column="0"
                            Text="{x:Static Properties:Resources.SampleOrderNumber}"/>
-                <TextBox Grid.Row="1"
+                    <TextBox Grid.Row="1"
                          Grid.Column="1"/>
-            </Grid>
-        </GroupBox>
-        
-        <GroupBox Grid.Row="4"
-                  Grid.Column="0"
+                </Grid>
+            </GroupBox>-->
+
+            <GroupBox Grid.Row="3"
+                  Grid.Column="1"
                   Header="{x:Static Properties:Resources.LocationHeader}">
-            <Button Content="{x:Static Properties:Resources.EditButtonText}"
+                <Button Content="{x:Static Properties:Resources.EditButtonText}"
                     HorizontalAlignment="Left"
                     Margin="5"
                     Padding="5"/>
-        </GroupBox>
+            </GroupBox>
 
-        <GroupBox Grid.Row="4"
-                  Grid.Column="1"
+            <GroupBox Grid.Row="4"
+                  Grid.Column="0"
                   BorderBrush="Black"
                   BorderThickness="2"
                   Margin="5"
                   Padding="5"
                   Header="{x:Static Properties:Resources.CutsHeader}">
-            <Button Content="{x:Static Properties:Resources.EditButtonText}"
+                <Button Content="{x:Static Properties:Resources.EditButtonText}"
                     HorizontalAlignment="Left"
                     Margin="5"
                     Padding="5"/>
-        </GroupBox>
-    </Grid>
+            </GroupBox>
+
+            <GroupBox Grid.Row="4"
+                  Grid.Column="1"
+                  BorderBrush="Black"
+                  BorderThickness="2"
+                  Margin="5"
+                  Padding="5"
+                  Header="{x:Static Properties:Resources.SamplesHeader}">
+                <Button Content="{x:Static Properties:Resources.EditButtonText}"
+                    HorizontalAlignment="Left"
+                    Margin="5"
+                    Padding="5"/>
+            </GroupBox>
+            
+            <StackPanel Grid.Row="5"
+                        Grid.Column="1"
+                        Orientation="Horizontal"
+                        VerticalAlignment="Bottom"
+                        HorizontalAlignment="Right">
+                <Button Content="{x:Static Properties:Resources.SaveButtonText}"
+                        HorizontalAlignment="Left"
+                        Margin="5"
+                        Padding="5"
+                        MinWidth="100"/>
+                <Button Content="{x:Static Properties:Resources.CancelButtonText}"
+                        HorizontalAlignment="Left"
+                        Margin="5"
+                        Padding="5"
+                        MinWidth="100"/>
+            </StackPanel>
+        </Grid>
+    </ScrollViewer>
 </Window>

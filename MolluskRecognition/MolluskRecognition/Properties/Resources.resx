@@ -249,4 +249,13 @@
   <data name="ZamochniyEdge" xml:space="preserve">
     <value>Замочный край:</value>
   </data>
+  <data name="CancelButtonText" xml:space="preserve">
+    <value>Отмена</value>
+  </data>
+  <data name="SamplesHeader" xml:space="preserve">
+    <value>Фотографии экземпляров:</value>
+  </data>
+  <data name="SaveButtonText" xml:space="preserve">
+    <value>Сохранить</value>
+  </data>
 </root>

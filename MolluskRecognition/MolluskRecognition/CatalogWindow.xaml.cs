@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MolluskRecognition.Presenters;
 
 namespace MolluskRecognition
 {
@@ -47,7 +48,7 @@ namespace MolluskRecognition
         /// <summary>
         /// Set data context for the view
         /// </summary>
-        public void SetDataContext(Presenters.CatalogPresenter presenter)
+        public void SetDataContext(CatalogPresenter presenter)
         {
             this.DataContext = presenter;
         }

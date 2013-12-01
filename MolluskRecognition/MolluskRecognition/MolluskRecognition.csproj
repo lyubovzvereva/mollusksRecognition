@@ -78,9 +78,15 @@
       <DependentUpon>CatalogWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Commands\RelayCommand.cs" />
+    <Compile Include="DataModels\Collection.cs" />
     <Compile Include="DataModels\DbFacade.cs" />
     <Compile Include="DataModels\Family.cs" />
     <Compile Include="DataModels\Feature.cs" />
+    <Compile Include="DataModels\Genus.cs" />
+    <Compile Include="DataModels\Location.cs" />
+    <Compile Include="DataModels\Sample.cs" />
+    <Compile Include="DataModels\Section.cs" />
+    <Compile Include="DataModels\Species.cs" />
     <Compile Include="MapsWindow.xaml.cs">
       <DependentUpon>MapsWindow.xaml</DependentUpon>
     </Compile>
