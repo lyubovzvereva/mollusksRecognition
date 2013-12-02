@@ -38,8 +38,9 @@ namespace MolluskRecognition.Presenters
         /// </summary>
         public void Activate()
         {
-            Genuses = new ObservableCollection<Genus> { new Genus { Author = "author name", Name = "some genus name", Year = DateTime.Today } };
-            SpeciesList = new ObservableCollection<Species> { new Species { Name = "some species name", Age = "some age", Author = "some author", Year = DateTime.Today.AddYears(-10) } };
+            Genuses = new ObservableCollection<Genus> { new Genus { Author = "author name", Name = "some genus name", Year = DateTime.Today, Species = new List<Species> { new Species { Name = "some species name", Age = "some age", Author = "some author", Year = DateTime.Today.AddYears(-10) } } } };
+            SculptureTypes = new ObservableCollection<SculptureType> { SculptureType.Concentric, SculptureType.Radial, SculptureType.RadialOrConcentric };
+            ShellTypes = new ObservableCollection<ShellType> { ShellType.A1, ShellType.A2, ShellType.B1, ShellType.B2, ShellType.G1, ShellType.G2, ShellType.G3 };
             view.SetDataContext(this);
             view.Activate(windowHandler);
         }
@@ -92,24 +93,6 @@ namespace MolluskRecognition.Presenters
         }
 
         /// <summary>
-        /// List of available species
-        /// </summary>
-        private ObservableCollection<Species> speciesList;
-
-        /// <summary>
-        /// List of available species
-        /// todo: get it from selected genus
-        /// </summary>
-        public ObservableCollection<Species> SpeciesList
-        {
-            get { return speciesList; }
-            set
-            {
-                speciesList = value;
-                OnPropertyChanged("SpeciesList");
-            }
-        }
-        /// <summary>
         /// Selected genus
         /// </summary>
         public Species selectedSpecies;
@@ -126,6 +109,42 @@ namespace MolluskRecognition.Presenters
                 OnPropertyChanged("SelectedSpecies");
             }
         }
+
+        /// <summary>
+        /// Available shell types
+        /// </summary>
+        private ObservableCollection<ShellType> shellTypes;
+
+        /// <summary>
+        /// Available shell types
+        /// </summary>
+        public ObservableCollection<ShellType> ShellTypes
+        {
+            get { return shellTypes; }
+            set
+            {
+                shellTypes = value;
+                OnPropertyChanged("ShellTypes");
+            }
+        }
+        /// <summary>
+        /// Available shell types
+        /// </summary>
+        private ObservableCollection<SculptureType> sculptureTypes;
+
+        /// <summary>
+        /// Available shell types
+        /// </summary>
+        public ObservableCollection<SculptureType> SculptureTypes
+        {
+            get { return sculptureTypes; }
+            set
+            {
+                sculptureTypes = value;
+                OnPropertyChanged("SculptureTypes");
+            }
+        }
+
         #region command bindings
         /// <summary>
         /// Command to save all
@@ -175,8 +194,180 @@ namespace MolluskRecognition.Presenters
             }
         }
 
+        /// <summary>
+        /// Command to edit locations
+        /// </summary>
+        private ICommand editLocationCommand;
+
+        /// <summary>
+        /// Command to edit locations
+        /// </summary>
+        public ICommand EditLocationCommand
+        {
+            get
+            {
+                if (editLocationCommand == null)
+                {
+                    editLocationCommand = new RelayCommand(x => EditLocation(), x => CanEditLocation());
+                }
+                return editLocationCommand;
+            }
+            set
+            {
+                editLocationCommand = value;
+            }
+        }
+
+
+        /// <summary>
+        /// Command to edit cuts
+        /// </summary>
+        private ICommand editCutsCommand;
+
+        /// <summary>
+        /// Command to edit cuts
+        /// </summary>
+        public ICommand EditCutsCommand
+        {
+            get
+            {
+                if (editCutsCommand == null)
+                {
+                    editCutsCommand = new RelayCommand(x => EditCuts(), x => CanEditCuts());
+                }
+                return editCutsCommand;
+            }
+            set
+            {
+                editCutsCommand = value;
+            }
+        }
+
+        /// <summary>
+        /// Command to edit samples
+        /// </summary>
+        private ICommand editSamplesCommand;
+
+        /// <summary>
+        /// Command to edit samples
+        /// </summary>
+        public ICommand EditSamplesCommand
+        {
+            get
+            {
+                if (editSamplesCommand == null)
+                {
+                    editSamplesCommand = new RelayCommand(x => EditSamples(), x => CanEditSamples());
+                }
+                return editSamplesCommand;
+            }
+            set
+            {
+                editSamplesCommand = value;
+            }
+        }
+        /// <summary>
+        /// Command to add new species
+        /// </summary>
+        private ICommand addNewSpeciesCommand;
+
+        /// <summary>
+        /// Command to add new species
+        /// </summary>
+        public ICommand AddNewSpeciesCommand
+        {
+            get
+            {
+                if (addNewSpeciesCommand == null)
+                {
+                    addNewSpeciesCommand = new RelayCommand(x => AddNewSpecies(), x => CanAddNewSpecies());
+                }
+                return addNewSpeciesCommand;
+            }
+            set
+            {
+                addNewSpeciesCommand = value;
+            }
+        }
+
+
+        /// <summary>
+        /// Command to add new genus
+        /// </summary>
+        private ICommand addNewGenusCommand;
+
+        /// <summary>
+        /// Command to add new genus
+        /// </summary>
+        public ICommand AddNewGenusCommand
+        {
+            get
+            {
+                if (addNewGenusCommand == null)
+                {
+                    addNewGenusCommand = new RelayCommand(x => AddNewGenus(), x => CanAddNewGenus());
+                }
+                return addNewGenusCommand;
+            }
+            set
+            {
+                addNewGenusCommand = value;
+            }
+        }
+
 
         #region commands methods
+
+        private object AddNewSpecies()
+        {
+            throw new NotImplementedException();
+        }
+
+        private bool CanAddNewSpecies()
+        {
+            throw new NotImplementedException();
+        }
+
+        private bool CanAddNewGenus()
+        {
+            throw new NotImplementedException();
+        }
+
+        private object AddNewGenus()
+        {
+            throw new NotImplementedException();
+        }
+
+        private bool CanEditSamples()
+        {
+            throw new NotImplementedException();
+        }
+
+        private object EditSamples()
+        {
+            throw new NotImplementedException();
+        }
+
+
+        private bool CanEditCuts()
+        {
+            throw new NotImplementedException();
+        }
+
+        private object EditCuts()
+        {
+            throw new NotImplementedException();
+        }
+
+        private bool CanEditLocation()
+        {
+            throw new NotImplementedException();
+        }
+
+        private object EditLocation()
+        {
+            throw new NotImplementedException();
+        }
         /// <summary>
         /// If can cancel
         /// </summary>

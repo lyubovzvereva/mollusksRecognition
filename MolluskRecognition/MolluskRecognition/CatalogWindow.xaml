@@ -92,6 +92,7 @@
                             Grid.Row="0"
                             Grid.Column="2"
                             Margin="0,0,5,0"
+                            Command="{Binding AddNewGenusCommand}"
                             />
                     <TextBlock Grid.Row="1"
                            Grid.Column="0"
@@ -99,7 +100,7 @@
                     <ComboBox Grid.Row="1"
                               Grid.Column="1"
                               Margin="5,0,0,0"
-                              ItemsSource="{Binding SpeciesList}"
+                              ItemsSource="{Binding SelectedGenus.Species}"
                               SelectedItem="{Binding SelectedSpecies}">
                         <ComboBox.ItemTemplate>
                             <DataTemplate>
@@ -108,9 +109,10 @@
                         </ComboBox.ItemTemplate>
                     </ComboBox>
                     <Button Content="+"
-                        Grid.Row="1"
-                        Grid.Column="2"
-                        Margin="0,0,5,0"/>
+                            Grid.Row="1"
+                            Grid.Column="2"
+                            Margin="0,0,5,0"
+                            Command="{Binding AddNewSpeciesCommand}"/>
 
                     <TextBlock Grid.Row="0"
                            Grid.Column="3"
@@ -243,16 +245,19 @@
                          Text="{x:Static Properties:Resources.Sculpture}"
                          />
                     <ComboBox Grid.Row="0"
-                          Grid.Column="1"
-                          />
+                              Grid.Column="1"
+                              SelectedItem="{Binding SelectedSpecies.SculptureType}"
+                              ItemsSource="{Binding SculptureTypes}"/>
 
                     <TextBlock Grid.Row="1"
-                         Grid.Column="0"
-                         Text="{x:Static Properties:Resources.InitialShellTypeLabel}"
-                         />
+                               Grid.Column="0"
+                               Text="{x:Static Properties:Resources.InitialShellTypeLabel}"
+                               />
                     <ComboBox Grid.Row="1"
-                          Grid.Column="1"
-                          />
+                              Grid.Column="1"
+                              SelectedItem="{Binding SelectedSpecies.InitialShellType}"
+                              ItemsSource="{Binding ShellTypes}"
+                               />
 
 
                 </Grid>
@@ -283,70 +288,70 @@
                        Text="{x:Static Properties:Resources.SynonymyLabel}"/>
                     <TextBox Grid.Row="0"
                      Grid.Column="1"
-                     Text=""/>
+                     Text="{Binding SelectedSpecies.Synonymy}"/>
 
                     <TextBlock Grid.Row="1"
                            Grid.Column="0"
                            Text="{x:Static Properties:Resources.ShellLabel}"/>
                     <TextBox Grid.Row="1"
                          Grid.Column="1"
-                         Text=""/>
+                         Text="{Binding SelectedSpecies.Shell}"/>
 
                     <TextBlock Grid.Row="2"
                            Grid.Column="0"
                            Text="{x:Static Properties:Resources.InitialShellTypeLabel}"/>
                     <TextBox Grid.Row="2"
                          Grid.Column="1"
-                         Text=""/>
+                         Text="{Binding SelectedSpecies.InitialShellTypeDescription}"/>
 
                     <TextBlock Grid.Row="3"
                            Grid.Column="0"
                            Text="{x:Static Properties:Resources.SpotsLabel}"/>
                     <TextBox Grid.Row="3"
                          Grid.Column="1"
-                         Text=""/>
+                         Text="{Binding SelectedSpecies.Umbones}"/>
 
                     <TextBlock Grid.Row="4"
                            Grid.Column="0"
                            Text="{x:Static Properties:Resources.ZamochniyEdge}"/>
                     <TextBox Grid.Row="4"
                          Grid.Column="1"
-                         Text=""/>
+                         Text="{Binding SelectedSpecies.DorsalMargin}"/>
 
                     <TextBlock Grid.Row="5"
                            Grid.Column="0"
                            Text="{x:Static Properties:Resources.FrontEndLabel}"/>
                     <TextBox Grid.Row="5"
                          Grid.Column="1"
-                         Text=""/>
+                         Text="{Binding SelectedSpecies.FrontEnd}"/>
 
                     <TextBlock Grid.Row="6"
                            Grid.Column="0"
                            Text="{x:Static Properties:Resources.BackEndLabel}"/>
                     <TextBox Grid.Row="6"
                          Grid.Column="1"
-                         Text=""/>
+                         Text="{Binding SelectedSpecies.PosteriorEnd}"/>
 
                     <TextBlock Grid.Row="7"
                            Grid.Column="0"
                            Text="{x:Static Properties:Resources.BrushnoyEdgeLabel}"/>
                     <TextBox Grid.Row="7"
                          Grid.Column="1"
-                         Text=""/>
+                         Text="{Binding SelectedSpecies.VentralMargin}"/>
 
                     <TextBlock Grid.Row="8"
                            Grid.Column="0"
                            Text="{x:Static Properties:Resources.Sculpture}"/>
                     <TextBox Grid.Row="8"
                          Grid.Column="1"
-                         Text=""/>
+                         Text="{Binding SelectedSpecies.Sculpture}"/>
 
                     <TextBlock Grid.Row="9"
                            Grid.Column="0"
                            Text="{x:Static Properties:Resources.CompareLabel}"/>
                     <TextBox Grid.Row="9"
                          Grid.Column="1"
-                         Text=""/>
+                         Text="{Binding SelectedSpecies.Comparison}"/>
                 </Grid>
             </GroupBox>
             <!--todo: move to photo window-->
@@ -381,9 +386,10 @@
                   Grid.Column="1"
                   Header="{x:Static Properties:Resources.LocationHeader}">
                 <Button Content="{x:Static Properties:Resources.EditButtonText}"
-                    HorizontalAlignment="Left"
-                    Margin="5"
-                    Padding="5"/>
+                        HorizontalAlignment="Left"
+                        Margin="5"
+                        Padding="5"
+                        Command="{Binding EditLocationCommand}"/>
             </GroupBox>
 
             <GroupBox Grid.Row="4"
@@ -394,9 +400,10 @@
                   Padding="5"
                   Header="{x:Static Properties:Resources.CutsHeader}">
                 <Button Content="{x:Static Properties:Resources.EditButtonText}"
-                    HorizontalAlignment="Left"
-                    Margin="5"
-                    Padding="5"/>
+                        HorizontalAlignment="Left"
+                        Margin="5"
+                        Padding="5"
+                        Command="{Binding EditCutsCommand}"/>
             </GroupBox>
 
             <GroupBox Grid.Row="4"
@@ -407,9 +414,10 @@
                   Padding="5"
                   Header="{x:Static Properties:Resources.SamplesHeader}">
                 <Button Content="{x:Static Properties:Resources.EditButtonText}"
-                    HorizontalAlignment="Left"
-                    Margin="5"
-                    Padding="5"/>
+                        HorizontalAlignment="Left"
+                        Margin="5"
+                        Padding="5"
+                        Command="{Binding EditSamplesCommand}"/>
             </GroupBox>
             
             <StackPanel Grid.Row="5"

@@ -187,7 +187,7 @@ namespace MolluskRecognition.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Срезы.
+        ///   Looks up a localized string similar to Разрезы.
         /// </summary>
         public static string CutsHeader {
             get {

@@ -24,5 +24,10 @@ namespace MolluskRecognition.DataModels
         /// Genus discovery year
         /// </summary>
         public DateTime Year { get; set; }
+
+        /// <summary>
+        /// Species of the genus
+        /// </summary>
+        public List<Species> Species { get; set; }
     }
 }
