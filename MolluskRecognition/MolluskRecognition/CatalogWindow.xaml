@@ -8,8 +8,8 @@
         Title="{x:Static Properties:Resources.AddNewElementTitle}"
         d:DesignWidth="1000"
         d:DesignHeight ="1000"
-        Width="900" 
-        Height="700" 
+        MinWidth="900" 
+        MinHeight="700" 
         WindowStartupLocation="CenterOwner" 
         WindowState="Maximized">
     <Window.Resources>

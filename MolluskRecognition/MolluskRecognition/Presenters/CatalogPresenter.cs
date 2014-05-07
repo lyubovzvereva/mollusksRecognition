@@ -318,56 +318,92 @@ namespace MolluskRecognition.Presenters
 
         #region commands methods
 
-        private object AddNewSpecies()
+        /// <summary>
+        /// Adding new species
+        /// </summary>
+        private void AddNewSpecies()
         {
-            throw new NotImplementedException();
+            //todo
         }
 
+        /// <summary>
+        /// If can add new species
+        /// </summary>
         private bool CanAddNewSpecies()
         {
-            throw new NotImplementedException();
+            //todo
+            return true;
         }
 
+        /// <summary>
+        /// If can add new genus
+        /// </summary>
         private bool CanAddNewGenus()
         {
-            throw new NotImplementedException();
+            //todo
+            return true;
         }
 
-        private object AddNewGenus()
+        /// <summary>
+        /// Adding new genus
+        /// </summary>
+        private void AddNewGenus()
         {
-            throw new NotImplementedException();
+            //todo
         }
 
+        /// <summary>
+        /// If can edit samples
+        /// </summary>
         private bool CanEditSamples()
         {
-            throw new NotImplementedException();
+            //todo
+            return true;
         }
 
-        private object EditSamples()
+        /// <summary>
+        /// Editing samples
+        /// </summary>
+        private void EditSamples()
         {
-            throw new NotImplementedException();
+            //todo
         }
 
-
+        /// <summary>
+        /// If can edit cuts
+        /// </summary>
         private bool CanEditCuts()
         {
-            throw new NotImplementedException();
+            //todo
+            return true;
         }
 
-        private object EditCuts()
+        /// <summary>
+        /// Editing cuts
+        /// </summary>
+        private void EditCuts()
         {
-            throw new NotImplementedException();
+            //todo
         }
 
+        /// <summary>
+        /// If can edit location
+        /// </summary>
+        /// <returns></returns>
         private bool CanEditLocation()
         {
-            throw new NotImplementedException();
+            //todo
+            return true;
         }
 
-        private object EditLocation()
+        /// <summary>
+        /// Editing locations
+        /// </summary>
+        private void EditLocation()
         {
-            throw new NotImplementedException();
+            //todo
         }
+
         /// <summary>
         /// If can cancel
         /// </summary>
@@ -411,6 +447,10 @@ namespace MolluskRecognition.Presenters
         #region Inotify property
         public event PropertyChangedEventHandler PropertyChanged;
 
+        /// <summary>
+        /// Raising onPropertyChanged event to notify UI
+        /// </summary>
+        /// <param name="propertyName"></param>
         protected void OnPropertyChanged(string propertyName)
         {
             if (PropertyChanged != null)
