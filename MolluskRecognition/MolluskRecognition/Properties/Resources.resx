@@ -258,4 +258,19 @@
   <data name="SaveButtonText" xml:space="preserve">
     <value>Сохранить</value>
   </data>
+  <data name="ConcentricSculptureType" xml:space="preserve">
+    <value>Концентрическая</value>
+  </data>
+  <data name="RadialConcentricSculptureType" xml:space="preserve">
+    <value>Радиальная или концентрическая</value>
+  </data>
+  <data name="RadialSculptureType" xml:space="preserve">
+    <value>Радиальная</value>
+  </data>
+  <data name="AddNewGenusTitle" xml:space="preserve">
+    <value>Добавление нового рода</value>
+  </data>
+  <data name="NameLabel" xml:space="preserve">
+    <value>Название рода:</value>
+  </data>
 </root>

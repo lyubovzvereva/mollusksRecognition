@@ -144,6 +144,7 @@ namespace MolluskRecognition.Presenters
                 OnPropertyChanged("SculptureTypes");
             }
         }
+        #endregion fields bindings
 
         #region command bindings
         /// <summary>
@@ -340,7 +341,7 @@ namespace MolluskRecognition.Presenters
         /// </summary>
         private bool CanAddNewGenus()
         {
-            //todo
+            // We always can add new genus
             return true;
         }
 
@@ -440,8 +441,6 @@ namespace MolluskRecognition.Presenters
         #endregion command methods
         #endregion command bindings
 
-
-        #endregion fields bindings
         #endregion bindings
 
         #region Inotify property

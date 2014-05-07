@@ -88,6 +88,15 @@ namespace MolluskRecognition.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Добавление нового рода.
+        /// </summary>
+        public static string AddNewGenusTitle {
+            get {
+                return ResourceManager.GetString("AddNewGenusTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Добавить подпризнак.
         /// </summary>
         public static string AddSubFeatureButtonText {
@@ -183,6 +192,15 @@ namespace MolluskRecognition.Properties {
         public static string CompareLabel {
             get {
                 return ResourceManager.GetString("CompareLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Концентрическая.
+        /// </summary>
+        public static string ConcentricSculptureType {
+            get {
+                return ResourceManager.GetString("ConcentricSculptureType", resourceCulture);
             }
         }
         
@@ -331,6 +349,15 @@ namespace MolluskRecognition.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Название рода:.
+        /// </summary>
+        public static string NameLabel {
+            get {
+                return ResourceManager.GetString("NameLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to № коллекции:.
         /// </summary>
         public static string OrderNumberCollectionLabel {
@@ -354,6 +381,24 @@ namespace MolluskRecognition.Properties {
         public static string PositionInCollectionHeader {
             get {
                 return ResourceManager.GetString("PositionInCollectionHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Радиальная или концентрическая.
+        /// </summary>
+        public static string RadialConcentricSculptureType {
+            get {
+                return ResourceManager.GetString("RadialConcentricSculptureType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Радиальная.
+        /// </summary>
+        public static string RadialSculptureType {
+            get {
+                return ResourceManager.GetString("RadialSculptureType", resourceCulture);
             }
         }
         
