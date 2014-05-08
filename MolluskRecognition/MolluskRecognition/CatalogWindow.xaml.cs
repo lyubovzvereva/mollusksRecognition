@@ -48,9 +48,18 @@ namespace MolluskRecognition
         /// <summary>
         /// Set data context for the view
         /// </summary>
-        public void SetDataContext(CatalogPresenter presenter)
+        public void SetDataContext(IPresenterBase presenter)
         {
             this.DataContext = presenter;
+        }
+
+        /// <summary>
+        /// Get handler of the window
+        /// </summary>
+        /// <returns></returns>
+        public Window GetWindowHandler()
+        {
+            return Window.GetWindow(this);
         }
     }
 }

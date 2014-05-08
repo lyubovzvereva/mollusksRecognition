@@ -12,7 +12,7 @@ using MolluskRecognition.Commands;
 
 namespace MolluskRecognition.Presenters
 {
-    public class CatalogPresenter : INotifyPropertyChanged
+    public class CatalogPresenter : INotifyPropertyChanged, IPresenterBase
     {
         /// <summary>
         /// Catalog view
@@ -25,12 +25,18 @@ namespace MolluskRecognition.Presenters
         private Window windowHandler;
 
         /// <summary>
+        /// Main view
+        /// </summary>
+        private IStartView mainView;
+
+        /// <summary>
         /// Constructor
         /// </summary>
-        public CatalogPresenter(ICatalogView view, Window windowHandler)
+        public CatalogPresenter(ICatalogView view, Window windowHandler, IStartView mainView)
         {
             this.view = view;
             this.windowHandler = windowHandler;
+            this.mainView = mainView;
         }
 
         /// <summary>
@@ -350,7 +356,15 @@ namespace MolluskRecognition.Presenters
         /// </summary>
         private void AddNewGenus()
         {
-            //todo
+            IAddGenusView genusView = mainView.GetAddGenusView();
+            AddNewGenusPresenter genusPresenter = new AddNewGenusPresenter(genusView, view.GetWindowHandler());
+            genusPresenter.Activate();
+            Genus newGenus = genusPresenter.GetGenus();
+            if(newGenus!= null)
+            {
+                Genuses.Add(newGenus);
+                SelectedGenus = newGenus;
+            }
         }
 
         /// <summary>

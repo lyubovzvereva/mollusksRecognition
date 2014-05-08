@@ -10,21 +10,12 @@ namespace MolluskRecognition.Views
     /// <summary>
     /// Interface for catalog view
     /// </summary>
-    public interface ICatalogView
+    public interface ICatalogView: IViewBase
     {
         /// <summary>
-        /// Activate vie
+        /// Get handler of the window
         /// </summary>
-        void Activate(Window owner);
-
-        /// <summary>
-        /// Deactivate view
-        /// </summary>
-        void Deactivate();
-
-        /// <summary>
-        /// Set data context for view
-        /// </summary>
-        void SetDataContext(CatalogPresenter presenter);
+        /// <returns></returns>
+        Window GetWindowHandler();
     }
 }

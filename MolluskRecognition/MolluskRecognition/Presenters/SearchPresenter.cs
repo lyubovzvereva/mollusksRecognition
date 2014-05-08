@@ -7,7 +7,7 @@ using System.Windows;
 
 namespace MolluskRecognition.Presenters
 {
-    public class SearchPresenter
+    public class SearchPresenter: IPresenterBase
     {
         /// <summary>
         /// Search window

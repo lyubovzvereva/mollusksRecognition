@@ -29,5 +29,13 @@ namespace MolluskRecognition.DataModels
         /// Species of the genus
         /// </summary>
         public List<Species> Species { get; set; }
+
+        /// <summary>
+        /// Default constructor
+        /// </summary>
+        public Genus()
+        {
+            Year = DateTime.Today;
+        }
     }
 }

@@ -7,21 +7,7 @@ using System.Windows;
 
 namespace MolluskRecognition.Views
 {
-    public interface ISearchView
+    public interface ISearchView: IViewBase
     {
-        /// <summary>
-        /// Activate vie
-        /// </summary>
-        void Activate(Window owner);
-
-        /// <summary>
-        /// Deactivate view
-        /// </summary>
-        void Deactivate();
-
-        /// <summary>
-        /// Set data context for view
-        /// </summary>
-        void SetDataContext(SearchPresenter presenter);
     }
 }

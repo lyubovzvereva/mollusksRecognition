@@ -91,6 +91,10 @@
     <Compile Include="DataModels\Section.cs" />
     <Compile Include="DataModels\Species.cs" />
     <Compile Include="Extensions\SculptureTypeExtension.cs" />
+    <Compile Include="Presenters\AddNewGenusPresenter.cs" />
+    <Compile Include="Presenters\IPresenterBase.cs" />
+    <Compile Include="Views\IAddGenusView.cs" />
+    <Compile Include="Views\IViewBase.cs" />
     <Compile Include="MapsWindow.xaml.cs">
       <DependentUpon>MapsWindow.xaml</DependentUpon>
     </Compile>

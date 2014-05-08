@@ -7,6 +7,7 @@ using System.Windows.Media.Imaging;
 using System;
 using System.Windows.Media;
 using MolluskRecognition.Views;
+using MolluskRecognition.Presenters;
 
 namespace MolluskRecognition
 {
@@ -137,7 +138,7 @@ namespace MolluskRecognition
         /// <summary>
         /// Set data context for view
         /// </summary>
-        public void SetDataContext(Presenters.SearchPresenter presenter)
+        public void SetDataContext(IPresenterBase presenter)
         {
             this.DataContext = presenter;
         }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MolluskRecognition.Presenters;
+using MolluskRecognition.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,11 +18,36 @@ namespace MolluskRecognition
     /// <summary>
     /// Interaction logic for AddGenusPopup.xaml
     /// </summary>
-    public partial class AddGenusPopup : Window
+    public partial class AddGenusPopup : Window, IAddGenusView
     {
         public AddGenusPopup()
         {
             InitializeComponent();
+        }
+
+        /// <summary>
+        /// Activate view
+        /// </summary>
+        public void Activate(Window owner)
+        {
+            this.Owner = owner;
+            this.ShowDialog();
+        }
+
+        /// <summary>
+        /// Deactivate view
+        /// </summary>
+        public void Deactivate()
+        {
+            this.Close();
+        }
+
+        /// <summary>
+        /// Set data context for the view
+        /// </summary>
+        public void SetDataContext(IPresenterBase presenter)
+        {
+            this.DataContext = presenter;
         }
     }
 }

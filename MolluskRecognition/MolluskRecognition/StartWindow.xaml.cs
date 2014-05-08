@@ -2,6 +2,7 @@
 using System.Windows;
 using MolluskRecognition.DataModels;
 using MolluskRecognition.Views;
+using MolluskRecognition.Presenters;
 
 namespace MolluskRecognition
 {
@@ -21,7 +22,7 @@ namespace MolluskRecognition
         /// <summary>
         /// Set data context for view
         /// </summary>
-        public void SetDataContext(Presenters.MainPresenter presenter)
+        public void SetDataContext(IPresenterBase presenter)
         {
             this.DataContext = presenter;
         }
@@ -29,7 +30,7 @@ namespace MolluskRecognition
         /// <summary>
         /// Activate view
         /// </summary>
-        public new void Activate()
+        public new void Activate(Window owner)
         {
             this.ShowDialog();
         }
@@ -64,6 +65,15 @@ namespace MolluskRecognition
         public ISearchView GetSearchView()
         {
             return new SearchWindow();
+        }
+
+        /// <summary>
+        /// Get add genus view
+        /// </summary>
+        /// <returns></returns>
+        public IAddGenusView GetAddGenusView()
+        {
+            return new AddGenusPopup();
         }
     }
 }

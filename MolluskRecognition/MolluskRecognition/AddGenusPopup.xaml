@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="{x:Static Properties:Resources.AddNewGenusTitle}" 
         Height="200" 
-        Width="600">
+        Width="600" WindowStartupLocation="CenterOwner">
     <Window.Resources>
         <Style TargetType="Button">
             <Setter Property="FontSize" Value="14"/>
@@ -52,14 +52,15 @@
                    Text="{x:Static Properties:Resources.NameLabel}"/>
         <TextBox Grid.Row="0"
                  Grid.Column="1"
-                 Text="{Binding Genus.Name}"/>
+                 Text="{Binding Genus.Name, UpdateSourceTrigger=PropertyChanged}"
+                 />
 
         <TextBlock Grid.Row="1"
                    Grid.Column="0"
                    Text="{x:Static Properties:Resources.AuthorLabel}"/>
         <TextBox Grid.Row="1"
                  Grid.Column="1"
-                 Text="{Binding Genus.Author}"/>
+                 Text="{Binding Genus.Author , UpdateSourceTrigger=PropertyChanged}"/>
 
         <TextBlock Grid.Row="2"
                    Grid.Column="0"
@@ -68,7 +69,7 @@
                     Grid.Column="1"
                     VerticalAlignment="Center"
                     VerticalContentAlignment="Center"
-                    SelectedDate="{Binding Genus.Year}"/>
+                    SelectedDate="{Binding Genus.Year, UpdateSourceTrigger=PropertyChanged}"/>
         <StackPanel Grid.Row="3"
                     Grid.Column="0"
                     Grid.ColumnSpan="2"

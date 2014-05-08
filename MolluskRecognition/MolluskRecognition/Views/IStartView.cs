@@ -10,23 +10,8 @@ namespace MolluskRecognition.Views
     /// <summary>
     /// Interface of start view 
     /// </summary>
-    public interface IStartView
+    public interface IStartView: IViewBase
     {
-        /// <summary>
-        /// Set data context for view
-        /// </summary>
-        void SetDataContext(MainPresenter presenter);
-
-        /// <summary>
-        /// Activate view
-        /// </summary>
-        void Activate();
-
-        /// <summary>
-        /// Deactivate view
-        /// </summary>
-        void Deactivate();
-
         /// <summary>
         /// Get handler of main window
         /// </summary>
@@ -41,5 +26,11 @@ namespace MolluskRecognition.Views
         /// Get search view
         /// </summary>
         ISearchView GetSearchView();
+
+        /// <summary>
+        /// Get add genus view
+        /// </summary>
+        /// <returns></returns>
+        IAddGenusView GetAddGenusView();
     }
 }

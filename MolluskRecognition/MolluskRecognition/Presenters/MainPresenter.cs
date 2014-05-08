@@ -11,7 +11,7 @@ namespace MolluskRecognition.Presenters
     /// <summary>
     /// Main presenter of main view
     /// </summary>
-    public class MainPresenter
+    public class MainPresenter: IPresenterBase
     {
         /// <summary>
         /// Main view
@@ -48,7 +48,7 @@ namespace MolluskRecognition.Presenters
         {
             mainView.SetDataContext(this);
             //set values
-            mainView.Activate();
+            mainView.Activate(null);
         }
 
         /// <summary>
@@ -180,7 +180,7 @@ namespace MolluskRecognition.Presenters
         /// </summary>
         private void ShowCatalog()
         {
-            catalogPresenter = new CatalogPresenter(mainView.GetCatalogView(), mainView.GetWindowHandler());
+            catalogPresenter = new CatalogPresenter(mainView.GetCatalogView(), mainView.GetWindowHandler(), mainView);
             catalogPresenter.Activate();
         }
         #endregion command bindings
