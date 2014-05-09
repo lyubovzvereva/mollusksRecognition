@@ -77,6 +77,9 @@
     <Compile Include="AddGenusPopup.xaml.cs">
       <DependentUpon>AddGenusPopup.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AddNewSpeciesPopup.xaml.cs">
+      <DependentUpon>AddNewSpeciesPopup.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CatalogWindow.xaml.cs">
       <DependentUpon>CatalogWindow.xaml</DependentUpon>
     </Compile>
@@ -92,8 +95,10 @@
     <Compile Include="DataModels\Species.cs" />
     <Compile Include="Extensions\SculptureTypeExtension.cs" />
     <Compile Include="Presenters\AddNewGenusPresenter.cs" />
+    <Compile Include="Presenters\AddNewSpeciesPresenter.cs" />
     <Compile Include="Presenters\IPresenterBase.cs" />
     <Compile Include="Views\IAddGenusView.cs" />
+    <Compile Include="Views\IAddNewSpeciesView.cs" />
     <Compile Include="Views\IViewBase.cs" />
     <Compile Include="MapsWindow.xaml.cs">
       <DependentUpon>MapsWindow.xaml</DependentUpon>
@@ -113,6 +118,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AddGenusPopup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddNewSpeciesPopup.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

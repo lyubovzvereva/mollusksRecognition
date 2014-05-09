@@ -273,4 +273,10 @@
   <data name="NameLabel" xml:space="preserve">
     <value>Название рода:</value>
   </data>
+  <data name="AddSpeciesTitle" xml:space="preserve">
+    <value>Добавление нового вида</value>
+  </data>
+  <data name="SpeciesNameLabel" xml:space="preserve">
+    <value>Название вида:</value>
+  </data>
 </root>

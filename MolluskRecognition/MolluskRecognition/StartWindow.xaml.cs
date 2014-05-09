@@ -75,5 +75,14 @@ namespace MolluskRecognition
         {
             return new AddGenusPopup();
         }
+
+        /// <summary>
+        /// Get add species view
+        /// </summary>
+        /// <returns></returns>
+        public IAddNewSpeciesView GetAddNewSpeciesView()
+        {
+            return new AddNewSpeciesPopup();
+        }
     }
 }

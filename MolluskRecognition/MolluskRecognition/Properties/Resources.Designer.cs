@@ -97,6 +97,15 @@ namespace MolluskRecognition.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Добавление нового вида.
+        /// </summary>
+        public static string AddSpeciesTitle {
+            get {
+                return ResourceManager.GetString("AddSpeciesTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Добавить подпризнак.
         /// </summary>
         public static string AddSubFeatureButtonText {
@@ -480,6 +489,15 @@ namespace MolluskRecognition.Properties {
         public static string SpeciesAndGenusHeader {
             get {
                 return ResourceManager.GetString("SpeciesAndGenusHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Название вида:.
+        /// </summary>
+        public static string SpeciesNameLabel {
+            get {
+                return ResourceManager.GetString("SpeciesNameLabel", resourceCulture);
             }
         }
         

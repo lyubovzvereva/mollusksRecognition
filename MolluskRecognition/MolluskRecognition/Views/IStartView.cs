@@ -32,5 +32,11 @@ namespace MolluskRecognition.Views
         /// </summary>
         /// <returns></returns>
         IAddGenusView GetAddGenusView();
+
+        /// <summary>
+        /// Get add species view
+        /// </summary>
+        /// <returns></returns>
+        IAddNewSpeciesView GetAddNewSpeciesView();
     }
 }

@@ -11,6 +11,14 @@ namespace MolluskRecognition.DataModels
     public class Species
     {
         /// <summary>
+        /// Default constructor
+        /// </summary>
+        public Species()
+        {
+            Year = DateTime.Today;
+        }
+
+        /// <summary>
         /// Name of the species
         /// </summary>
         public string Name { get; set; }
@@ -152,6 +160,4 @@ namespace MolluskRecognition.DataModels
         /// </summary>
         RadialOrConcentric
     }
-
-
 }

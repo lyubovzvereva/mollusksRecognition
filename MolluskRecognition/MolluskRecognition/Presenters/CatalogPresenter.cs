@@ -330,7 +330,15 @@ namespace MolluskRecognition.Presenters
         /// </summary>
         private void AddNewSpecies()
         {
-            //todo
+            IAddNewSpeciesView speciesView = mainView.GetAddNewSpeciesView();
+            AddNewSpeciesPresenter speciesPresenter = new AddNewSpeciesPresenter(speciesView, view.GetWindowHandler(), SelectedGenus);
+            speciesPresenter.Activate();
+            Species newSpecies = speciesPresenter.GetSpecies();
+            if (newSpecies != null)
+            {
+                SelectedGenus.Species.Add(newSpecies);
+                SelectedSpecies = newSpecies;
+            }
         }
 
         /// <summary>
@@ -338,8 +346,8 @@ namespace MolluskRecognition.Presenters
         /// </summary>
         private bool CanAddNewSpecies()
         {
-            //todo
-            return true;
+            // We can add new species if a genus selected
+            return SelectedGenus != null;
         }
 
         /// <summary>
