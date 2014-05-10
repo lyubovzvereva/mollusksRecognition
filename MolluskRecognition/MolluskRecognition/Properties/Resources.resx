@@ -279,4 +279,10 @@
   <data name="SpeciesNameLabel" xml:space="preserve">
     <value>Название вида:</value>
   </data>
+  <data name="EditLocationsExplanation" xml:space="preserve">
+    <value>Добавляйте и удаляйте изображения расположений.</value>
+  </data>
+  <data name="EditLocationsTitle" xml:space="preserve">
+    <value>Редактирование расположения</value>
+  </data>
 </root>

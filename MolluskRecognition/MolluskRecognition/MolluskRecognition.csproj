@@ -93,6 +93,9 @@
     <Compile Include="DataModels\Sample.cs" />
     <Compile Include="DataModels\Section.cs" />
     <Compile Include="DataModels\Species.cs" />
+    <Compile Include="EditLocationsView.xaml.cs">
+      <DependentUpon>EditLocationsView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Extensions\SculptureTypeExtension.cs" />
     <Compile Include="Presenters\AddNewGenusPresenter.cs" />
     <Compile Include="Presenters\AddNewSpeciesPresenter.cs" />
@@ -126,6 +129,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="CatalogWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditLocationsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

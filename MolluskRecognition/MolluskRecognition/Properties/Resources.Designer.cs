@@ -250,6 +250,24 @@ namespace MolluskRecognition.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Добавляйте и удаляйте изображения расположений..
+        /// </summary>
+        public static string EditLocationsExplanation {
+            get {
+                return ResourceManager.GetString("EditLocationsExplanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Редактирование расположения.
+        /// </summary>
+        public static string EditLocationsTitle {
+            get {
+                return ResourceManager.GetString("EditLocationsTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Название:.
         /// </summary>
         public static string FeatureNameLabel {

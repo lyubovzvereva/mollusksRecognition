@@ -415,8 +415,8 @@ namespace MolluskRecognition.Presenters
         /// <returns></returns>
         private bool CanEditLocation()
         {
-            //todo
-            return true;
+            // Can edit locations if some species selected
+            return SelectedSpecies != null;
         }
 
         /// <summary>
