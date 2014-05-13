@@ -16,6 +16,7 @@ namespace MolluskRecognition.DataModels
         public Species()
         {
             Year = DateTime.Today;
+            Locations = new List<Location>();
         }
 
         /// <summary>

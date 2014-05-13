@@ -44,7 +44,51 @@ namespace MolluskRecognition.Presenters
         /// </summary>
         public void Activate()
         {
-            Genuses = new ObservableCollection<Genus> { new Genus { Author = "author name", Name = "some genus name", Year = DateTime.Today, Species = new List<Species> { new Species { Name = "some species name", Age = "some age", Author = "some author", Year = DateTime.Today.AddYears(-10) } } } };
+            Genuses = new ObservableCollection<Genus> {
+                new Genus { 
+                    Author = "author name",
+                    Name = "some genus name",
+                    Year = DateTime.Today,
+                    Species = new List<Species> {
+                        new Species {
+                            Name = "some species name",
+                            Age = "some age",
+                            Author = "some author",
+                            Year = DateTime.Today.AddYears(-10),
+                            Locations = new List<Location> { 
+                                new Location { 
+                                    FileName = "IMG_6686.jpg" },
+                                    new Location { 
+                                    FileName = "IMG_6686.jpg" },
+                                    new Location { 
+                                    FileName = "IMG_6686.jpg" },
+                                    new Location { 
+                                    FileName = "IMG_6686.jpg" },
+                                    new Location { 
+                                    FileName = "IMG_6686.jpg" },
+                                    new Location { 
+                                    FileName = "IMG_6580.jpg" },
+                                    new Location { 
+                                    FileName = "IMG_6686.jpg" },
+                                    new Location { 
+                                    FileName = "IMG_6580.jpg" },
+                                    new Location { 
+                                    FileName = "IMG_6686.jpg" },
+                                    new Location { 
+                                    FileName = "IMG_6686.jpg" },
+                                    new Location { 
+                                    FileName = "IMG_6686.jpg" },
+                                    new Location { 
+                                    FileName = "IMG_6580.jpg" },
+                                    new Location { 
+                                    FileName = "IMG_6686.jpg" },
+                                    new Location { 
+                                    FileName = "IMG_6686.jpg" }
+                            }
+                        }
+                    }
+                }
+            };
             SculptureTypes = new ObservableCollection<SculptureType> { SculptureType.Concentric, SculptureType.Radial, SculptureType.RadialOrConcentric };
             ShellTypes = new ObservableCollection<ShellType> { ShellType.A1, ShellType.A2, ShellType.B1, ShellType.B2, ShellType.G1, ShellType.G2, ShellType.G3 };
             view.SetDataContext(this);
@@ -424,7 +468,8 @@ namespace MolluskRecognition.Presenters
         /// </summary>
         private void EditLocation()
         {
-            //todo
+            EditLocationsPresenter locationPresenter = new EditLocationsPresenter(mainView.GetEditLocationsView(), view.GetWindowHandler(), SelectedSpecies);
+            locationPresenter.Activate();
         }
 
         /// <summary>

@@ -7,20 +7,19 @@
         mc:Ignorable="d"
         Title="{x:Static Properties:Resources.EditLocationsTitle}" 
         MinHeight="300"
-        MinWidth="400">
+        MinWidth="400"
+        WindowStartupLocation="CenterOwner">
     <Window.Resources>
         <Style TargetType="{x:Type ListBox}">
             <Setter Property="ItemTemplate">
                 <Setter.Value>
                     <DataTemplate>
                         <Border BorderBrush="Black" 
-                                BorderThickness="4"
-                                CornerRadius="5"
+                                BorderThickness="2"
                                 Margin="6">
                             <Image Source="{Binding Path=UriSource}"
                                    Stretch="Fill"
                                    Width="100"
-                                   Height="120"
                                    />
                         </Border>
                     </DataTemplate>
@@ -47,15 +46,51 @@
         
         <ListBox Grid.Row="1"
                  Grid.Column="0"
-                 HorizontalAlignment="Left"
+                 HorizontalAlignment="Stretch"
                  VerticalAlignment="Stretch"
-                 ItemsSource="{Binding Locations}">
+                 ItemsSource="{Binding Locations}"
+                 SelectedItem="{Binding SelectedLocation}"
+                 ScrollViewer.HorizontalScrollBarVisibility="Disabled">
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel Orientation="Horizontal" 
-                               IsItemsHost="True"/>
+                               IsItemsHost="True"
+                               />
                 </ItemsPanelTemplate>
             </ListBox.ItemsPanel>
         </ListBox>
+        <StackPanel Grid.Row="1"
+                    Grid.Column="1"
+                    Orientation="Vertical"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Right">
+            <Button Content="{x:Static Properties:Resources.AddButtonText}"
+                    Margin="5"
+                    Padding="5"
+                    MinWidth="100"
+                    Command="{Binding AddCommand}"/>
+            <Button Content="{x:Static Properties:Resources.DeleteButtonText}"
+                    Margin="5"
+                    Padding="5"
+                    MinWidth="100"
+                    Command="{Binding DeleteCommand}"/>
+        </StackPanel>
+        <StackPanel Grid.Row="2"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Orientation="Horizontal"
+                    VerticalAlignment="Bottom"
+                    HorizontalAlignment="Right">
+            <Button Content="{x:Static Properties:Resources.SaveButtonText}"
+                    Margin="5"
+                    Padding="5"
+                    MinWidth="100"
+                    Command="{Binding SaveCommand}"/>
+            <Button Content="{x:Static Properties:Resources.CancelButtonText}"
+                    Margin="5"
+                    Padding="5"
+                    MinWidth="100"
+                    Command="{Binding CancelCommand}"/>
+        </StackPanel>
     </Grid>
 </Window>

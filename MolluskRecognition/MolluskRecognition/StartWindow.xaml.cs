@@ -84,5 +84,14 @@ namespace MolluskRecognition
         {
             return new AddNewSpeciesPopup();
         }
+
+        /// <summary>
+        /// Get edit locations view
+        /// </summary>
+        /// <returns></returns>
+        public IEditLocationsView GetEditLocationsView()
+        {
+            return new EditLocationsView();
+        }
     }
 }

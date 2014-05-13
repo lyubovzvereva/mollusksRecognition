@@ -99,9 +99,11 @@
     <Compile Include="Extensions\SculptureTypeExtension.cs" />
     <Compile Include="Presenters\AddNewGenusPresenter.cs" />
     <Compile Include="Presenters\AddNewSpeciesPresenter.cs" />
+    <Compile Include="Presenters\EditLocationsPresenter.cs" />
     <Compile Include="Presenters\IPresenterBase.cs" />
     <Compile Include="Views\IAddGenusView.cs" />
     <Compile Include="Views\IAddNewSpeciesView.cs" />
+    <Compile Include="Views\IEditLocationsView.cs" />
     <Compile Include="Views\IViewBase.cs" />
     <Compile Include="MapsWindow.xaml.cs">
       <DependentUpon>MapsWindow.xaml</DependentUpon>

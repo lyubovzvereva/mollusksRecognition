@@ -285,4 +285,19 @@
   <data name="EditLocationsTitle" xml:space="preserve">
     <value>Редактирование расположения</value>
   </data>
+  <data name="AddButtonText" xml:space="preserve">
+    <value>Добавить</value>
+  </data>
+  <data name="DeleteButtonText" xml:space="preserve">
+    <value>Удалить</value>
+  </data>
+  <data name="DeleteLocationQuestion" xml:space="preserve">
+    <value>Вы уверены,что хотите удалить выбранное изображение?</value>
+  </data>
+  <data name="LocationFileNamePattern" xml:space="preserve">
+    <value>location_{0}{1}</value>
+  </data>
+  <data name="WarningMessageBoxCaption" xml:space="preserve">
+    <value>Внимание!</value>
+  </data>
 </root>

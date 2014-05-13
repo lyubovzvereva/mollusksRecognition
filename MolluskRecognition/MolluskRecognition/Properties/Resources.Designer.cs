@@ -61,6 +61,15 @@ namespace MolluskRecognition.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Добавить.
+        /// </summary>
+        public static string AddButtonText {
+            get {
+                return ResourceManager.GetString("AddButtonText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Добавить признак.
         /// </summary>
         public static string AddFeatureButtonText {
@@ -223,6 +232,24 @@ namespace MolluskRecognition.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Удалить.
+        /// </summary>
+        public static string DeleteButtonText {
+            get {
+                return ResourceManager.GetString("DeleteButtonText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Вы уверены,что хотите удалить выбранное изображение?.
+        /// </summary>
+        public static string DeleteLocationQuestion {
+            get {
+                return ResourceManager.GetString("DeleteLocationQuestion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Подробное описание.
         /// </summary>
         public static string DetailDescriptionHeader {
@@ -345,6 +372,15 @@ namespace MolluskRecognition.Properties {
         public static string LoadButtonText {
             get {
                 return ResourceManager.GetString("LoadButtonText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to location_{0}{1}.
+        /// </summary>
+        public static string LocationFileNamePattern {
+            get {
+                return ResourceManager.GetString("LocationFileNamePattern", resourceCulture);
             }
         }
         
@@ -543,6 +579,15 @@ namespace MolluskRecognition.Properties {
         public static string SynonymyLabel {
             get {
                 return ResourceManager.GetString("SynonymyLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Внимание!.
+        /// </summary>
+        public static string WarningMessageBoxCaption {
+            get {
+                return ResourceManager.GetString("WarningMessageBoxCaption", resourceCulture);
             }
         }
         

@@ -38,5 +38,11 @@ namespace MolluskRecognition.Views
         /// </summary>
         /// <returns></returns>
         IAddNewSpeciesView GetAddNewSpeciesView();
+
+        /// <summary>
+        /// Get edit locations view
+        /// </summary>
+        /// <returns></returns>
+        IEditLocationsView GetEditLocationsView();
     }
 }
