@@ -93,17 +93,27 @@
     <Compile Include="DataModels\Sample.cs" />
     <Compile Include="DataModels\Section.cs" />
     <Compile Include="DataModels\Species.cs" />
+    <Compile Include="EditCutsView.xaml.cs">
+      <DependentUpon>EditCutsView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="EditLocationsView.xaml.cs">
       <DependentUpon>EditLocationsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditSamplesView.xaml.cs">
+      <DependentUpon>EditSamplesView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Extensions\SculptureTypeExtension.cs" />
     <Compile Include="Presenters\AddNewGenusPresenter.cs" />
     <Compile Include="Presenters\AddNewSpeciesPresenter.cs" />
+    <Compile Include="Presenters\EditCutsPresenter.cs" />
     <Compile Include="Presenters\EditLocationsPresenter.cs" />
+    <Compile Include="Presenters\EditSamplesPresenter.cs" />
     <Compile Include="Presenters\IPresenterBase.cs" />
     <Compile Include="Views\IAddGenusView.cs" />
     <Compile Include="Views\IAddNewSpeciesView.cs" />
+    <Compile Include="Views\IEditCutsView.cs" />
     <Compile Include="Views\IEditLocationsView.cs" />
+    <Compile Include="Views\IEditSamplesView.cs" />
     <Compile Include="Views\IViewBase.cs" />
     <Compile Include="MapsWindow.xaml.cs">
       <DependentUpon>MapsWindow.xaml</DependentUpon>
@@ -134,7 +144,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="EditCutsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="EditLocationsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditSamplesView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

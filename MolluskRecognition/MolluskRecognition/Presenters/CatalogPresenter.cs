@@ -433,7 +433,13 @@ namespace MolluskRecognition.Presenters
         /// </summary>
         private void EditSamples()
         {
-            //todo
+            EditSamplesPresenter cutsPresenter = new EditSamplesPresenter(mainView.GetEditSamplesView(), view.GetWindowHandler(), SelectedSpecies);
+            cutsPresenter.Activate();
+            var newSamples = cutsPresenter.GetSamples();
+            if (newSamples != null)
+            {
+                SelectedSpecies.Samples = newSamples;
+            }
         }
 
         /// <summary>
@@ -441,8 +447,8 @@ namespace MolluskRecognition.Presenters
         /// </summary>
         private bool CanEditCuts()
         {
-            //todo
-            return true;
+            // Can edit cuts if some species selected
+            return SelectedSpecies != null;
         }
 
         /// <summary>
@@ -450,7 +456,13 @@ namespace MolluskRecognition.Presenters
         /// </summary>
         private void EditCuts()
         {
-            //todo
+            EditCutsPresenter cutsPresenter = new EditCutsPresenter(mainView.GetEditCutsView(), view.GetWindowHandler(), SelectedSpecies);
+            cutsPresenter.Activate();
+            var newSections = cutsPresenter.GetSections();
+            if (newSections != null)
+            {
+                SelectedSpecies.Sections = newSections;
+            }
         }
 
         /// <summary>
@@ -470,6 +482,11 @@ namespace MolluskRecognition.Presenters
         {
             EditLocationsPresenter locationPresenter = new EditLocationsPresenter(mainView.GetEditLocationsView(), view.GetWindowHandler(), SelectedSpecies);
             locationPresenter.Activate();
+            var newLocations = locationPresenter.GetLocations();
+            if(newLocations != null)
+            {
+                SelectedSpecies.Locations = newLocations;
+            }
         }
 
         /// <summary>

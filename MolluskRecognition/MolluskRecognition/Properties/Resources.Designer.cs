@@ -277,6 +277,24 @@ namespace MolluskRecognition.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Добавляйте и удаляйте изображения разрезов.
+        /// </summary>
+        public static string EditCutsExplanation {
+            get {
+                return ResourceManager.GetString("EditCutsExplanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Редактирование разрезов.
+        /// </summary>
+        public static string EditCutsTitle {
+            get {
+                return ResourceManager.GetString("EditCutsTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Добавляйте и удаляйте изображения расположений..
         /// </summary>
         public static string EditLocationsExplanation {
@@ -291,6 +309,24 @@ namespace MolluskRecognition.Properties {
         public static string EditLocationsTitle {
             get {
                 return ResourceManager.GetString("EditLocationsTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Добавляйте и удаляйте изображения экземпляров.
+        /// </summary>
+        public static string EditSamplesExplanation {
+            get {
+                return ResourceManager.GetString("EditSamplesExplanation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Редактирование экземпляров.
+        /// </summary>
+        public static string EditSamplesTitle {
+            get {
+                return ResourceManager.GetString("EditSamplesTitle", resourceCulture);
             }
         }
         

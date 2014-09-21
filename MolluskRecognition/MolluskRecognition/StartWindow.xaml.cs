@@ -93,5 +93,24 @@ namespace MolluskRecognition
         {
             return new EditLocationsView();
         }
+
+
+        /// <summary>
+        /// Get edit cuts view
+        /// </summary>
+        /// <returns></returns>
+        public IEditCutsView GetEditCutsView()
+        {
+            return new EditCutsView();
+        }
+
+        /// <summary>
+        /// Get edit samples view
+        /// </summary>
+        /// <returns></returns>
+        public IEditSamplesView GetEditSamplesView()
+        {
+            return new EditSamplesView();
+        }
     }
 }

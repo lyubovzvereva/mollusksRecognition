@@ -320,5 +320,15 @@ namespace MolluskRecognition.Presenters
 
         #endregion 
 
+        /// <summary>
+        /// Get filled locations
+        /// null if not saved
+        /// </summary>
+        /// <returns></returns>
+        public List<DataModels.Location> GetLocations()
+        {
+            return saved ? locations.ToList() : null;
+        }
+
     }
 }

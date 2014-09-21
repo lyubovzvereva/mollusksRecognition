@@ -300,4 +300,16 @@
   <data name="WarningMessageBoxCaption" xml:space="preserve">
     <value>Внимание!</value>
   </data>
+  <data name="EditCutsExplanation" xml:space="preserve">
+    <value>Добавляйте и удаляйте изображения разрезов</value>
+  </data>
+  <data name="EditCutsTitle" xml:space="preserve">
+    <value>Редактирование разрезов</value>
+  </data>
+  <data name="EditSamplesExplanation" xml:space="preserve">
+    <value>Добавляйте и удаляйте изображения экземпляров</value>
+  </data>
+  <data name="EditSamplesTitle" xml:space="preserve">
+    <value>Редактирование экземпляров</value>
+  </data>
 </root>

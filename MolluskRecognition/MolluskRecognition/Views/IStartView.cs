@@ -44,5 +44,17 @@ namespace MolluskRecognition.Views
         /// </summary>
         /// <returns></returns>
         IEditLocationsView GetEditLocationsView();
+
+        /// <summary>
+        /// Get edit cuts view
+        /// </summary>
+        /// <returns></returns>
+        IEditCutsView GetEditCutsView();
+
+        /// <summary>
+        /// Get edit samples view
+        /// </summary>
+        /// <returns></returns>
+        IEditSamplesView GetEditSamplesView();
     }
 }

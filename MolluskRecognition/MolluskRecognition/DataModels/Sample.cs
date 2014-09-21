@@ -1,5 +1,7 @@
-﻿using System;
+﻿using MolluskRecognition.Properties;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 
@@ -63,7 +65,15 @@ namespace MolluskRecognition.DataModels
         /// <summary>
         /// Path to the photo
         /// </summary>
-        public string Photo { get; set; }
+        public string PhotoFileName { get; set; }
+
+        /// <summary>
+        /// Uri to file which combines from settings and fileName
+        /// </summary>
+        public Uri UriSource
+        {
+            get { return new Uri(Path.Combine(Settings.Default.LocationsImagesLocation, PhotoFileName)); }
+        }
         //todo: another charcteristics
     }
 }
