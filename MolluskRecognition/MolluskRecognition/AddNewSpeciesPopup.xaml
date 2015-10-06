@@ -1,11 +1,11 @@
 ﻿<Window x:Class="MolluskRecognition.AddNewSpeciesPopup"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:Properties="clr-namespace:MolluskRecognition.Properties"
+        xmlns:properties="clr-namespace:MolluskRecognition.Properties"
         xmlns:d ="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="{x:Static Properties:Resources.AddSpeciesTitle}" 
+        Title="{x:Static properties:Resources.AddSpeciesTitle}" 
         Height="300"
         Width="600"
         WindowStartupLocation="CenterOwner">
@@ -52,7 +52,7 @@
         </Grid.ColumnDefinitions>
         <TextBlock Grid.Row="0"
                    Grid.Column="0"
-                   Text="{x:Static Properties:Resources.NameLabel}"/>
+                   Text="{x:Static properties:Resources.NameLabel}"/>
         <TextBlock Grid.Row="0"
                  Grid.Column="1"
                  Text="{Binding Genus.Name, UpdateSourceTrigger=PropertyChanged}"
@@ -60,21 +60,21 @@
         
         <TextBlock Grid.Row="1"
                    Grid.Column="0"
-                   Text="{x:Static Properties:Resources.SpeciesNameLabel}"/>
+                   Text="{x:Static properties:Resources.SpeciesNameLabel}"/>
         <TextBox Grid.Row="1"
                  Grid.Column="1"
                  Text="{Binding Species.Name, UpdateSourceTrigger=PropertyChanged}"
                  />
         <TextBlock Grid.Row="2"
                    Grid.Column="0"
-                   Text="{x:Static Properties:Resources.AuthorLabel}"/>
+                   Text="{x:Static properties:Resources.AuthorLabel}"/>
         <TextBox Grid.Row="2"
                  Grid.Column="1"
                  Text="{Binding Species.Author , UpdateSourceTrigger=PropertyChanged}"/>
 
         <TextBlock Grid.Row="3"
                    Grid.Column="0"
-                   Text="{x:Static Properties:Resources.YearLabel}"/>
+                   Text="{x:Static properties:Resources.YearLabel}"/>
         <DatePicker Grid.Row="3"
                     Grid.Column="1"
                     VerticalAlignment="Center"
@@ -83,7 +83,7 @@
 
         <TextBlock Grid.Row="4"
                    Grid.Column="0"
-                   Text="{x:Static Properties:Resources.AgeLabel}"/>
+                   Text="{x:Static properties:Resources.AgeLabel}"/>
         <TextBox Grid.Row="4"
                  Grid.Column="1"
                  Text="{Binding Species.Age , UpdateSourceTrigger=PropertyChanged}"/>
@@ -93,12 +93,12 @@
                     Orientation="Horizontal"
                     VerticalAlignment="Bottom"
                     HorizontalAlignment="Right">
-            <Button Content="{x:Static Properties:Resources.SaveButtonText}"
+            <Button Content="{x:Static properties:Resources.SaveButtonText}"
                     Margin="5"
                     Padding="5"
                     MinWidth="100"
                     Command="{Binding SaveCommand}"/>
-            <Button Content="{x:Static Properties:Resources.CancelButtonText}"
+            <Button Content="{x:Static properties:Resources.CancelButtonText}"
                     Margin="5"
                     Padding="5"
                     MinWidth="100"

@@ -1,6 +1,6 @@
 ﻿using Microsoft.Win32;
 using MolluskRecognition.Commands;
-using MolluskRecognition.DataModels;
+using MolluskRecognition.DAL.DataModels;
 using MolluskRecognition.Views;
 using System;
 using System.Collections.Generic;
@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Windows;
 using System.Windows.Input;
+using MolluskRecognition.DAL;
 
 namespace MolluskRecognition.Presenters
 {
@@ -19,22 +20,24 @@ namespace MolluskRecognition.Presenters
         /// <summary>
         /// Edit locations view
         /// </summary>
-        private IEditCutsView view;
+        private readonly IEditCutsView _view;
 
         /// <summary>
         /// Handler of parent window
         /// </summary>
-        private Window windowHandler;
+        private readonly Window _windowHandler;
 
         /// <summary>
         /// If changed should be saved
         /// </summary>
-        private bool saved = false;
+        private bool _saved = false;
 
         /// <summary>
         /// Current species
         /// </summary>
-        private Species currentSpecies;
+        private readonly Species _currentSpecies;
+
+        private readonly ISettingsProvider _settingsProvider;
 
         /// <summary>
         /// Constructor
@@ -42,12 +45,13 @@ namespace MolluskRecognition.Presenters
         /// <param name="view">Edit cuts view</param>
         /// <param name="windowHandler">handler to parent window</param>
         /// <param name="currentSpecies">selected species</param>
-        public EditCutsPresenter(IEditCutsView view, Window windowHandler, Species currentSpecies)
+        public EditCutsPresenter(IEditCutsView view, Window windowHandler, Species currentSpecies, ISettingsProvider settingsProvider)
         {
-            this.view = view;
-            this.windowHandler = windowHandler;
-            this.currentSpecies = currentSpecies;
-            saved = false;
+            this._view = view;
+            this._windowHandler = windowHandler;
+            this._currentSpecies = currentSpecies;
+            _settingsProvider = settingsProvider;
+            _saved = false;
         }
 
         /// <summary>
@@ -55,13 +59,13 @@ namespace MolluskRecognition.Presenters
         /// </summary>
         public void Activate()
         {
-            if (currentSpecies.Sections != null)
+            if (_currentSpecies.Sections != null)
             {
-                Sections = new ObservableCollection<Section>(currentSpecies.Sections);
+                Sections = new ObservableCollection<Section>(_currentSpecies.Sections);
             }
             else Sections = new ObservableCollection<Section>();
-            view.SetDataContext(this);
-            view.Activate(windowHandler);
+            _view.SetDataContext(this);
+            _view.Activate(_windowHandler);
         }
 
         /// <summary>
@@ -69,7 +73,7 @@ namespace MolluskRecognition.Presenters
         /// </summary>
         public void Deactivate()
         {
-            view.Deactivate();
+            _view.Deactivate();
         }
 
         #region bindings
@@ -77,17 +81,17 @@ namespace MolluskRecognition.Presenters
         /// <summary>
         /// Selected genus
         /// </summary>
-        private ObservableCollection<Section> sections;
+        private ObservableCollection<Section> _sections;
 
         /// <summary>
         /// Selected genus
         /// </summary>
         public ObservableCollection<Section> Sections
         {
-            get { return sections; }
+            get { return _sections; }
             set
             {
-                sections = value;
+                _sections = value;
                 OnPropertyChanged("Sections");
             }
         }
@@ -95,17 +99,17 @@ namespace MolluskRecognition.Presenters
         /// <summary>
         /// Selected location
         /// </summary>
-        private Section selectedSection;
+        private Section _selectedSection;
 
         /// <summary>
         /// Selected location
         /// </summary>
         public Section SelectedSection
         {
-            get { return selectedSection; }
+            get { return _selectedSection; }
             set
             {
-                selectedSection = value;
+                _selectedSection = value;
                 OnPropertyChanged("SelectedSection");
             }
         }
@@ -116,7 +120,7 @@ namespace MolluskRecognition.Presenters
         /// <summary>
         /// Command to save all
         /// </summary>
-        private ICommand saveCommand;
+        private ICommand _saveCommand;
 
         /// <summary>
         /// Command to save all
@@ -125,22 +129,22 @@ namespace MolluskRecognition.Presenters
         {
             get
             {
-                if (saveCommand == null)
+                if (_saveCommand == null)
                 {
-                    saveCommand = new RelayCommand(x => Save(), x => CanSave());
+                    _saveCommand = new RelayCommand(x => Save(), x => CanSave());
                 }
-                return saveCommand;
+                return _saveCommand;
             }
             set
             {
-                saveCommand = value;
+                _saveCommand = value;
             }
         }
 
         /// <summary>
         /// Command to cancel
         /// </summary>
-        private ICommand cancelCommand;
+        private ICommand _cancelCommand;
 
         /// <summary>
         /// Command to cancel
@@ -149,22 +153,22 @@ namespace MolluskRecognition.Presenters
         {
             get
             {
-                if (cancelCommand == null)
+                if (_cancelCommand == null)
                 {
-                    cancelCommand = new RelayCommand(x => Cancel(), x => CanCancel());
+                    _cancelCommand = new RelayCommand(x => Cancel(), x => CanCancel());
                 }
-                return cancelCommand;
+                return _cancelCommand;
             }
             set
             {
-                cancelCommand = value;
+                _cancelCommand = value;
             }
         }
 
         /// <summary>
         /// Command to add new image
         /// </summary>
-        private ICommand addCommand;
+        private ICommand _addCommand;
 
         /// <summary>
         /// Command to add new image
@@ -173,22 +177,22 @@ namespace MolluskRecognition.Presenters
         {
             get
             {
-                if (addCommand == null)
+                if (_addCommand == null)
                 {
-                    addCommand = new RelayCommand(x => AddLocation(), x => CanAddLocation());
+                    _addCommand = new RelayCommand(x => AddLocation(), x => CanAddLocation());
                 }
-                return addCommand;
+                return _addCommand;
             }
             set
             {
-                addCommand = value;
+                _addCommand = value;
             }
         }
 
         /// <summary>
         /// Command to delete selected image
         /// </summary>
-        private ICommand deleteCommand;
+        private ICommand _deleteCommand;
 
         /// <summary>
         /// Command to delete selected image
@@ -197,15 +201,15 @@ namespace MolluskRecognition.Presenters
         {
             get
             {
-                if (deleteCommand == null)
+                if (_deleteCommand == null)
                 {
-                    deleteCommand = new RelayCommand(x => DeleteLocation(), x => CanDeleteLocation());
+                    _deleteCommand = new RelayCommand(x => DeleteLocation(), x => CanDeleteLocation());
                 }
-                return deleteCommand;
+                return _deleteCommand;
             }
             set
             {
-                deleteCommand = value;
+                _deleteCommand = value;
             }
         }
 
@@ -231,16 +235,16 @@ namespace MolluskRecognition.Presenters
                 foreach (string file in dialog.FileNames)
                 {
                     string ext = Path.GetExtension(file);
-                    string newFileName = string.Format(Properties.Resources.LocationFileNamePattern, Properties.Settings.Default.LocationIndex, ext);
-                    while (File.Exists(Path.Combine(Properties.Settings.Default.LocationsImagesLocation, newFileName)))
+                    string newFileName = string.Format(Properties.Resources.LocationFileNamePattern, _settingsProvider.LocationIndex, ext);
+                    while (File.Exists(Path.Combine(_settingsProvider.LocationsImagesLocation, newFileName)))
                     {
-                        Properties.Settings.Default.LocationIndex = Properties.Settings.Default.LocationIndex + 1;
-                        newFileName = string.Format(Properties.Resources.LocationFileNamePattern, Properties.Settings.Default.LocationIndex, ext);
+                        _settingsProvider.LocationIndex = _settingsProvider.LocationIndex + 1;
+                        newFileName = string.Format(Properties.Resources.LocationFileNamePattern, _settingsProvider.LocationIndex, ext);
                     }
-                    File.Copy(file, Path.Combine(Properties.Settings.Default.LocationsImagesLocation, newFileName));
-                    Properties.Settings.Default.LocationIndex = Properties.Settings.Default.LocationIndex + 1;
-                    Properties.Settings.Default.Save();
-                    Sections.Add(new Section { FileName = newFileName });
+                    File.Copy(file, Path.Combine(_settingsProvider.LocationsImagesLocation, newFileName));
+                    _settingsProvider.LocationIndex = _settingsProvider.LocationIndex + 1;
+                    _settingsProvider.Save();
+                    Sections.Add(new Section(_settingsProvider) { FileName = newFileName });
                 }
             }
         }
@@ -298,7 +302,7 @@ namespace MolluskRecognition.Presenters
         private void Save()
         {
             MessageBox.Show("Saved");
-            saved = true;
+            _saved = true;
             this.Deactivate();
         }
 
@@ -326,9 +330,9 @@ namespace MolluskRecognition.Presenters
         /// null if not saved
         /// </summary>
         /// <returns></returns>
-        public List<DataModels.Section> GetSections()
+        public List<Section> GetSections()
         {
-            return saved ? sections.ToList() : null;
+            return _saved ? _sections.ToList() : null;
         }
     }
 }

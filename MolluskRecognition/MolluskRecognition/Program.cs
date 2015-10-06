@@ -9,7 +9,7 @@ namespace MolluskRecognition
 {
     class Program
     {
-        [STAThreadAttribute]
+        [STAThread]
         static void Main(string[] args)
         {
             IStartView mainView = new StartWindow();

@@ -16,29 +16,29 @@ namespace MolluskRecognition.Presenters
         /// <summary>
         /// Main view
         /// </summary>
-        private IStartView mainView;
+        private readonly IStartView _mainView;
 
         /// <summary>
         /// Catalog presenter
         /// </summary>
-        private CatalogPresenter catalogPresenter;
+        private CatalogPresenter _catalogPresenter;
 
         /// <summary>
         /// Search window presenter
         /// </summary>
-        private SearchPresenter searchPresenter;
+        private SearchPresenter _searchPresenter;
 
         /// <summary>
         /// Catalog view
         /// </summary>
-        private ICatalogView catalogView;
+        private ICatalogView _catalogView;
 
         /// <summary>
         /// Constructor
         /// </summary>
         public MainPresenter(IStartView startView)
         {
-            this.mainView = startView;
+            this._mainView = startView;
         }
 
         /// <summary>
@@ -46,9 +46,9 @@ namespace MolluskRecognition.Presenters
         /// </summary>
         public void Activate()
         {
-            mainView.SetDataContext(this);
+            _mainView.SetDataContext(this);
             //set values
-            mainView.Activate(null);
+            _mainView.Activate(null);
         }
 
         /// <summary>
@@ -56,7 +56,7 @@ namespace MolluskRecognition.Presenters
         /// </summary>
         public void Deactivate()
         {
-            mainView.Deactivate();
+            _mainView.Deactivate();
         }
         #region bindings
 
@@ -65,7 +65,7 @@ namespace MolluskRecognition.Presenters
         /// <summary>
         /// Command to show catalog
         /// </summary>
-        private ICommand showCatalogCommand;
+        private ICommand _showCatalogCommand;
 
         /// <summary>
         /// Command to show catalog
@@ -74,22 +74,22 @@ namespace MolluskRecognition.Presenters
         {
             get
             {
-                if (showCatalogCommand == null)
+                if (_showCatalogCommand == null)
                 {
-                    showCatalogCommand = new RelayCommand(x => ShowCatalog(), x => CanShowCatalog());
+                    _showCatalogCommand = new RelayCommand(x => ShowCatalog(), x => CanShowCatalog());
                 }
-                return showCatalogCommand;
+                return _showCatalogCommand;
             }
             set
             {
-                showCatalogCommand = value;
+                _showCatalogCommand = value;
             }
         }
 
         /// <summary>
         /// Command to show search window
         /// </summary>
-        private ICommand searchCommand;
+        private ICommand _searchCommand;
 
         /// <summary>
         /// Command to show search window
@@ -98,22 +98,22 @@ namespace MolluskRecognition.Presenters
         {
             get
             {
-                if (searchCommand == null)
+                if (_searchCommand == null)
                 {
-                    searchCommand = new RelayCommand(x => ShowSearchWindow(), x => CanShowSearchWindow());
+                    _searchCommand = new RelayCommand(x => ShowSearchWindow(), x => CanShowSearchWindow());
                 }
-                return searchCommand;
+                return _searchCommand;
             }
             set
             {
-                searchCommand = value;
+                _searchCommand = value;
             }
         }
 
         /// <summary>
         /// Command to show search window
         /// </summary>
-        private ICommand showMapCommand;
+        private ICommand _showMapCommand;
 
         /// <summary>
         /// Command to show search window
@@ -122,15 +122,15 @@ namespace MolluskRecognition.Presenters
         {
             get
             {
-                if (showMapCommand == null)
+                if (_showMapCommand == null)
                 {
-                    showMapCommand = new RelayCommand(x => ShowMapWindow(), x => CanShowMapWindow());
+                    _showMapCommand = new RelayCommand(x => ShowMapWindow(), x => CanShowMapWindow());
                 }
-                return showMapCommand;
+                return _showMapCommand;
             }
             set
             {
-                showMapCommand = value;
+                _showMapCommand = value;
             }
         }
 
@@ -163,8 +163,8 @@ namespace MolluskRecognition.Presenters
         /// </summary>
         private void ShowSearchWindow()
         {
-            searchPresenter = new SearchPresenter(mainView.GetSearchView(), mainView.GetWindowHandler());
-            searchPresenter.Activate();
+            _searchPresenter = new SearchPresenter(_mainView.GetSearchView(), _mainView.GetWindowHandler());
+            _searchPresenter.Activate();
         }
 
         /// <summary>
@@ -180,8 +180,8 @@ namespace MolluskRecognition.Presenters
         /// </summary>
         private void ShowCatalog()
         {
-            catalogPresenter = new CatalogPresenter(mainView.GetCatalogView(), mainView.GetWindowHandler(), mainView);
-            catalogPresenter.Activate();
+            _catalogPresenter = new CatalogPresenter(_mainView.GetCatalogView(), _mainView.GetWindowHandler(), _mainView);
+            _catalogPresenter.Activate();
         }
         #endregion command bindings
         #endregion bindings

@@ -1,5 +1,5 @@
 ﻿using MolluskRecognition.Commands;
-using MolluskRecognition.DataModels;
+using MolluskRecognition.DAL.DataModels;
 using MolluskRecognition.Views;
 using System;
 using System.Collections.Generic;
@@ -19,17 +19,17 @@ namespace MolluskRecognition.Presenters
         /// <summary>
         /// Add genus view
         /// </summary>
-        private IAddGenusView genusView;
+        private readonly IAddGenusView _genusView;
 
         /// <summary>
         /// Handler of parent window
         /// </summary>
-        private Window windowHandler;
+        private readonly Window _windowHandler;
 
         /// <summary>
         /// If was saved
         /// </summary>
-        private bool saved = false;
+        private bool _saved = false;
 
         /// <summary>
         /// Constructor
@@ -38,9 +38,9 @@ namespace MolluskRecognition.Presenters
         /// <param name="windowHandler"></param>
         public AddNewGenusPresenter(IAddGenusView genusView, Window windowHandler)
         {
-            this.genusView = genusView;
-            this.windowHandler = windowHandler;
-            saved = false;
+            this._genusView = genusView;
+            this._windowHandler = windowHandler;
+            _saved = false;
         }
 
         /// <summary>
@@ -49,8 +49,8 @@ namespace MolluskRecognition.Presenters
         public void Activate()
         {
             Genus = new DataModels.Genus();
-            genusView.SetDataContext(this);
-            genusView.Activate(windowHandler);
+            _genusView.SetDataContext(this);
+            _genusView.Activate(_windowHandler);
         }
 
         /// <summary>
@@ -58,7 +58,7 @@ namespace MolluskRecognition.Presenters
         /// </summary>
         public void Deactivate()
         {
-            genusView.Deactivate();
+            _genusView.Deactivate();
         }
 
         /// <summary>
@@ -67,7 +67,7 @@ namespace MolluskRecognition.Presenters
         /// <returns></returns>
         public Genus GetGenus()
         {
-            return saved ? Genus : null;
+            return _saved ? Genus : null;
         }
 
         #region bindings
@@ -95,7 +95,7 @@ namespace MolluskRecognition.Presenters
         /// <summary>
         /// Command to save all
         /// </summary>
-        private ICommand saveCommand;
+        private ICommand _saveCommand;
 
         /// <summary>
         /// Command to save all
@@ -104,22 +104,22 @@ namespace MolluskRecognition.Presenters
         {
             get
             {
-                if (saveCommand == null)
+                if (_saveCommand == null)
                 {
-                    saveCommand = new RelayCommand(x => Save(), x => CanSave());
+                    _saveCommand = new RelayCommand(x => Save(), x => CanSave());
                 }
-                return saveCommand;
+                return _saveCommand;
             }
             set
             {
-                saveCommand = value;
+                _saveCommand = value;
             }
         }
 
         /// <summary>
         /// Command to cancel
         /// </summary>
-        private ICommand cancelCommand;
+        private ICommand _cancelCommand;
 
         /// <summary>
         /// Command to cancel
@@ -128,15 +128,15 @@ namespace MolluskRecognition.Presenters
         {
             get
             {
-                if (cancelCommand == null)
+                if (_cancelCommand == null)
                 {
-                    cancelCommand = new RelayCommand(x => Cancel(), x => CanCancel());
+                    _cancelCommand = new RelayCommand(x => Cancel(), x => CanCancel());
                 }
-                return cancelCommand;
+                return _cancelCommand;
             }
             set
             {
-                cancelCommand = value;
+                _cancelCommand = value;
             }
         }
         /// <summary>
@@ -169,7 +169,7 @@ namespace MolluskRecognition.Presenters
         private void Save()
         {
             MessageBox.Show("Saved");
-            saved = true;
+            _saved = true;
             this.Deactivate();
         }
 

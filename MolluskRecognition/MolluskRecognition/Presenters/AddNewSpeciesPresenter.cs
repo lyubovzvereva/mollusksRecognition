@@ -1,5 +1,5 @@
 ﻿using MolluskRecognition.Commands;
-using MolluskRecognition.DataModels;
+using MolluskRecognition.DAL.DataModels;
 using MolluskRecognition.Views;
 using System;
 using System.Collections.Generic;
@@ -19,17 +19,17 @@ namespace MolluskRecognition.Presenters
         /// <summary>
         /// Add new species view
         /// </summary>
-        private IAddNewSpeciesView view;
+        private readonly IAddNewSpeciesView _view;
 
         /// <summary>
         /// Handler of the parent window
         /// </summary>
-        private Window windowHandler;
+        private readonly Window _windowHandler;
 
         /// <summary>
         /// If saved was pressed
         /// </summary>
-        private bool saved = false;
+        private bool _saved = false;
 
         /// <summary>
         /// Constructor
@@ -38,9 +38,9 @@ namespace MolluskRecognition.Presenters
         /// <param name="windowHandler"></param>
         public AddNewSpeciesPresenter(IAddNewSpeciesView view, Window windowHandler, Genus currentGenus)
         {
-            this.view = view;
-            this.windowHandler = windowHandler;
-            saved = false;
+            this._view = view;
+            this._windowHandler = windowHandler;
+            _saved = false;
             Genus = currentGenus;
             Species = new Species();
         }
@@ -49,8 +49,8 @@ namespace MolluskRecognition.Presenters
         /// </summary>
         public void Activate()
         {
-            view.SetDataContext(this);
-            view.Activate(windowHandler);
+            _view.SetDataContext(this);
+            _view.Activate(_windowHandler);
         }
 
         /// <summary>
@@ -58,7 +58,7 @@ namespace MolluskRecognition.Presenters
         /// </summary>
         public void Deactivate()
         {
-            view.Deactivate();
+            _view.Deactivate();
         }
 
         #region bindings
@@ -105,7 +105,7 @@ namespace MolluskRecognition.Presenters
         /// <summary>
         /// Command to save all
         /// </summary>
-        private ICommand saveCommand;
+        private ICommand _saveCommand;
 
         /// <summary>
         /// Command to save all
@@ -114,22 +114,22 @@ namespace MolluskRecognition.Presenters
         {
             get
             {
-                if (saveCommand == null)
+                if (_saveCommand == null)
                 {
-                    saveCommand = new RelayCommand(x => Save(), x => CanSave());
+                    _saveCommand = new RelayCommand(x => Save(), x => CanSave());
                 }
-                return saveCommand;
+                return _saveCommand;
             }
             set
             {
-                saveCommand = value;
+                _saveCommand = value;
             }
         }
 
         /// <summary>
         /// Command to cancel
         /// </summary>
-        private ICommand cancelCommand;
+        private ICommand _cancelCommand;
 
         /// <summary>
         /// Command to cancel
@@ -138,15 +138,15 @@ namespace MolluskRecognition.Presenters
         {
             get
             {
-                if (cancelCommand == null)
+                if (_cancelCommand == null)
                 {
-                    cancelCommand = new RelayCommand(x => Cancel(), x => CanCancel());
+                    _cancelCommand = new RelayCommand(x => Cancel(), x => CanCancel());
                 }
-                return cancelCommand;
+                return _cancelCommand;
             }
             set
             {
-                cancelCommand = value;
+                _cancelCommand = value;
             }
         }
         /// <summary>
@@ -179,7 +179,7 @@ namespace MolluskRecognition.Presenters
         private void Save()
         {
             MessageBox.Show("Saved");
-            saved = true;
+            _saved = true;
             this.Deactivate();
         }
 
@@ -206,9 +206,9 @@ namespace MolluskRecognition.Presenters
         /// Get filled species
         /// </summary>
         /// <returns></returns>
-        internal DataModels.Species GetSpecies()
+        internal Species GetSpecies()
         {
-            return saved ? Species : null;
+            return _saved ? Species : null;
         }
     }
 }

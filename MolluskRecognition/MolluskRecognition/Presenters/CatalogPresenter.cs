@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Windows;
 using System.Collections.ObjectModel;
-using MolluskRecognition.DataModels;
+using MolluskRecognition.DAL.DataModels;
 using System.ComponentModel;
 using System.Windows.Input;
 using MolluskRecognition.Commands;
@@ -17,26 +17,26 @@ namespace MolluskRecognition.Presenters
         /// <summary>
         /// Catalog view
         /// </summary>
-        private ICatalogView view;
+        private readonly ICatalogView _view;
 
         /// <summary>
         /// Handler of the main view
         /// </summary>
-        private Window windowHandler;
+        private readonly Window _windowHandler;
 
         /// <summary>
         /// Main view
         /// </summary>
-        private IStartView mainView;
+        private readonly IStartView _mainView;
 
         /// <summary>
         /// Constructor
         /// </summary>
         public CatalogPresenter(ICatalogView view, Window windowHandler, IStartView mainView)
         {
-            this.view = view;
-            this.windowHandler = windowHandler;
-            this.mainView = mainView;
+            this._view = view;
+            this._windowHandler = windowHandler;
+            this._mainView = mainView;
         }
 
         /// <summary>
@@ -91,8 +91,8 @@ namespace MolluskRecognition.Presenters
             };
             SculptureTypes = new ObservableCollection<SculptureType> { SculptureType.Concentric, SculptureType.Radial, SculptureType.RadialOrConcentric };
             ShellTypes = new ObservableCollection<ShellType> { ShellType.A1, ShellType.A2, ShellType.B1, ShellType.B2, ShellType.G1, ShellType.G2, ShellType.G3 };
-            view.SetDataContext(this);
-            view.Activate(windowHandler);
+            _view.SetDataContext(this);
+            _view.Activate(_windowHandler);
         }
 
         /// <summary>
@@ -100,7 +100,7 @@ namespace MolluskRecognition.Presenters
         /// </summary>
         public void Deactivate()
         {
-            view.Deactivate();
+            _view.Deactivate();
         }
 
         #region bindings
@@ -109,17 +109,17 @@ namespace MolluskRecognition.Presenters
         /// <summary>
         /// List of available genuses
         /// </summary>
-        private ObservableCollection<Genus> genuses;
+        private ObservableCollection<Genus> _genuses;
 
         /// <summary>
         /// List of available genuses
         /// </summary>
         public ObservableCollection<Genus> Genuses 
         {
-            get { return genuses; }
+            get { return _genuses; }
             set
             {
-                genuses = value;
+                _genuses = value;
                 OnPropertyChanged("Genuses");
             }
         }
@@ -163,34 +163,34 @@ namespace MolluskRecognition.Presenters
         /// <summary>
         /// Available shell types
         /// </summary>
-        private ObservableCollection<ShellType> shellTypes;
+        private ObservableCollection<ShellType> _shellTypes;
 
         /// <summary>
         /// Available shell types
         /// </summary>
         public ObservableCollection<ShellType> ShellTypes
         {
-            get { return shellTypes; }
+            get { return _shellTypes; }
             set
             {
-                shellTypes = value;
+                _shellTypes = value;
                 OnPropertyChanged("ShellTypes");
             }
         }
         /// <summary>
         /// Available shell types
         /// </summary>
-        private ObservableCollection<SculptureType> sculptureTypes;
+        private ObservableCollection<SculptureType> _sculptureTypes;
 
         /// <summary>
         /// Available shell types
         /// </summary>
         public ObservableCollection<SculptureType> SculptureTypes
         {
-            get { return sculptureTypes; }
+            get { return _sculptureTypes; }
             set
             {
-                sculptureTypes = value;
+                _sculptureTypes = value;
                 OnPropertyChanged("SculptureTypes");
             }
         }
@@ -200,7 +200,7 @@ namespace MolluskRecognition.Presenters
         /// <summary>
         /// Command to save all
         /// </summary>
-        private ICommand saveCommand;
+        private ICommand _saveCommand;
 
         /// <summary>
         /// Command to save all
@@ -209,22 +209,22 @@ namespace MolluskRecognition.Presenters
         {
             get
             {
-                if (saveCommand == null)
+                if (_saveCommand == null)
                 {
-                    saveCommand = new RelayCommand(x => Save(), x => CanSave());
+                    _saveCommand = new RelayCommand(x => Save(), x => CanSave());
                 }
-                return saveCommand;
+                return _saveCommand;
             }
             set
             {
-                saveCommand = value;
+                _saveCommand = value;
             }
         }
 
         /// <summary>
         /// Command to cancel
         /// </summary>
-        private ICommand cancelCommand;
+        private ICommand _cancelCommand;
 
         /// <summary>
         /// Command to cancel
@@ -233,22 +233,22 @@ namespace MolluskRecognition.Presenters
         {
             get
             {
-                if (cancelCommand == null)
+                if (_cancelCommand == null)
                 {
-                    cancelCommand = new RelayCommand(x => Cancel(), x => CanCancel());
+                    _cancelCommand = new RelayCommand(x => Cancel(), x => CanCancel());
                 }
-                return cancelCommand;
+                return _cancelCommand;
             }
             set
             {
-                cancelCommand = value;
+                _cancelCommand = value;
             }
         }
 
         /// <summary>
         /// Command to edit locations
         /// </summary>
-        private ICommand editLocationCommand;
+        private ICommand _editLocationCommand;
 
         /// <summary>
         /// Command to edit locations
@@ -257,15 +257,15 @@ namespace MolluskRecognition.Presenters
         {
             get
             {
-                if (editLocationCommand == null)
+                if (_editLocationCommand == null)
                 {
-                    editLocationCommand = new RelayCommand(x => EditLocation(), x => CanEditLocation());
+                    _editLocationCommand = new RelayCommand(x => EditLocation(), x => CanEditLocation());
                 }
-                return editLocationCommand;
+                return _editLocationCommand;
             }
             set
             {
-                editLocationCommand = value;
+                _editLocationCommand = value;
             }
         }
 
@@ -273,7 +273,7 @@ namespace MolluskRecognition.Presenters
         /// <summary>
         /// Command to edit cuts
         /// </summary>
-        private ICommand editCutsCommand;
+        private ICommand _editCutsCommand;
 
         /// <summary>
         /// Command to edit cuts
@@ -282,22 +282,22 @@ namespace MolluskRecognition.Presenters
         {
             get
             {
-                if (editCutsCommand == null)
+                if (_editCutsCommand == null)
                 {
-                    editCutsCommand = new RelayCommand(x => EditCuts(), x => CanEditCuts());
+                    _editCutsCommand = new RelayCommand(x => EditCuts(), x => CanEditCuts());
                 }
-                return editCutsCommand;
+                return _editCutsCommand;
             }
             set
             {
-                editCutsCommand = value;
+                _editCutsCommand = value;
             }
         }
 
         /// <summary>
         /// Command to edit samples
         /// </summary>
-        private ICommand editSamplesCommand;
+        private ICommand _editSamplesCommand;
 
         /// <summary>
         /// Command to edit samples
@@ -306,21 +306,21 @@ namespace MolluskRecognition.Presenters
         {
             get
             {
-                if (editSamplesCommand == null)
+                if (_editSamplesCommand == null)
                 {
-                    editSamplesCommand = new RelayCommand(x => EditSamples(), x => CanEditSamples());
+                    _editSamplesCommand = new RelayCommand(x => EditSamples(), x => CanEditSamples());
                 }
-                return editSamplesCommand;
+                return _editSamplesCommand;
             }
             set
             {
-                editSamplesCommand = value;
+                _editSamplesCommand = value;
             }
         }
         /// <summary>
         /// Command to add new species
         /// </summary>
-        private ICommand addNewSpeciesCommand;
+        private ICommand _addNewSpeciesCommand;
 
         /// <summary>
         /// Command to add new species
@@ -329,15 +329,15 @@ namespace MolluskRecognition.Presenters
         {
             get
             {
-                if (addNewSpeciesCommand == null)
+                if (_addNewSpeciesCommand == null)
                 {
-                    addNewSpeciesCommand = new RelayCommand(x => AddNewSpecies(), x => CanAddNewSpecies());
+                    _addNewSpeciesCommand = new RelayCommand(x => AddNewSpecies(), x => CanAddNewSpecies());
                 }
-                return addNewSpeciesCommand;
+                return _addNewSpeciesCommand;
             }
             set
             {
-                addNewSpeciesCommand = value;
+                _addNewSpeciesCommand = value;
             }
         }
 
@@ -345,7 +345,7 @@ namespace MolluskRecognition.Presenters
         /// <summary>
         /// Command to add new genus
         /// </summary>
-        private ICommand addNewGenusCommand;
+        private ICommand _addNewGenusCommand;
 
         /// <summary>
         /// Command to add new genus
@@ -354,15 +354,15 @@ namespace MolluskRecognition.Presenters
         {
             get
             {
-                if (addNewGenusCommand == null)
+                if (_addNewGenusCommand == null)
                 {
-                    addNewGenusCommand = new RelayCommand(x => AddNewGenus(), x => CanAddNewGenus());
+                    _addNewGenusCommand = new RelayCommand(x => AddNewGenus(), x => CanAddNewGenus());
                 }
-                return addNewGenusCommand;
+                return _addNewGenusCommand;
             }
             set
             {
-                addNewGenusCommand = value;
+                _addNewGenusCommand = value;
             }
         }
 
@@ -374,8 +374,8 @@ namespace MolluskRecognition.Presenters
         /// </summary>
         private void AddNewSpecies()
         {
-            IAddNewSpeciesView speciesView = mainView.GetAddNewSpeciesView();
-            AddNewSpeciesPresenter speciesPresenter = new AddNewSpeciesPresenter(speciesView, view.GetWindowHandler(), SelectedGenus);
+            IAddNewSpeciesView speciesView = _mainView.GetAddNewSpeciesView();
+            AddNewSpeciesPresenter speciesPresenter = new AddNewSpeciesPresenter(speciesView, _view.GetWindowHandler(), SelectedGenus);
             speciesPresenter.Activate();
             Species newSpecies = speciesPresenter.GetSpecies();
             if (newSpecies != null)
@@ -408,8 +408,8 @@ namespace MolluskRecognition.Presenters
         /// </summary>
         private void AddNewGenus()
         {
-            IAddGenusView genusView = mainView.GetAddGenusView();
-            AddNewGenusPresenter genusPresenter = new AddNewGenusPresenter(genusView, view.GetWindowHandler());
+            IAddGenusView genusView = _mainView.GetAddGenusView();
+            AddNewGenusPresenter genusPresenter = new AddNewGenusPresenter(genusView, _view.GetWindowHandler());
             genusPresenter.Activate();
             Genus newGenus = genusPresenter.GetGenus();
             if(newGenus!= null)
@@ -433,7 +433,7 @@ namespace MolluskRecognition.Presenters
         /// </summary>
         private void EditSamples()
         {
-            EditSamplesPresenter cutsPresenter = new EditSamplesPresenter(mainView.GetEditSamplesView(), view.GetWindowHandler(), SelectedSpecies);
+            EditSamplesPresenter cutsPresenter = new EditSamplesPresenter(_mainView.GetEditSamplesView(), _view.GetWindowHandler(), SelectedSpecies);
             cutsPresenter.Activate();
             var newSamples = cutsPresenter.GetSamples();
             if (newSamples != null)
@@ -456,7 +456,7 @@ namespace MolluskRecognition.Presenters
         /// </summary>
         private void EditCuts()
         {
-            EditCutsPresenter cutsPresenter = new EditCutsPresenter(mainView.GetEditCutsView(), view.GetWindowHandler(), SelectedSpecies);
+            EditCutsPresenter cutsPresenter = new EditCutsPresenter(_mainView.GetEditCutsView(), _view.GetWindowHandler(), SelectedSpecies);
             cutsPresenter.Activate();
             var newSections = cutsPresenter.GetSections();
             if (newSections != null)
@@ -480,7 +480,7 @@ namespace MolluskRecognition.Presenters
         /// </summary>
         private void EditLocation()
         {
-            EditLocationsPresenter locationPresenter = new EditLocationsPresenter(mainView.GetEditLocationsView(), view.GetWindowHandler(), SelectedSpecies);
+            EditLocationsPresenter locationPresenter = new EditLocationsPresenter(_mainView.GetEditLocationsView(), _view.GetWindowHandler(), SelectedSpecies);
             locationPresenter.Activate();
             var newLocations = locationPresenter.GetLocations();
             if(newLocations != null)

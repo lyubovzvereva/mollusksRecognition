@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
-using MolluskRecognition.DataModels;
+using MolluskRecognition.DAL.DataModels;
 using Microsoft.Win32;
 using System.Windows.Media.Imaging;
 using System;
@@ -19,14 +19,14 @@ namespace MolluskRecognition
         /// <summary>
         /// Список признаков
         /// </summary>
-        private List<Feature> features;
+        private List<Feature> _features;
 
         /// <summary>
         /// Конструктор
         /// </summary>
         public SearchWindow(List<Feature> features)
         {
-            this.features = features;
+            this._features = features;
             InitializeComponent();
             FillFeaturesList(features, 0);
         }
@@ -77,13 +77,13 @@ namespace MolluskRecognition
         /// </summary>
         private void loadImageButton_Click(object sender, RoutedEventArgs e)
         {
-            OpenFileDialog open_dialog = new OpenFileDialog();
-            bool? result = open_dialog.ShowDialog();
+            OpenFileDialog openDialog = new OpenFileDialog();
+            bool? result = openDialog.ShowDialog();
             if (result == true)
             {
                 try
                 {
-                    BitmapImage myBitmapImage = new BitmapImage(new Uri(open_dialog.FileName, UriKind.Absolute));
+                    BitmapImage myBitmapImage = new BitmapImage(new Uri(openDialog.FileName, UriKind.Absolute));
 
                     //convert to grayscale
 

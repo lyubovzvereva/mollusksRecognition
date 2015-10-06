@@ -1,6 +1,6 @@
 ﻿using Microsoft.Win32;
 using MolluskRecognition.Commands;
-using MolluskRecognition.DataModels;
+using MolluskRecognition.DAL.DataModels;
 using MolluskRecognition.Views;
 using System;
 using System.Collections.Generic;
@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Windows;
 using System.Windows.Input;
+using MolluskRecognition.DAL;
 
 namespace MolluskRecognition.Presenters
 {
@@ -24,34 +25,37 @@ namespace MolluskRecognition.Presenters
         /// <summary>
         /// Edit locations view
         /// </summary>
-        private IEditLocationsView view;
+        private readonly IEditLocationsView _view;
 
         /// <summary>
         /// Handler of parent window
         /// </summary>
-        private Window windowHandler;
+        private readonly Window _windowHandler;
 
         /// <summary>
         /// If changed should be saved
         /// </summary>
-        private bool saved = false;
+        private bool _saved = false;
 
         /// <summary>
         /// Current species
         /// </summary>
-        private Species currentSpecies;
+        private readonly Species _currentSpecies;
+
+        private readonly ISettingsProvider _settingsProvider;
 
         /// <summary>
         /// Constructor
         /// </summary>
         /// <param name="view"></param>
         /// <param name="windowHandler"></param>
-        public EditLocationsPresenter(IEditLocationsView view, Window windowHandler, Species currentSpecies)
+        public EditLocationsPresenter(IEditLocationsView view, Window windowHandler, Species currentSpecies, ISettingsProvider settingsProvider)
         {
-            this.view = view;
-            this.windowHandler = windowHandler;
-            this.currentSpecies = currentSpecies;
-            saved = false;
+            this._view = view;
+            this._windowHandler = windowHandler;
+            this._currentSpecies = currentSpecies;
+            _settingsProvider = settingsProvider;
+            _saved = false;
         }
 
         /// <summary>
@@ -59,9 +63,9 @@ namespace MolluskRecognition.Presenters
         /// </summary>
         public void Activate()
         {
-            Locations = new ObservableCollection<Location>(currentSpecies.Locations);
-            view.SetDataContext(this);
-            view.Activate(windowHandler);
+            Locations = new ObservableCollection<Location>(_currentSpecies.Locations);
+            _view.SetDataContext(this);
+            _view.Activate(_windowHandler);
         }
 
         /// <summary>
@@ -69,24 +73,24 @@ namespace MolluskRecognition.Presenters
         /// </summary>
         public void Deactivate()
         {
-            view.Deactivate();
+            _view.Deactivate();
         }
         #region bindings
         #region fields bindings
         /// <summary>
         /// Selected genus
         /// </summary>
-        private ObservableCollection<Location> locations;
+        private ObservableCollection<Location> _locations;
 
         /// <summary>
         /// Selected genus
         /// </summary>
         public ObservableCollection<Location> Locations
         {
-            get { return locations; }
+            get { return _locations; }
             set
             {
-                locations = value;
+                _locations = value;
                 OnPropertyChanged("Locations");
             }
         }
@@ -94,17 +98,17 @@ namespace MolluskRecognition.Presenters
         /// <summary>
         /// Selected location
         /// </summary>
-        private Location selectedLocation;
+        private Location _selectedLocation;
 
         /// <summary>
         /// Selected location
         /// </summary>
         public Location SelectedLocation
         {
-            get { return selectedLocation; }
+            get { return _selectedLocation; }
             set
             {
-                selectedLocation = value;
+                _selectedLocation = value;
                 OnPropertyChanged("SelectedLocation");
             }
         }
@@ -115,7 +119,7 @@ namespace MolluskRecognition.Presenters
         /// <summary>
         /// Command to save all
         /// </summary>
-        private ICommand saveCommand;
+        private ICommand _saveCommand;
 
         /// <summary>
         /// Command to save all
@@ -124,22 +128,22 @@ namespace MolluskRecognition.Presenters
         {
             get
             {
-                if (saveCommand == null)
+                if (_saveCommand == null)
                 {
-                    saveCommand = new RelayCommand(x => Save(), x => CanSave());
+                    _saveCommand = new RelayCommand(x => Save(), x => CanSave());
                 }
-                return saveCommand;
+                return _saveCommand;
             }
             set
             {
-                saveCommand = value;
+                _saveCommand = value;
             }
         }
 
         /// <summary>
         /// Command to cancel
         /// </summary>
-        private ICommand cancelCommand;
+        private ICommand _cancelCommand;
 
         /// <summary>
         /// Command to cancel
@@ -148,22 +152,22 @@ namespace MolluskRecognition.Presenters
         {
             get
             {
-                if (cancelCommand == null)
+                if (_cancelCommand == null)
                 {
-                    cancelCommand = new RelayCommand(x => Cancel(), x => CanCancel());
+                    _cancelCommand = new RelayCommand(x => Cancel(), x => CanCancel());
                 }
-                return cancelCommand;
+                return _cancelCommand;
             }
             set
             {
-                cancelCommand = value;
+                _cancelCommand = value;
             }
         }
 
         /// <summary>
         /// Command to add new image
         /// </summary>
-        private ICommand addCommand;
+        private ICommand _addCommand;
 
         /// <summary>
         /// Command to add new image
@@ -172,22 +176,22 @@ namespace MolluskRecognition.Presenters
         {
             get
             {
-                if (addCommand == null)
+                if (_addCommand == null)
                 {
-                    addCommand = new RelayCommand(x => AddLocation(), x => CanAddLocation());
+                    _addCommand = new RelayCommand(x => AddLocation(), x => CanAddLocation());
                 }
-                return addCommand;
+                return _addCommand;
             }
             set
             {
-                addCommand = value;
+                _addCommand = value;
             }
         }
 
         /// <summary>
         /// Command to delete selected image
         /// </summary>
-        private ICommand deleteCommand;
+        private ICommand _deleteCommand;
 
         /// <summary>
         /// Command to delete selected image
@@ -196,15 +200,15 @@ namespace MolluskRecognition.Presenters
         {
             get
             {
-                if (deleteCommand == null)
+                if (_deleteCommand == null)
                 {
-                    deleteCommand = new RelayCommand(x => DeleteLocation(), x => CanDeleteLocation());
+                    _deleteCommand = new RelayCommand(x => DeleteLocation(), x => CanDeleteLocation());
                 }
-                return deleteCommand;
+                return _deleteCommand;
             }
             set
             {
-                deleteCommand = value;
+                _deleteCommand = value;
             }
         }
 
@@ -230,16 +234,16 @@ namespace MolluskRecognition.Presenters
                 foreach(string file in dialog.FileNames)
                 {
                     string ext = Path.GetExtension(file);
-                    string newFileName = string.Format(Properties.Resources.LocationFileNamePattern, Properties.Settings.Default.LocationIndex, ext);
-                    while(File.Exists(Path.Combine(Properties.Settings.Default.LocationsImagesLocation, newFileName)))
+                    string newFileName = string.Format(Properties.Resources.LocationFileNamePattern, _settingsProvider.LocationIndex, ext);
+                    while(File.Exists(Path.Combine(_settingsProvider.LocationsImagesLocation, newFileName)))
                     {
-                        Properties.Settings.Default.LocationIndex = Properties.Settings.Default.LocationIndex +1;
-                        newFileName = string.Format(Properties.Resources.LocationFileNamePattern, Properties.Settings.Default.LocationIndex,ext);
+                        _settingsProvider.LocationIndex = _settingsProvider.LocationIndex +1;
+                        newFileName = string.Format(Properties.Resources.LocationFileNamePattern, _settingsProvider.LocationIndex,ext);
                     }
-                    File.Copy(file, Path.Combine(Properties.Settings.Default.LocationsImagesLocation, newFileName));
-                    Properties.Settings.Default.LocationIndex = Properties.Settings.Default.LocationIndex + 1;
-                    Properties.Settings.Default.Save();
-                    Locations.Add(new Location { FileName = newFileName });
+                    File.Copy(file, Path.Combine(_settingsProvider.LocationsImagesLocation, newFileName));
+                    _settingsProvider.LocationIndex = _settingsProvider.LocationIndex + 1;
+                    _settingsProvider.Save();
+                    Locations.Add(new Location(_settingsProvider) { FileName = newFileName });
                 }
             }
         }
@@ -297,7 +301,7 @@ namespace MolluskRecognition.Presenters
         private void Save()
         {
             MessageBox.Show("Saved");
-            saved = true;
+            _saved = true;
             this.Deactivate();
         }
 
@@ -325,9 +329,9 @@ namespace MolluskRecognition.Presenters
         /// null if not saved
         /// </summary>
         /// <returns></returns>
-        public List<DataModels.Location> GetLocations()
+        public List<Location> GetLocations()
         {
-            return saved ? locations.ToList() : null;
+            return _saved ? _locations.ToList() : null;
         }
 
     }

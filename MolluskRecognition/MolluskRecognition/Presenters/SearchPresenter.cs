@@ -12,20 +12,20 @@ namespace MolluskRecognition.Presenters
         /// <summary>
         /// Search window
         /// </summary>
-        private ISearchView view;
+        private readonly ISearchView _view;
 
         /// <summary>
         /// Handler of the main window
         /// </summary>
-        private Window windowHandler;
+        private readonly Window _windowHandler;
 
         /// <summary>
         /// Constructor
         /// </summary>
         public SearchPresenter(ISearchView view, Window windowHandler)
         {
-            this.view = view;
-            this.windowHandler = windowHandler;
+            this._view = view;
+            this._windowHandler = windowHandler;
         }
 
         /// <summary>
@@ -33,8 +33,8 @@ namespace MolluskRecognition.Presenters
         /// </summary>
         public void Activate()
         {
-            view.SetDataContext(this);
-            view.Activate(windowHandler);
+            _view.SetDataContext(this);
+            _view.Activate(_windowHandler);
         }
 
         /// <summary>
@@ -42,7 +42,7 @@ namespace MolluskRecognition.Presenters
         /// </summary>
         public void Deactivate()
         {
-            view.Deactivate();
+            _view.Deactivate();
         }
     }
 }

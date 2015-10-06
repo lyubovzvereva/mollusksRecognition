@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Windows;
-using MolluskRecognition.DataModels;
+using MolluskRecognition.DAL.DataModels;
 using MolluskRecognition.Views;
 using MolluskRecognition.Presenters;
 
@@ -30,7 +30,7 @@ namespace MolluskRecognition
         /// <summary>
         /// Activate view
         /// </summary>
-        public new void Activate(Window owner)
+        public void Activate(Window owner)
         {
             this.ShowDialog();
         }

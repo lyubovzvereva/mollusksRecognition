@@ -1,8 +1,8 @@
 ﻿<Window x:Class="MolluskRecognition.StartWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:Properties="clr-namespace:MolluskRecognition.Properties" 
-        Title="{x:Static Properties:Resources.StartWindowTitle}"
+        xmlns:properties="clr-namespace:MolluskRecognition.Properties" 
+        Title="{x:Static properties:Resources.StartWindowTitle}"
         Height="349"
         Width="348"
         WindowStartupLocation="CenterScreen"
@@ -30,17 +30,17 @@
         <Button Grid.Row="0"
                 Name="CatalogButton"
                 Margin="20" 
-                Content="{x:Static Properties:Resources.CatalogButtonText}"
+                Content="{x:Static properties:Resources.CatalogButtonText}"
                 Command="{Binding ShowCatalogCommand}"/>
         <Button Grid.Row="1"
                 Name="SearchButton"
                 Margin="20" 
-                Content="{x:Static Properties:Resources.SearchButtonText}" 
+                Content="{x:Static properties:Resources.SearchButtonText}" 
                 Command="{Binding SearchCommand}" />
         <Button Grid.Row="2" 
                 Name="MapButton"
                 Margin="20" 
-                Content="{x:Static Properties:Resources.MapButtonText}" 
+                Content="{x:Static properties:Resources.MapButtonText}" 
                 Command="{Binding ShowMapCommand}" />
     </Grid>
 </Window>

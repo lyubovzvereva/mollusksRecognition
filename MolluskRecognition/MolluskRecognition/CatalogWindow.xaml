@@ -1,11 +1,11 @@
 ﻿<Window x:Class="MolluskRecognition.CatalogWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:Properties="clr-namespace:MolluskRecognition.Properties"
+        xmlns:properties="clr-namespace:MolluskRecognition.Properties"
         xmlns:d ="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="{x:Static Properties:Resources.AddNewElementTitle}"
+        Title="{x:Static properties:Resources.AddNewElementTitle}"
         d:DesignWidth="1000"
         d:DesignHeight ="1000"
         MinWidth="900" 
@@ -57,7 +57,7 @@
             </Grid.ColumnDefinitions>
             <GroupBox Grid.Row="0"
                   Grid.ColumnSpan="2"
-                  Header="{x:Static Properties:Resources.SpeciesAndGenusHeader}">
+                  Header="{x:Static properties:Resources.SpeciesAndGenusHeader}">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition/>
@@ -116,13 +116,13 @@
 
                     <TextBlock Grid.Row="0"
                            Grid.Column="3"
-                           Text="{x:Static Properties:Resources.AuthorLabel}"/>
+                           Text="{x:Static properties:Resources.AuthorLabel}"/>
                     <TextBlock Grid.Row="0"
                            Grid.Column="4"
                            Text="{Binding SelectedGenus.Author}"/>
                     <TextBlock Grid.Row="0"
                            Grid.Column="5"
-                           Text="{x:Static Properties:Resources.YearLabel}"/>
+                           Text="{x:Static properties:Resources.YearLabel}"/>
                     <TextBlock Grid.Row="0"
                                Grid.Column="6"
                                Text="{Binding SelectedGenus.Year}"/>
@@ -130,19 +130,19 @@
 
                     <TextBlock Grid.Row="1"
                            Grid.Column="3"
-                           Text="{x:Static Properties:Resources.AuthorLabel}"/>
+                           Text="{x:Static properties:Resources.AuthorLabel}"/>
                     <TextBlock Grid.Row="1"
                            Grid.Column="4"
                            Text="{Binding SelectedSpecies.Author}"/>
                     <TextBlock Grid.Row="1"
                            Grid.Column="5"
-                           Text="{x:Static Properties:Resources.YearLabel}"/>
+                           Text="{x:Static properties:Resources.YearLabel}"/>
                     <TextBlock Grid.Row="1"
                            Grid.Column="6"
                            Text="{Binding SelectedSpecies.Year}"/>
                     <TextBlock Grid.Row="1"
                            Grid.Column="7"
-                           Text="{x:Static Properties:Resources.AgeLabel}"/>
+                           Text="{x:Static properties:Resources.AgeLabel}"/>
                     <TextBlock Grid.Row="1"
                            Grid.Column="8"
                            Text="{Binding SelectedSpecies.Age}"/>
@@ -229,7 +229,7 @@
             </GroupBox>-->
 
             <GroupBox Grid.Row="3"
-                  Header="{x:Static Properties:Resources.CommonHaracteristicsHeader}">
+                  Header="{x:Static properties:Resources.CommonHaracteristicsHeader}">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition/>
@@ -242,7 +242,7 @@
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Row="0"
                          Grid.Column="0"
-                         Text="{x:Static Properties:Resources.Sculpture}"
+                         Text="{x:Static properties:Resources.Sculpture}"
                          />
                     <ComboBox Grid.Row="0"
                               Grid.Column="1"
@@ -251,7 +251,7 @@
 
                     <TextBlock Grid.Row="1"
                                Grid.Column="0"
-                               Text="{x:Static Properties:Resources.InitialShellTypeLabel}"
+                               Text="{x:Static properties:Resources.InitialShellTypeLabel}"
                                />
                     <ComboBox Grid.Row="1"
                               Grid.Column="1"
@@ -265,7 +265,7 @@
 
             <GroupBox Grid.Row="2"
                   Grid.ColumnSpan="2"
-                  Header="{x:Static Properties:Resources.DetailDescriptionHeader}">
+                  Header="{x:Static properties:Resources.DetailDescriptionHeader}">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition/>
@@ -285,70 +285,70 @@
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Row="0"
                        Grid.Column="0"
-                       Text="{x:Static Properties:Resources.SynonymyLabel}"/>
+                       Text="{x:Static properties:Resources.SynonymyLabel}"/>
                     <TextBox Grid.Row="0"
                      Grid.Column="1"
                      Text="{Binding SelectedSpecies.Synonymy}"/>
 
                     <TextBlock Grid.Row="1"
                            Grid.Column="0"
-                           Text="{x:Static Properties:Resources.ShellLabel}"/>
+                           Text="{x:Static properties:Resources.ShellLabel}"/>
                     <TextBox Grid.Row="1"
                          Grid.Column="1"
                          Text="{Binding SelectedSpecies.Shell}"/>
 
                     <TextBlock Grid.Row="2"
                            Grid.Column="0"
-                           Text="{x:Static Properties:Resources.InitialShellTypeLabel}"/>
+                           Text="{x:Static properties:Resources.InitialShellTypeLabel}"/>
                     <TextBox Grid.Row="2"
                          Grid.Column="1"
                          Text="{Binding SelectedSpecies.InitialShellTypeDescription}"/>
 
                     <TextBlock Grid.Row="3"
                            Grid.Column="0"
-                           Text="{x:Static Properties:Resources.SpotsLabel}"/>
+                           Text="{x:Static properties:Resources.SpotsLabel}"/>
                     <TextBox Grid.Row="3"
                          Grid.Column="1"
                          Text="{Binding SelectedSpecies.Umbones}"/>
 
                     <TextBlock Grid.Row="4"
                            Grid.Column="0"
-                           Text="{x:Static Properties:Resources.ZamochniyEdge}"/>
+                           Text="{x:Static properties:Resources.ZamochniyEdge}"/>
                     <TextBox Grid.Row="4"
                          Grid.Column="1"
                          Text="{Binding SelectedSpecies.DorsalMargin}"/>
 
                     <TextBlock Grid.Row="5"
                            Grid.Column="0"
-                           Text="{x:Static Properties:Resources.FrontEndLabel}"/>
+                           Text="{x:Static properties:Resources.FrontEndLabel}"/>
                     <TextBox Grid.Row="5"
                          Grid.Column="1"
                          Text="{Binding SelectedSpecies.FrontEnd}"/>
 
                     <TextBlock Grid.Row="6"
                            Grid.Column="0"
-                           Text="{x:Static Properties:Resources.BackEndLabel}"/>
+                           Text="{x:Static properties:Resources.BackEndLabel}"/>
                     <TextBox Grid.Row="6"
                          Grid.Column="1"
                          Text="{Binding SelectedSpecies.PosteriorEnd}"/>
 
                     <TextBlock Grid.Row="7"
                            Grid.Column="0"
-                           Text="{x:Static Properties:Resources.BrushnoyEdgeLabel}"/>
+                           Text="{x:Static properties:Resources.BrushnoyEdgeLabel}"/>
                     <TextBox Grid.Row="7"
                          Grid.Column="1"
                          Text="{Binding SelectedSpecies.VentralMargin}"/>
 
                     <TextBlock Grid.Row="8"
                            Grid.Column="0"
-                           Text="{x:Static Properties:Resources.Sculpture}"/>
+                           Text="{x:Static properties:Resources.Sculpture}"/>
                     <TextBox Grid.Row="8"
                          Grid.Column="1"
                          Text="{Binding SelectedSpecies.Sculpture}"/>
 
                     <TextBlock Grid.Row="9"
                            Grid.Column="0"
-                           Text="{x:Static Properties:Resources.CompareLabel}"/>
+                           Text="{x:Static properties:Resources.CompareLabel}"/>
                     <TextBox Grid.Row="9"
                          Grid.Column="1"
                          Text="{Binding SelectedSpecies.Comparison}"/>
@@ -384,8 +384,8 @@
 
             <GroupBox Grid.Row="3"
                   Grid.Column="1"
-                  Header="{x:Static Properties:Resources.LocationHeader}">
-                <Button Content="{x:Static Properties:Resources.EditButtonText}"
+                  Header="{x:Static properties:Resources.LocationHeader}">
+                <Button Content="{x:Static properties:Resources.EditButtonText}"
                         HorizontalAlignment="Left"
                         Margin="5"
                         Padding="5"
@@ -398,8 +398,8 @@
                   BorderThickness="2"
                   Margin="5"
                   Padding="5"
-                  Header="{x:Static Properties:Resources.CutsHeader}">
-                <Button Content="{x:Static Properties:Resources.EditButtonText}"
+                  Header="{x:Static properties:Resources.CutsHeader}">
+                <Button Content="{x:Static properties:Resources.EditButtonText}"
                         HorizontalAlignment="Left"
                         Margin="5"
                         Padding="5"
@@ -412,8 +412,8 @@
                   BorderThickness="2"
                   Margin="2"
                   Padding="5"
-                  Header="{x:Static Properties:Resources.SamplesHeader}">
-                <Button Content="{x:Static Properties:Resources.EditButtonText}"
+                  Header="{x:Static properties:Resources.SamplesHeader}">
+                <Button Content="{x:Static properties:Resources.EditButtonText}"
                         HorizontalAlignment="Left"
                         Margin="5"
                         Padding="5"
@@ -425,13 +425,13 @@
                         Orientation="Horizontal"
                         VerticalAlignment="Bottom"
                         HorizontalAlignment="Right">
-                <Button Content="{x:Static Properties:Resources.SaveButtonText}"
+                <Button Content="{x:Static properties:Resources.SaveButtonText}"
                         HorizontalAlignment="Left"
                         Margin="5"
                         Padding="5"
                         MinWidth="100"
                         Command="{Binding SaveCommand}"/>
-                <Button Content="{x:Static Properties:Resources.CancelButtonText}"
+                <Button Content="{x:Static properties:Resources.CancelButtonText}"
                         HorizontalAlignment="Left"
                         Margin="5"
                         Padding="5"
