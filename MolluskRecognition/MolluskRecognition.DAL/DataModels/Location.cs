@@ -9,23 +9,24 @@ namespace MolluskRecognition.DAL.DataModels
     /// </summary>
     public class Location
     {
-        private readonly ISettingsProvider _settingsProvider;
-        public Location(ISettingsProvider settingsProvider)
+        private readonly string _imagesLocation;
+        public Location(string imagesLocation, string fileName)
         {
-            this._settingsProvider = settingsProvider;
+            this._imagesLocation = imagesLocation;
+            FileName = fileName;
         }
 
         /// <summary>
         /// Name of the file with location
         /// </summary>
-        public string FileName { get; set; }
+        public string FileName { get; private set; }
 
         /// <summary>
         /// Uri to file which combines from settings and fileName
         /// </summary>
         public Uri UriSource
         {
-            get { return new Uri(Path.Combine(_settingsProvider.LocationsImagesLocation, FileName)); }
+            get { return new Uri(Path.Combine(_imagesLocation, FileName)); }
         }
     }
 }

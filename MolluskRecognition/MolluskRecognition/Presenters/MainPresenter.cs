@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows.Input;
+using MolluskRecognition.DAL;
 
 namespace MolluskRecognition.Presenters
 {
@@ -33,12 +34,15 @@ namespace MolluskRecognition.Presenters
         /// </summary>
         private ICatalogView _catalogView;
 
+        private readonly ISettingsProvider _settingsProvider;
+
         /// <summary>
         /// Constructor
         /// </summary>
-        public MainPresenter(IStartView startView)
+        public MainPresenter(IStartView startView, ISettingsProvider settingsProvider)
         {
             this._mainView = startView;
+            this._settingsProvider = settingsProvider;
         }
 
         /// <summary>
@@ -180,7 +184,7 @@ namespace MolluskRecognition.Presenters
         /// </summary>
         private void ShowCatalog()
         {
-            _catalogPresenter = new CatalogPresenter(_mainView.GetCatalogView(), _mainView.GetWindowHandler(), _mainView);
+            _catalogPresenter = new CatalogPresenter(_mainView.GetCatalogView(), _mainView.GetWindowHandler(), _mainView, _settingsProvider);
             _catalogPresenter.Activate();
         }
         #endregion command bindings

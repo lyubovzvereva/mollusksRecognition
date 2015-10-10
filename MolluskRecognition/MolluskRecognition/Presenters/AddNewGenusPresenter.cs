@@ -48,7 +48,7 @@ namespace MolluskRecognition.Presenters
         /// </summary>
         public void Activate()
         {
-            Genus = new DataModels.Genus();
+            Genus = new Genus();
             _genusView.SetDataContext(this);
             _genusView.Activate(_windowHandler);
         }

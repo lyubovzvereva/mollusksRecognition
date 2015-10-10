@@ -9,6 +9,7 @@ using MolluskRecognition.DAL.DataModels;
 using System.ComponentModel;
 using System.Windows.Input;
 using MolluskRecognition.Commands;
+using MolluskRecognition.DAL;
 
 namespace MolluskRecognition.Presenters
 {
@@ -29,14 +30,17 @@ namespace MolluskRecognition.Presenters
         /// </summary>
         private readonly IStartView _mainView;
 
+        private readonly ISettingsProvider _settingsProvider;
+
         /// <summary>
         /// Constructor
         /// </summary>
-        public CatalogPresenter(ICatalogView view, Window windowHandler, IStartView mainView)
+        public CatalogPresenter(ICatalogView view, Window windowHandler, IStartView mainView, ISettingsProvider settingsProvider)
         {
             this._view = view;
             this._windowHandler = windowHandler;
             this._mainView = mainView;
+            this._settingsProvider = settingsProvider;
         }
 
         /// <summary>
@@ -44,6 +48,7 @@ namespace MolluskRecognition.Presenters
         /// </summary>
         public void Activate()
         {
+            var imagesLocation = _settingsProvider.LocationsImagesLocation;
             Genuses = new ObservableCollection<Genus> {
                 new Genus { 
                     Author = "author name",
@@ -56,34 +61,20 @@ namespace MolluskRecognition.Presenters
                             Author = "some author",
                             Year = DateTime.Today.AddYears(-10),
                             Locations = new List<Location> { 
-                                new Location { 
-                                    FileName = "IMG_6686.jpg" },
-                                    new Location { 
-                                    FileName = "IMG_6686.jpg" },
-                                    new Location { 
-                                    FileName = "IMG_6686.jpg" },
-                                    new Location { 
-                                    FileName = "IMG_6686.jpg" },
-                                    new Location { 
-                                    FileName = "IMG_6686.jpg" },
-                                    new Location { 
-                                    FileName = "IMG_6580.jpg" },
-                                    new Location { 
-                                    FileName = "IMG_6686.jpg" },
-                                    new Location { 
-                                    FileName = "IMG_6580.jpg" },
-                                    new Location { 
-                                    FileName = "IMG_6686.jpg" },
-                                    new Location { 
-                                    FileName = "IMG_6686.jpg" },
-                                    new Location { 
-                                    FileName = "IMG_6686.jpg" },
-                                    new Location { 
-                                    FileName = "IMG_6580.jpg" },
-                                    new Location { 
-                                    FileName = "IMG_6686.jpg" },
-                                    new Location { 
-                                    FileName = "IMG_6686.jpg" }
+                                new Location(imagesLocation, "IMG_6686.jpg"),
+                                new Location(imagesLocation, "IMG_6686.jpg"),
+                                new Location(imagesLocation, "IMG_6686.jpg"),
+                                new Location(imagesLocation, "IMG_6686.jpg"),
+                                new Location(imagesLocation, "IMG_6686.jpg"),
+                                new Location(imagesLocation, "IMG_6580.jpg"),
+                                new Location(imagesLocation, "IMG_6686.jpg"),
+                                new Location(imagesLocation, "IMG_6580.jpg"),
+                                new Location(imagesLocation, "IMG_6686.jpg"),
+                                new Location(imagesLocation, "IMG_6686.jpg"),
+                                new Location(imagesLocation, "IMG_6686.jpg"),
+                                new Location(imagesLocation, "IMG_6580.jpg"),
+                                new Location(imagesLocation, "IMG_6686.jpg"),
+                                new Location(imagesLocation, "IMG_6686.jpg")
                             }
                         }
                     }
@@ -433,7 +424,7 @@ namespace MolluskRecognition.Presenters
         /// </summary>
         private void EditSamples()
         {
-            EditSamplesPresenter cutsPresenter = new EditSamplesPresenter(_mainView.GetEditSamplesView(), _view.GetWindowHandler(), SelectedSpecies);
+            EditSamplesPresenter cutsPresenter = new EditSamplesPresenter(_mainView.GetEditSamplesView(), _view.GetWindowHandler(), SelectedSpecies, _settingsProvider);
             cutsPresenter.Activate();
             var newSamples = cutsPresenter.GetSamples();
             if (newSamples != null)
@@ -456,7 +447,7 @@ namespace MolluskRecognition.Presenters
         /// </summary>
         private void EditCuts()
         {
-            EditCutsPresenter cutsPresenter = new EditCutsPresenter(_mainView.GetEditCutsView(), _view.GetWindowHandler(), SelectedSpecies);
+            EditCutsPresenter cutsPresenter = new EditCutsPresenter(_mainView.GetEditCutsView(), _view.GetWindowHandler(), SelectedSpecies, _settingsProvider);
             cutsPresenter.Activate();
             var newSections = cutsPresenter.GetSections();
             if (newSections != null)
@@ -480,7 +471,7 @@ namespace MolluskRecognition.Presenters
         /// </summary>
         private void EditLocation()
         {
-            EditLocationsPresenter locationPresenter = new EditLocationsPresenter(_mainView.GetEditLocationsView(), _view.GetWindowHandler(), SelectedSpecies);
+            EditLocationsPresenter locationPresenter = new EditLocationsPresenter(_mainView.GetEditLocationsView(), _view.GetWindowHandler(), SelectedSpecies, _settingsProvider);
             locationPresenter.Activate();
             var newLocations = locationPresenter.GetLocations();
             if(newLocations != null)
