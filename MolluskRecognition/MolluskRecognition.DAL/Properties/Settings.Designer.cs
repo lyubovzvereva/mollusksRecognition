@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MolluskRecognition.Properties {
+namespace MolluskRecognition.DAL.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -25,7 +25,7 @@ namespace MolluskRecognition.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Users\\Любовь\\Pictures\\print it")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string LocationsImagesLocation {
             get {
                 return ((string)(this["LocationsImagesLocation"]));

@@ -1,9 +1,9 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="MolluskRecognition.Properties" GeneratedClassName="Settings">
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="MolluskRecognition.DAL.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
     <Setting Name="LocationsImagesLocation" Type="System.String" Scope="User">
-      <Value Profile="(Default)">C:\Users\Любовь\Pictures\print it</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="LocationIndex" Type="System.Int64" Scope="User">
       <Value Profile="(Default)">0</Value>

@@ -1,13 +1,9 @@
 ﻿using MolluskRecognition.Presenters;
-using MolluskRecognition.Views;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
 using System.IO;
-using System.Linq;
 using System.Reflection;
-using System.Text;
 using MolluskRecognition.DAL;
 
 namespace MolluskRecognition
@@ -24,6 +20,17 @@ namespace MolluskRecognition
 
         private void Start()
         {
+            if (ComposeParts())
+            {
+                _settingsProvider.CheckRequiredFolders();
+                var mainView = new StartWindow();
+                var mainPresenter = new MainPresenter(mainView, _settingsProvider);
+                mainPresenter.Activate();
+            }
+        }
+
+        private bool ComposeParts()
+        {
             try
             {
                 var catalog = new AggregateCatalog();
@@ -37,15 +44,13 @@ namespace MolluskRecognition
                 var container = new CompositionContainer(catalog);
 
                 container.ComposeParts(this);
+
+                return true;
             }
             catch (CompositionException compositionException)
             {
-                throw;
+                return false;
             }
-
-            var mainView = new StartWindow();
-            var mainPresenter = new MainPresenter(mainView, _settingsProvider);
-            mainPresenter.Activate();
         }
     }
 }

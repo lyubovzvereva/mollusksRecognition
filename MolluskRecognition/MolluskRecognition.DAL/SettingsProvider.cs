@@ -1,5 +1,9 @@
-﻿using System.ComponentModel.Composition;
-using MolluskRecognition.Properties;
+﻿using System;
+using System.ComponentModel.Composition;
+using System.Configuration;
+using System.IO;
+using System.Reflection;
+using MolluskRecognition.DAL.Properties;
 
 namespace MolluskRecognition.DAL
 {
@@ -8,6 +12,7 @@ namespace MolluskRecognition.DAL
         string LocationsImagesLocation { get; set; }
         long LocationIndex { get; set; }
         void Save();
+        void CheckRequiredFolders();
     }
 
     [Export(typeof(ISettingsProvider))]
@@ -28,6 +33,23 @@ namespace MolluskRecognition.DAL
         public void Save()
         {
             Settings.Default.Save();
+        }
+
+        public void CheckRequiredFolders()
+        {
+            if (string.IsNullOrEmpty(LocationsImagesLocation))
+            {
+                var exePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+                if (exePath == null)
+                    throw new ConfigurationErrorsException("Cannot resolve executing file path");
+
+                LocationsImagesLocation = Path.Combine(exePath, "Pictures");
+
+                Save();
+            }
+
+            if (!Directory.Exists(LocationsImagesLocation))
+                Directory.CreateDirectory(LocationsImagesLocation);
         }
     }
 }
