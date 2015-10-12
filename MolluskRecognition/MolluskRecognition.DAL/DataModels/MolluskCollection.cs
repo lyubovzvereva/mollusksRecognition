@@ -1,10 +1,16 @@
-﻿namespace MolluskRecognition.DAL.DataModels
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace MolluskRecognition.DAL.DataModels
 {
     /// <summary>
     /// Class for describing location in collection
     /// </summary>
-    public class Collection
+    public class MolluskCollection
     {
+
+        [Key]
+        public int Id { get; set; }
+
         /// <summary>
         /// Number of collection
         /// </summary>

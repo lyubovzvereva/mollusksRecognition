@@ -174,7 +174,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MolluskRecognition.DAL\MolluskRecognition.DAL.csproj">
-      <Project>{6cc94e5f-406d-4738-be45-c12a48db287c}</Project>
+      <Project>{56ed76ca-6818-4d88-9b0f-84b460d64d49}</Project>
       <Name>MolluskRecognition.DAL</Name>
     </ProjectReference>
   </ItemGroup>

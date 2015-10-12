@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace MolluskRecognition.DAL.DataModels
 {
@@ -14,8 +15,10 @@ namespace MolluskRecognition.DAL.DataModels
         public Species()
         {
             Year = DateTime.Today;
-            Locations = new List<Location>();
         }
+
+        [Key]
+        public int Id { get; set; }
 
         /// <summary>
         /// Name of the species
@@ -100,17 +103,17 @@ namespace MolluskRecognition.DAL.DataModels
         /// <summary>
         /// List of locations
         /// </summary>
-        public List<Location> Locations { get; set; }
+        public virtual List<Location> Locations { get; set; }
 
         /// <summary>
         /// List of sections (срезы)
         /// </summary>
-        public List<Section> Sections { get; set; }
+        public virtual List<Section> Sections { get; set; }
 
         /// <summary>
         /// Mollusk samples
         /// </summary>
-        public List<Sample> Samples { get; set; }
+        public virtual List<Sample> Samples { get; set; }
 
         
     }

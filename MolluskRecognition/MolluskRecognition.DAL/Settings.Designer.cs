@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MolluskRecognition.DAL.Properties {
+namespace MolluskRecognition.DAL {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

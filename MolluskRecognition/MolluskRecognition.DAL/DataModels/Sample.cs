@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
 
 namespace MolluskRecognition.DAL.DataModels
@@ -13,6 +14,9 @@ namespace MolluskRecognition.DAL.DataModels
         {
             this._settingsProvider = settingsProvider;
         }
+
+        [Key]
+        public int Id { get; set; }
 
         /// <summary>
         /// Some description of the sample
@@ -62,7 +66,7 @@ namespace MolluskRecognition.DAL.DataModels
         /// <summary>
         /// Location in the collection
         /// </summary>
-        public Collection CollectionLocation { get; set; }
+        public virtual MolluskCollection CollectionLocation { get; set; }
 
         /// <summary>
         /// Path to the photo

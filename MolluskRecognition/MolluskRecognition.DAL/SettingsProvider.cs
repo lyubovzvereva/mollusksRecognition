@@ -3,10 +3,12 @@ using System.ComponentModel.Composition;
 using System.Configuration;
 using System.IO;
 using System.Reflection;
-using MolluskRecognition.DAL.Properties;
 
 namespace MolluskRecognition.DAL
 {
+    /// <summary>
+    /// Provider for configuration settings
+    /// </summary>
     public interface ISettingsProvider
     {
         string LocationsImagesLocation { get; set; }

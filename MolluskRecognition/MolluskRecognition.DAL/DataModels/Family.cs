@@ -1,11 +1,13 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace MolluskRecognition.DAL.DataModels
 {
     public class Family
     {
-        public int Id { get; private set; }
+        [Key]
+        public int Id { get; set; }
 
-        public String Name { get; private set; }
+        public string Name { get; set; }
     }
 }

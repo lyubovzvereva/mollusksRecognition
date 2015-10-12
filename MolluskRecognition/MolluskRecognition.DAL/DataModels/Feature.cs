@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace MolluskRecognition.DAL.DataModels
 {
@@ -7,6 +8,8 @@ namespace MolluskRecognition.DAL.DataModels
 	/// </summary>
 	public class Feature
 	{
+		[Key]
+		public int Id { get; set; }
 		/// <summary>
 		/// Название признака
 		/// </summary>
@@ -20,7 +23,7 @@ namespace MolluskRecognition.DAL.DataModels
 		/// <summary>
 		/// Список подпризнаков
 		/// </summary>
-		public List<Feature> SubFeatures { get; set; }
+		public virtual List<Feature> SubFeatures { get; set; }
 
 		/// <summary>
 		/// Конструктор по умолчанию

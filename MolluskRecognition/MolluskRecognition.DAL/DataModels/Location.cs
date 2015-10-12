@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
 
 namespace MolluskRecognition.DAL.DataModels
@@ -16,10 +17,13 @@ namespace MolluskRecognition.DAL.DataModels
             FileName = fileName;
         }
 
+        [Key]
+        public int Id { get; set; }
+
         /// <summary>
         /// Name of the file with location
         /// </summary>
-        public string FileName { get; private set; }
+        public string FileName { get; }
 
         /// <summary>
         /// Uri to file which combines from settings and fileName

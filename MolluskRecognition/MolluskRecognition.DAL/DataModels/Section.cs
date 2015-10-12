@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.IO;
 
 namespace MolluskRecognition.DAL.DataModels
@@ -13,6 +14,10 @@ namespace MolluskRecognition.DAL.DataModels
         {
             this._settingsProvider = settingsProvider;
         }
+
+
+        [Key]
+        public int Id { get; set; }
 
         /// <summary>
         /// Name of the file with section

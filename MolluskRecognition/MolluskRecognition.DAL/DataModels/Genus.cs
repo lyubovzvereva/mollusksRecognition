@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace MolluskRecognition.DAL.DataModels
 {
@@ -8,6 +9,9 @@ namespace MolluskRecognition.DAL.DataModels
     /// </summary>
     public class Genus
     {
+        [Key]
+        public int Id { get; set; }
+
         /// <summary>
         /// Name of the genus
         /// </summary>
@@ -26,7 +30,7 @@ namespace MolluskRecognition.DAL.DataModels
         /// <summary>
         /// Species of the genus
         /// </summary>
-        public List<Species> Species { get; set; }
+        public virtual List<Species> Species { get; set; }
 
         /// <summary>
         /// Default constructor
