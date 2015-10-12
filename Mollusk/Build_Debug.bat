@@ -1,0 +1,1 @@
+"%SystemRoot%\Microsoft.NET\Framework64\v4.0.30319\MSBuild.exe" Mollusk.sln /t:Build /p:Configuration=Debug /p:TargetFramework=v4.0
