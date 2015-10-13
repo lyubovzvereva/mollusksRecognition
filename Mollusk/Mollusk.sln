@@ -5,6 +5,10 @@ VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mollusk", "Mollusk\Mollusk.csproj", "{D0EAF9A4-ED3C-4E7A-8D3E-5E66F142E3D4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mollusk.Repository", "Code\Mollusk.Repository\Mollusk.Repository.csproj", "{5FF78F96-EB00-4A87-8D5C-DDA457094132}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mollusk.Db4oRepository", "Code\Mollusk.Db4oRepository\Mollusk.Db4oRepository.csproj", "{31070025-48EB-4205-A45A-EB4ED4F32462}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{D0EAF9A4-ED3C-4E7A-8D3E-5E66F142E3D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D0EAF9A4-ED3C-4E7A-8D3E-5E66F142E3D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D0EAF9A4-ED3C-4E7A-8D3E-5E66F142E3D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FF78F96-EB00-4A87-8D5C-DDA457094132}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FF78F96-EB00-4A87-8D5C-DDA457094132}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FF78F96-EB00-4A87-8D5C-DDA457094132}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FF78F96-EB00-4A87-8D5C-DDA457094132}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31070025-48EB-4205-A45A-EB4ED4F32462}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31070025-48EB-4205-A45A-EB4ED4F32462}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31070025-48EB-4205-A45A-EB4ED4F32462}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31070025-48EB-4205-A45A-EB4ED4F32462}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
