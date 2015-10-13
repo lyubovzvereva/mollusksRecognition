@@ -10,6 +10,7 @@ using System.ComponentModel;
 using System.Windows.Input;
 using MolluskRecognition.Commands;
 using MolluskRecognition.DAL;
+using MolluskRecognition.DAL.Queries;
 
 namespace MolluskRecognition.Presenters
 {
@@ -49,41 +50,28 @@ namespace MolluskRecognition.Presenters
         public void Activate()
         {
             var imagesLocation = _settingsProvider.LocationsImagesLocation;
-            Genuses = new ObservableCollection<Genus> {
-                new Genus { 
-                    Author = "author name",
-                    Name = "some genus name",
-                    Year = DateTime.Today,
-                    Species = new List<Species> {
-                        new Species {
-                            Name = "some species name",
-                            Age = "some age",
-                            Author = "some author",
-                            Year = DateTime.Today.AddYears(-10),
-                            Locations = new List<Location> { 
-                                new Location(imagesLocation, "IMG_6686.jpg"),
-                                new Location(imagesLocation, "IMG_6686.jpg"),
-                                new Location(imagesLocation, "IMG_6686.jpg"),
-                                new Location(imagesLocation, "IMG_6686.jpg"),
-                                new Location(imagesLocation, "IMG_6686.jpg"),
-                                new Location(imagesLocation, "IMG_6580.jpg"),
-                                new Location(imagesLocation, "IMG_6686.jpg"),
-                                new Location(imagesLocation, "IMG_6580.jpg"),
-                                new Location(imagesLocation, "IMG_6686.jpg"),
-                                new Location(imagesLocation, "IMG_6686.jpg"),
-                                new Location(imagesLocation, "IMG_6686.jpg"),
-                                new Location(imagesLocation, "IMG_6580.jpg"),
-                                new Location(imagesLocation, "IMG_6686.jpg"),
-                                new Location(imagesLocation, "IMG_6686.jpg")
-                            }
-                        }
-                    }
-                }
-            };
-            SculptureTypes = new ObservableCollection<SculptureType> { SculptureType.Concentric, SculptureType.Radial, SculptureType.RadialOrConcentric };
-            ShellTypes = new ObservableCollection<ShellType> { ShellType.A1, ShellType.A2, ShellType.B1, ShellType.B2, ShellType.G1, ShellType.G2, ShellType.G3 };
-            _view.SetDataContext(this);
-            _view.Activate(_windowHandler);
+            using (var query = new GenusQuery())
+            {
+                Genuses = new ObservableCollection<Genus>(query.Get().ToList());
+                SculptureTypes = new ObservableCollection<SculptureType>
+                {
+                    SculptureType.Concentric,
+                    SculptureType.Radial,
+                    SculptureType.RadialOrConcentric
+                };
+                ShellTypes = new ObservableCollection<ShellType>
+                {
+                    ShellType.A1,
+                    ShellType.A2,
+                    ShellType.B1,
+                    ShellType.B2,
+                    ShellType.G1,
+                    ShellType.G2,
+                    ShellType.G3
+                };
+                _view.SetDataContext(this);
+                _view.Activate(_windowHandler);
+            }
         }
 
         /// <summary>

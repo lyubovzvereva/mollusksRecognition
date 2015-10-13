@@ -245,7 +245,7 @@ namespace MolluskRecognition.Presenters
                     File.Copy(file, Path.Combine(_settingsProvider.LocationsImagesLocation, newFileName));
                     _settingsProvider.LocationIndex = _settingsProvider.LocationIndex + 1;
                     _settingsProvider.Save();
-                    Samples.Add(new Sample(_settingsProvider) { PhotoFileName = newFileName });
+                    Samples.Add(new Sample() { PhotoFileName = newFileName });
                 }
             }
         }

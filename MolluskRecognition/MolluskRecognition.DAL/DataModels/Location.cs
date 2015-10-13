@@ -10,10 +10,10 @@ namespace MolluskRecognition.DAL.DataModels
     /// </summary>
     public class Location : Entity
     {
-        private readonly string _imagesLocation;
-        public Location(string imagesLocation, string fileName)
+        public Location() { }
+
+        public Location(Guid id, string fileName) : base(id)
         {
-            this._imagesLocation = imagesLocation;
             FileName = fileName;
         }
 
@@ -21,13 +21,5 @@ namespace MolluskRecognition.DAL.DataModels
         /// Name of the file with location
         /// </summary>
         public string FileName { get; }
-
-        /// <summary>
-        /// Uri to file which combines from settings and fileName
-        /// </summary>
-        public Uri UriSource
-        {
-            get { return new Uri(Path.Combine(_imagesLocation, FileName)); }
-        }
     }
 }

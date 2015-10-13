@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Composition;
 using System.Configuration;
 using System.Data.Entity;
 using MolluskRecognition.DAL.DataModels;
@@ -11,9 +12,12 @@ namespace MolluskRecognition.DAL.DataModels
 {
     public class MolluskRecognitionContext : DbContext
     {
-        internal MolluskRecognitionContext() : base("MolluskRecognitionDB") { }
+        internal MolluskRecognitionContext() : this("MolluskRecognitionDB") { }
 
-        internal MolluskRecognitionContext(string connectionStringName) : base(connectionStringName) { }
+        internal MolluskRecognitionContext(string connectionStringName) : base(connectionStringName)
+        {
+            Database.SetInitializer(new MolluskRecognitionDBInitializer());
+        }
 
         public DbSet<MolluskCollection> Collections { get; set; }
         public DbSet<Feature> Features { get; set; }

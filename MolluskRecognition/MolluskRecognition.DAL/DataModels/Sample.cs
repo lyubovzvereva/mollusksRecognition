@@ -9,11 +9,7 @@ namespace MolluskRecognition.DAL.DataModels
     /// </summary>
     public class Sample : Entity
     {
-        private readonly ISettingsProvider _settingsProvider;
-        public Sample(ISettingsProvider settingsProvider)
-        {
-            this._settingsProvider = settingsProvider;
-        }
+        public Sample() { }
 
         /// <summary>
         /// Some description of the sample
@@ -70,13 +66,6 @@ namespace MolluskRecognition.DAL.DataModels
         /// </summary>
         public string PhotoFileName { get; set; }
 
-        /// <summary>
-        /// Uri to file which combines from settings and fileName
-        /// </summary>
-        public Uri UriSource
-        {
-            get { return new Uri(Path.Combine(_settingsProvider.LocationsImagesLocation, PhotoFileName)); }
-        }
         //todo: another charcteristics
     }
 }

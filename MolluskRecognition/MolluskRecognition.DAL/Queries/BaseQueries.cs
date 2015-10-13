@@ -41,11 +41,19 @@ namespace MolluskRecognition.DAL.Queries
         }
     }
 
-    public sealed class FamilyQuery : BaseQuery<Family>
+    public class FamilyQuery : BaseQuery<Family>
     {
         public override IQueryable<Family> Get()
         {
             return Context.Families.AsQueryable();
+        }
+    }
+
+    public class GenusQuery : BaseQuery<Genus>
+    {
+        public override IQueryable<Genus> Get()
+        {
+            return Context.Genuses.AsQueryable();
         }
     }
 }

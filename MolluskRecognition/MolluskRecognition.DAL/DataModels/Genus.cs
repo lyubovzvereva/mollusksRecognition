@@ -9,6 +9,13 @@ namespace MolluskRecognition.DAL.DataModels
     /// </summary>
     public class Genus : Entity
     {
+        /// <summary>
+        /// Default constructor
+        /// </summary>
+        public Genus()
+        {
+            Year = DateTime.Today;
+        }
 
         /// <summary>
         /// Name of the genus
@@ -29,13 +36,5 @@ namespace MolluskRecognition.DAL.DataModels
         /// Species of the genus
         /// </summary>
         public virtual List<Species> Species { get; set; }
-
-        /// <summary>
-        /// Default constructor
-        /// </summary>
-        public Genus()
-        {
-            Year = DateTime.Today;
-        }
     }
 }

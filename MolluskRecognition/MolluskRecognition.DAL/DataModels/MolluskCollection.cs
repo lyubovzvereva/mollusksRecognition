@@ -7,6 +7,7 @@ namespace MolluskRecognition.DAL.DataModels
     /// </summary>
     public class MolluskCollection : Entity
     {
+        public MolluskCollection() { }
 
         /// <summary>
         /// Number of collection

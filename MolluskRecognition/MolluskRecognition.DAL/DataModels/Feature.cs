@@ -7,11 +7,13 @@ namespace MolluskRecognition.DAL.DataModels
 	/// Признак
 	/// </summary>
 	public class Feature : Entity
-    {
-        /// <summary>
-        /// Название признака
-        /// </summary>
-        public string Name { get; set; }
+	{
+		public Feature() { }
+
+		/// <summary>
+		/// Название признака
+		/// </summary>
+		public string Name { get; set; }
 
 		/// <summary>
 		/// Значение признака
@@ -22,11 +24,6 @@ namespace MolluskRecognition.DAL.DataModels
 		/// Список подпризнаков
 		/// </summary>
 		public virtual List<Feature> SubFeatures { get; set; }
-
-		/// <summary>
-		/// Конструктор по умолчанию
-		/// </summary>
-		public Feature(){}
 
 		/// <summary>
 		/// Конструктор с заполнением названием признака
