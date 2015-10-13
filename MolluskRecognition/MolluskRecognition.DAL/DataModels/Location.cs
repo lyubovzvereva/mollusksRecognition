@@ -8,7 +8,7 @@ namespace MolluskRecognition.DAL.DataModels
     /// Location(Местоположение)
     /// todo: create folder for images
     /// </summary>
-    public class Location
+    public class Location : Entity
     {
         private readonly string _imagesLocation;
         public Location(string imagesLocation, string fileName)
@@ -16,9 +16,6 @@ namespace MolluskRecognition.DAL.DataModels
             this._imagesLocation = imagesLocation;
             FileName = fileName;
         }
-
-        [Key]
-        public int Id { get; set; }
 
         /// <summary>
         /// Name of the file with location

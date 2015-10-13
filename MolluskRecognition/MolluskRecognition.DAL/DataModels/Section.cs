@@ -7,17 +7,13 @@ namespace MolluskRecognition.DAL.DataModels
     /// <summary>
     /// Разрезы
     /// </summary>
-    public class Section
+    public class Section : Entity
     {
         private readonly ISettingsProvider _settingsProvider;
         public Section(ISettingsProvider settingsProvider)
         {
             this._settingsProvider = settingsProvider;
         }
-
-
-        [Key]
-        public int Id { get; set; }
 
         /// <summary>
         /// Name of the file with section

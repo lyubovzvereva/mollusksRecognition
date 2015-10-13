@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace MolluskRecognition.DAL.DataModels
 {
-    internal class MolluskRecognitionContext : DbContext
+    public class MolluskRecognitionContext : DbContext
     {
-        public MolluskRecognitionContext() : base("MolluskRecognitionDB") { }
+        internal MolluskRecognitionContext() : base("MolluskRecognitionDB") { }
 
-        public MolluskRecognitionContext(string connectionStringName) : base(connectionStringName) { }
+        internal MolluskRecognitionContext(string connectionStringName) : base(connectionStringName) { }
 
         public DbSet<MolluskCollection> Collections { get; set; }
         public DbSet<Feature> Features { get; set; }

@@ -7,7 +7,7 @@ namespace MolluskRecognition.DAL.DataModels
     /// <summary>
     /// Species(Вид)
     /// </summary>
-    public class Species
+    public class Species : Entity
     {
         /// <summary>
         /// Default constructor
@@ -16,9 +16,6 @@ namespace MolluskRecognition.DAL.DataModels
         {
             Year = DateTime.Today;
         }
-
-        [Key]
-        public int Id { get; set; }
 
         /// <summary>
         /// Name of the species

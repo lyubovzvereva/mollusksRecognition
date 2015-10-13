@@ -7,16 +7,13 @@ namespace MolluskRecognition.DAL.DataModels
     /// <summary>
     /// Sample of the species
     /// </summary>
-    public class Sample
+    public class Sample : Entity
     {
         private readonly ISettingsProvider _settingsProvider;
         public Sample(ISettingsProvider settingsProvider)
         {
             this._settingsProvider = settingsProvider;
         }
-
-        [Key]
-        public int Id { get; set; }
 
         /// <summary>
         /// Some description of the sample

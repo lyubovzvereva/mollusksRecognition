@@ -13,6 +13,7 @@ namespace MolluskRecognition.DAL
     {
         string LocationsImagesLocation { get; set; }
         long LocationIndex { get; set; }
+        string CurrentApplicationFolder { get; }
         void Save();
         void CheckRequiredFolders();
     }
@@ -32,6 +33,18 @@ namespace MolluskRecognition.DAL
             set { Settings.Default.LocationIndex = value; }
         }
 
+        public string CurrentApplicationFolder
+        {
+            get
+            {
+                var exePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+                if (exePath == null)
+                    throw new ConfigurationErrorsException("Cannot resolve executing file path");
+
+                return exePath;
+            }
+        }
+
         public void Save()
         {
             Settings.Default.Save();
@@ -41,11 +54,9 @@ namespace MolluskRecognition.DAL
         {
             if (string.IsNullOrEmpty(LocationsImagesLocation))
             {
-                var exePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-                if (exePath == null)
-                    throw new ConfigurationErrorsException("Cannot resolve executing file path");
+                
 
-                LocationsImagesLocation = Path.Combine(exePath, "Pictures");
+                LocationsImagesLocation = Path.Combine(CurrentApplicationFolder, "Pictures");
 
                 Save();
             }

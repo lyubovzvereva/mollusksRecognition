@@ -6,14 +6,12 @@ namespace MolluskRecognition.DAL.DataModels
 	/// <summary>
 	/// Признак
 	/// </summary>
-	public class Feature
-	{
-		[Key]
-		public int Id { get; set; }
-		/// <summary>
-		/// Название признака
-		/// </summary>
-		public string Name { get; set; }
+	public class Feature : Entity
+    {
+        /// <summary>
+        /// Название признака
+        /// </summary>
+        public string Name { get; set; }
 
 		/// <summary>
 		/// Значение признака

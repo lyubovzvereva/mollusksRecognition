@@ -9,7 +9,7 @@ namespace MolluskRecognition.DAL.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(DataModels.MolluskRecognitionContext context)

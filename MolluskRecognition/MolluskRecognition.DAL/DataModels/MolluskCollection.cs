@@ -5,11 +5,8 @@ namespace MolluskRecognition.DAL.DataModels
     /// <summary>
     /// Class for describing location in collection
     /// </summary>
-    public class MolluskCollection
+    public class MolluskCollection : Entity
     {
-
-        [Key]
-        public int Id { get; set; }
 
         /// <summary>
         /// Number of collection

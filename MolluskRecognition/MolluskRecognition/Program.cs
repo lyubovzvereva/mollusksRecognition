@@ -3,8 +3,10 @@ using System;
 using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using MolluskRecognition.DAL;
+using MolluskRecognition.DAL.Queries;
 
 namespace MolluskRecognition
 {
@@ -22,6 +24,8 @@ namespace MolluskRecognition
         {
             if (ComposeParts())
             {
+                AppDomain.CurrentDomain.SetData("DataDirectory", _settingsProvider.CurrentApplicationFolder);
+                
                 _settingsProvider.CheckRequiredFolders();
                 var mainView = new StartWindow();
                 var mainPresenter = new MainPresenter(mainView, _settingsProvider);

@@ -67,6 +67,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataModels\Entity.cs" />
     <Compile Include="DataModels\MolluskCollection.cs" />
     <Compile Include="DataModels\MolluskRecognitionContext.cs" />
     <Compile Include="DataModels\Family.cs" />
@@ -76,12 +77,9 @@
     <Compile Include="DataModels\Sample.cs" />
     <Compile Include="DataModels\Section.cs" />
     <Compile Include="DataModels\Species.cs" />
-    <Compile Include="Migrations\201510121947281_initial.cs" />
-    <Compile Include="Migrations\201510121947281_initial.Designer.cs">
-      <DependentUpon>201510121947281_initial.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Queries\BaseQueries.cs" />
     <Compile Include="Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
@@ -98,15 +96,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="MolluskRecognitionDB.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="MolluskRecognitionDB_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>MolluskRecognitionDB.mdf</DependentUpon>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6">
       <Visible>False</Visible>
       <ProductName>Microsoft .NET Framework 4.6 %28x86 and x64%29</ProductName>
@@ -117,11 +106,6 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201510121947281_initial.resx">
-      <DependentUpon>201510121947281_initial.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

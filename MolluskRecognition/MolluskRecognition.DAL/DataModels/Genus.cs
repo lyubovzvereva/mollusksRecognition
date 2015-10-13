@@ -7,10 +7,8 @@ namespace MolluskRecognition.DAL.DataModels
     /// <summary>
     /// Genus(род)
     /// </summary>
-    public class Genus
+    public class Genus : Entity
     {
-        [Key]
-        public int Id { get; set; }
 
         /// <summary>
         /// Name of the genus
