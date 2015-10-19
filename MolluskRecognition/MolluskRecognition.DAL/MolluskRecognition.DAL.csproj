@@ -85,7 +85,7 @@
     <Compile Include="MolluskRecognitionDBInitializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Queries\QueriesList.cs" />
-    <Compile Include="Queries\QueryProvider.cs" />
+    <Compile Include="Queries\DBQueryProvider.cs" />
     <Compile Include="Queries\QueryWrapper.cs" />
     <Compile Include="Settings.Designer.cs">
       <AutoGen>True</AutoGen>

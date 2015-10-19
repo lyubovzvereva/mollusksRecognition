@@ -64,7 +64,7 @@ namespace MolluskRecognition.DAL.Tests
             queriesListStub.Setup(l => l.Queries)
                 .Returns(() => new[] {new QueryWrapper<Family>(QueryTags.FamilyBase, (context) => context.Families)});
 
-            var queryProvider = new QueryProvider(contextStub.Object, queriesListStub.Object);
+            var queryProvider = new DBQueryProvider(contextStub.Object, queriesListStub.Object);
 
             var query = queryProvider.GetBaseQuery<Family>();
 
@@ -133,7 +133,7 @@ namespace MolluskRecognition.DAL.Tests
                     new QueryWrapper<Location>(QueryTags.LocationBase, (context) => context.Locations),
                 });
 
-            var queryProvider = new QueryProvider(contextStub.Object, queriesListStub.Object);
+            var queryProvider = new DBQueryProvider(contextStub.Object, queriesListStub.Object);
 
             var familyQuery = queryProvider.GetBaseQuery<Family>();
             var genusQuery = queryProvider.GetBaseQuery<Genus>();
@@ -152,7 +152,7 @@ namespace MolluskRecognition.DAL.Tests
             queriesListStub.Setup(l => l.Queries)
                 .Returns(() => new List<IQueryWrapper>());
 
-            var queryProvider = new QueryProvider(contextStub.Object, queriesListStub.Object);
+            var queryProvider = new DBQueryProvider(contextStub.Object, queriesListStub.Object);
 
             try
             {

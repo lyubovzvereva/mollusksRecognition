@@ -9,18 +9,18 @@ using MolluskRecognition.DAL.DataModels;
 
 namespace MolluskRecognition.DAL.Queries
 {
-    public interface IQueryProvider
+    public interface IDBQueryProvider
     {
         IQueryable<T> GetBaseQuery<T>() where T : Entity;
     }
 
-    public class QueryProvider : IQueryProvider, IDisposable
+    public class DBQueryProvider : IDBQueryProvider, IDisposable
     {
         protected IMolluskRecognitionContext Context;
         protected IQueriesList Queries;
 
         [ImportingConstructor]
-        public QueryProvider(IMolluskRecognitionContext context, IQueriesList queries)
+        public DBQueryProvider(IMolluskRecognitionContext context, IQueriesList queries)
         {
             Context = context;
             Queries = queries;
@@ -43,7 +43,7 @@ namespace MolluskRecognition.DAL.Queries
             GC.SuppressFinalize(this);
         }
 
-        ~QueryProvider()
+        ~DBQueryProvider()
         {
             Dispose(false);
         }

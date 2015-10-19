@@ -33,6 +33,8 @@ namespace MolluskRecognition.Presenters
 
         private readonly ISettingsProvider _settingsProvider;
 
+        //private readonly IQueryProvider
+
         /// <summary>
         /// Constructor
         /// </summary>
