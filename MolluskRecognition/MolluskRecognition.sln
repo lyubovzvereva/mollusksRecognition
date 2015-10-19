@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MolluskRecognition.Controll
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MolluskRecognition.DAL", "MolluskRecognition.DAL\MolluskRecognition.DAL.csproj", "{56ED76CA-6818-4D88-9B0F-84B460D64D49}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MolluskRecognition.DAL.Tests", "MolluskRecognition.DAL.Tests\MolluskRecognition.DAL.Tests.csproj", "{5A733139-3E2D-4A9E-904B-12BDC226FE5F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +55,18 @@ Global
 		{56ED76CA-6818-4D88-9B0F-84B460D64D49}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{56ED76CA-6818-4D88-9B0F-84B460D64D49}.Release|x86.ActiveCfg = Release|Any CPU
 		{56ED76CA-6818-4D88-9B0F-84B460D64D49}.Release|x86.Build.0 = Release|Any CPU
+		{5A733139-3E2D-4A9E-904B-12BDC226FE5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A733139-3E2D-4A9E-904B-12BDC226FE5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A733139-3E2D-4A9E-904B-12BDC226FE5F}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{5A733139-3E2D-4A9E-904B-12BDC226FE5F}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{5A733139-3E2D-4A9E-904B-12BDC226FE5F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{5A733139-3E2D-4A9E-904B-12BDC226FE5F}.Debug|x86.Build.0 = Debug|Any CPU
+		{5A733139-3E2D-4A9E-904B-12BDC226FE5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A733139-3E2D-4A9E-904B-12BDC226FE5F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A733139-3E2D-4A9E-904B-12BDC226FE5F}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{5A733139-3E2D-4A9E-904B-12BDC226FE5F}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{5A733139-3E2D-4A9E-904B-12BDC226FE5F}.Release|x86.ActiveCfg = Release|Any CPU
+		{5A733139-3E2D-4A9E-904B-12BDC226FE5F}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

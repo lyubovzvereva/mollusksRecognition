@@ -20,6 +20,6 @@ namespace MolluskRecognition.DAL.DataModels
         /// <summary>
         /// Name of the file with location
         /// </summary>
-        public string FileName { get; }
+        public string FileName { get; set; }
     }
 }

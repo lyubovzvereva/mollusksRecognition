@@ -13,8 +13,7 @@ namespace MolluskRecognition
     class Program
     {
         [Import] private ISettingsProvider _settingsProvider;
-
-        [STAThread]
+        
         static void Main(string[] args)
         {
             new Program().Start();
@@ -22,31 +21,36 @@ namespace MolluskRecognition
 
         private void Start()
         {
-            if (ComposeParts())
+            using (var container = new CompositionContainer(GetCompositionCatalog()))
             {
-                AppDomain.CurrentDomain.SetData("DataDirectory", _settingsProvider.CurrentApplicationFolder);
-                
-                _settingsProvider.CheckRequiredFolders();
-                var mainView = new StartWindow();
-                var mainPresenter = new MainPresenter(mainView, _settingsProvider);
-                mainPresenter.Activate();
+                if (ComposeParts(container))
+                {
+                    AppDomain.CurrentDomain.SetData("DataDirectory", _settingsProvider.CurrentApplicationFolder);
+
+                    _settingsProvider.CheckRequiredFolders();
+                    var mainView = new StartWindow();
+                    var mainPresenter = new MainPresenter(mainView, _settingsProvider);
+                    mainPresenter.Activate();
+                }
             }
         }
 
-        private bool ComposeParts()
+        private static AggregateCatalog GetCompositionCatalog()
+        {
+            var catalog = new AggregateCatalog();
+
+            var exePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            if (exePath == null)
+                throw new CompositionException("Cannot resolve executing file path");
+
+            catalog.Catalogs.Add(new DirectoryCatalog(exePath));
+            return catalog;
+        }
+
+        private bool ComposeParts(CompositionContainer container)
         {
             try
             {
-                var catalog = new AggregateCatalog();
-
-                var exePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-                if (exePath == null)
-                    throw new CompositionException("Cannot resolve executing file path");
-
-                catalog.Catalogs.Add(new DirectoryCatalog(exePath));
-
-                var container = new CompositionContainer(catalog);
-
                 container.ComposeParts(this);
 
                 return true;

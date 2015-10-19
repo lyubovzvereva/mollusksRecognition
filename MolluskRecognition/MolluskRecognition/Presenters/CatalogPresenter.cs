@@ -49,7 +49,6 @@ namespace MolluskRecognition.Presenters
         /// </summary>
         public void Activate()
         {
-            var imagesLocation = _settingsProvider.LocationsImagesLocation;
             using (var query = new GenusQuery())
             {
                 Genuses = new ObservableCollection<Genus>(query.Get().ToList());
