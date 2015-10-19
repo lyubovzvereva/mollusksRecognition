@@ -83,13 +83,13 @@ namespace MolluskRecognition.DAL.Migrations
                 },
                 new SculptureType
                 {
-                    Id = new Guid("12BFB60D-0945-4D13-A7E8-7EF25AB20479"),
+                    Id = new Guid("007AF03E-9221-497D-A404-C20DA4DC36BB"),
                     Name = "Concentric",
                     DisplayName = "Concentric"
                 },
                 new SculptureType
                 {
-                    Id = new Guid("12BFB60D-0945-4D13-A7E8-7EF25AB20479"),
+                    Id = new Guid("A6CD1BEB-0723-4BF4-BDAE-919EE16C5F75"),
                     Name = "RadialOrConcentric",
                     DisplayName = "RadialOrConcentric"
                 }

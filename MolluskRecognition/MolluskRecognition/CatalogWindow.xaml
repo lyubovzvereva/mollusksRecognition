@@ -247,17 +247,28 @@
                     <ComboBox Grid.Row="0"
                               Grid.Column="1"
                               SelectedItem="{Binding SelectedSpecies.SculptureType}"
-                              ItemsSource="{Binding SculptureTypes}"/>
+                              ItemsSource="{Binding SculptureTypes}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Path=Name}"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
 
-                    <TextBlock Grid.Row="1"
+                        <TextBlock Grid.Row="1"
                                Grid.Column="0"
                                Text="{x:Static properties:Resources.InitialShellTypeLabel}"
                                />
                     <ComboBox Grid.Row="1"
                               Grid.Column="1"
                               SelectedItem="{Binding SelectedSpecies.InitialShellType}"
-                              ItemsSource="{Binding ShellTypes}"
-                               />
+                              ItemsSource="{Binding ShellTypes}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Path=Name}"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
 
 
                 </Grid>
