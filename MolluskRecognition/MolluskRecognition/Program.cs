@@ -14,7 +14,8 @@ namespace MolluskRecognition
     {
         [Import] private ISettingsProvider _settingsProvider;
         [Import] private IDBQueryProvider _queryProvider;
-        
+
+        [STAThread]
         static void Main(string[] args)
         {
             new Program().Start();
@@ -58,7 +59,7 @@ namespace MolluskRecognition
             }
             catch (CompositionException compositionException)
             {
-                return false;
+                throw;
             }
         }
     }

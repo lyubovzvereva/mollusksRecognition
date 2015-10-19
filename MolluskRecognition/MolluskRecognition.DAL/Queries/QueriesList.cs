@@ -19,6 +19,8 @@ namespace MolluskRecognition.DAL.Queries
         public const string SampleBase = "SampleBase";
         public const string SectionBase = "SectionBase";
         public const string SpeciesBase = "SpeciesBase";
+        public const string ShellTypeBase = "ShellTypeBase";
+        public const string SculptureTypeBase = "SculptureTypeBase";
     }
 
     public interface IQueriesList
@@ -34,13 +36,15 @@ namespace MolluskRecognition.DAL.Queries
             get
             {
                 yield return new QueryWrapper<Family>(QueryTags.FamilyBase, (context) => context.Families);
-                yield return new QueryWrapper<Family>(QueryTags.FeatureBase, (context) => context.Families);
-                yield return new QueryWrapper<Family>(QueryTags.GenusBase, (context) => context.Families);
-                yield return new QueryWrapper<Family>(QueryTags.LocationBase, (context) => context.Families);
-                yield return new QueryWrapper<Family>(QueryTags.MolluskCollectionBase, (context) => context.Families);
-                yield return new QueryWrapper<Family>(QueryTags.SampleBase, (context) => context.Families);
-                yield return new QueryWrapper<Family>(QueryTags.SectionBase, (context) => context.Families);
-                yield return new QueryWrapper<Family>(QueryTags.SpeciesBase, (context) => context.Families);
+                yield return new QueryWrapper<Feature>(QueryTags.FeatureBase, (context) => context.Features);
+                yield return new QueryWrapper<Genus>(QueryTags.GenusBase, (context) => context.Genuses);
+                yield return new QueryWrapper<Location>(QueryTags.LocationBase, (context) => context.Locations);
+                yield return new QueryWrapper<MolluskCollection>(QueryTags.MolluskCollectionBase, (context) => context.Collections);
+                yield return new QueryWrapper<Sample>(QueryTags.SampleBase, (context) => context.Samples);
+                yield return new QueryWrapper<Section>(QueryTags.SectionBase, (context) => context.Sections);
+                yield return new QueryWrapper<Species>(QueryTags.SpeciesBase, (context) => context.Specieses);
+                yield return new QueryWrapper<ShellType>(QueryTags.ShellTypeBase, (context) => context.ShellTypes);
+                yield return new QueryWrapper<SculptureType>(QueryTags.SculptureTypeBase, (context) => context.SculptureTypes);
             }
         }
     }

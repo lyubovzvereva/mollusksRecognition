@@ -17,17 +17,23 @@ namespace MolluskRecognition.DAL.Queries
         IQueryable<T> GetBaseQuery<T>() where T : Entity;
     }
 
-    [Export(typeof(DBQueryProvider))]
+    [Export(typeof(IDBQueryProvider))]
     public class DBQueryProvider : IDBQueryProvider, IDisposable
     {
         protected MolluskRecognitionContext Context;
         protected IQueriesList Queries;
 
-        [ImportingConstructor]
         public DBQueryProvider(MolluskRecognitionContext context, IQueriesList queries)
         {
             Queries = queries;
             Context = context;
+        }
+
+        [ImportingConstructor]
+        public DBQueryProvider(IQueriesList queries)
+        {
+            Queries = queries;
+            Context = new MolluskRecognitionContext();
         }
 
         [NotNull]

@@ -38,12 +38,13 @@ namespace MolluskRecognition.Presenters
         /// <summary>
         /// Constructor
         /// </summary>
-        public CatalogPresenter(ICatalogView view, Window windowHandler, IStartView mainView, ISettingsProvider settingsProvider, IDBQueryProvider _queryProvider)
+        public CatalogPresenter(ICatalogView view, Window windowHandler, IStartView mainView, ISettingsProvider settingsProvider, IDBQueryProvider queryProvider)
         {
             this._view = view;
             this._windowHandler = windowHandler;
             this._mainView = mainView;
             this._settingsProvider = settingsProvider;
+            this._queryProvider = queryProvider;
         }
 
         /// <summary>
