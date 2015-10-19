@@ -88,7 +88,6 @@
     <Compile Include="EditSamplesView.xaml.cs">
       <DependentUpon>EditSamplesView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Extensions\SculptureTypeExtension.cs" />
     <Compile Include="Presenters\AddNewGenusPresenter.cs" />
     <Compile Include="Presenters\AddNewSpeciesPresenter.cs" />
     <Compile Include="Presenters\EditCutsPresenter.cs" />

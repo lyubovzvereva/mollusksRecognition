@@ -9,21 +9,25 @@ using MolluskRecognition.DAL.DataModels;
 
 namespace MolluskRecognition.DAL.Queries
 {
+    /// <summary>
+    /// Interface for all DB readonly queries access. For write-only access see Commands
+    /// </summary>
     public interface IDBQueryProvider
     {
         IQueryable<T> GetBaseQuery<T>() where T : Entity;
     }
 
+    [Export(typeof(DBQueryProvider))]
     public class DBQueryProvider : IDBQueryProvider, IDisposable
     {
-        protected IMolluskRecognitionContext Context;
+        protected MolluskRecognitionContext Context;
         protected IQueriesList Queries;
 
         [ImportingConstructor]
-        public DBQueryProvider(IMolluskRecognitionContext context, IQueriesList queries)
+        public DBQueryProvider(MolluskRecognitionContext context, IQueriesList queries)
         {
-            Context = context;
             Queries = queries;
+            Context = context;
         }
 
         [NotNull]

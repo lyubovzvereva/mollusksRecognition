@@ -114,49 +114,49 @@ namespace MolluskRecognition.DAL.DataModels
 
         
     }
-    /// <summary>
-    /// Types of initial shell
-    /// </summary>
-    public enum ShellType
-    {
-        A1,
-        A2,
-        B1,
-        B2,
-        /// <summary>
-        /// Г1
-        /// </summary>
-        G1,
+    ///// <summary>
+    ///// Types of initial shell
+    ///// </summary>
+    //public enum ShellType
+    //{
+    //    A1,
+    //    A2,
+    //    B1,
+    //    B2,
+    //    /// <summary>
+    //    /// Г1
+    //    /// </summary>
+    //    G1,
 
-        /// <summary>
-        /// Г2
-        /// </summary>
-        G2,
+    //    /// <summary>
+    //    /// Г2
+    //    /// </summary>
+    //    G2,
 
-        /// <summary>
-        /// Г3
-        /// </summary>
-        G3
-    }
+    //    /// <summary>
+    //    /// Г3
+    //    /// </summary>
+    //    G3
+    //}
 
-    /// <summary>
-    /// Sculpture type
-    /// </summary>
-    public enum SculptureType
-    {
-        /// <summary>
-        /// Radial type
-        /// </summary>
-        Radial,
+    ///// <summary>
+    ///// Sculpture type
+    ///// </summary>
+    //public enum SculptureType
+    //{
+    //    /// <summary>
+    //    /// Radial type
+    //    /// </summary>
+    //    Radial,
 
-        /// <summary>
-        /// Concentric type
-        /// </summary>
-        Concentric,
+    //    /// <summary>
+    //    /// Concentric type
+    //    /// </summary>
+    //    Concentric,
 
-        /// <summary>
-        /// Radial or concentric type
-        /// </summary>
-        RadialOrConcentric
-    }
+    //    /// <summary>
+    //    /// Radial or concentric type
+    //    /// </summary>
+    //    RadialOrConcentric
+    //}
 }

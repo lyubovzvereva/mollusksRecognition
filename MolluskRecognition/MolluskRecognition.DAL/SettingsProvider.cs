@@ -7,7 +7,7 @@ using System.Reflection;
 namespace MolluskRecognition.DAL
 {
     /// <summary>
-    /// Provider for configuration settings
+    /// Wrapper for configuration settings access
     /// </summary>
     public interface ISettingsProvider
     {

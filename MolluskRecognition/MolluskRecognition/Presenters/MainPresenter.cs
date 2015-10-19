@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Input;
 using MolluskRecognition.DAL;
+using MolluskRecognition.DAL.Queries;
 
 namespace MolluskRecognition.Presenters
 {
@@ -35,14 +36,16 @@ namespace MolluskRecognition.Presenters
         private ICatalogView _catalogView;
 
         private readonly ISettingsProvider _settingsProvider;
+        private readonly IDBQueryProvider _queryProvider;
 
         /// <summary>
         /// Constructor
         /// </summary>
-        public MainPresenter(IStartView startView, ISettingsProvider settingsProvider)
+        public MainPresenter(IStartView startView, ISettingsProvider settingsProvider, IDBQueryProvider queryProvider)
         {
             this._mainView = startView;
             this._settingsProvider = settingsProvider;
+            this._queryProvider = queryProvider;
         }
 
         /// <summary>
@@ -184,12 +187,10 @@ namespace MolluskRecognition.Presenters
         /// </summary>
         private void ShowCatalog()
         {
-            _catalogPresenter = new CatalogPresenter(_mainView.GetCatalogView(), _mainView.GetWindowHandler(), _mainView, _settingsProvider);
+            _catalogPresenter = new CatalogPresenter(_mainView.GetCatalogView(), _mainView.GetWindowHandler(), _mainView, _settingsProvider, _queryProvider);
             _catalogPresenter.Activate();
         }
         #endregion command bindings
         #endregion bindings
-
-
     }
 }

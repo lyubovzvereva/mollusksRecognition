@@ -13,6 +13,7 @@ namespace MolluskRecognition
     class Program
     {
         [Import] private ISettingsProvider _settingsProvider;
+        [Import] private IDBQueryProvider _queryProvider;
         
         static void Main(string[] args)
         {
@@ -29,7 +30,7 @@ namespace MolluskRecognition
 
                     _settingsProvider.CheckRequiredFolders();
                     var mainView = new StartWindow();
-                    var mainPresenter = new MainPresenter(mainView, _settingsProvider);
+                    var mainPresenter = new MainPresenter(mainView, _settingsProvider, _queryProvider);
                     mainPresenter.Activate();
                 }
             }

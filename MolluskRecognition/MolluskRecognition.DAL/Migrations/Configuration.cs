@@ -18,6 +18,7 @@ namespace MolluskRecognition.DAL.Migrations
 
         protected override void Seed(MolluskRecognitionContext context)
         {
+            MolluskRecognitionDBInitializer.InitValues(context);
         }
     }
 }

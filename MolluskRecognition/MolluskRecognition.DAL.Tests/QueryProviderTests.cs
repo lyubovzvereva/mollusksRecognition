@@ -52,7 +52,7 @@ namespace MolluskRecognition.DAL.Tests
         [TestCaseSource(nameof(oneTableTestCases))]
         public void GetBaseQuery_ShouldReturnCorrectTableFromOne(QueryProviderTestCase testCase)
         {
-            var contextStub = new Mock<IMolluskRecognitionContext>();
+            var contextStub = new Mock<MolluskRecognitionContext>();
             var setStub = new Mock<DbSet<Family>>();
             setStub.As<IQueryable<Family>>().Setup(m => m.Provider).Returns(testCase.Families.Provider);
             setStub.As<IQueryable<Family>>().Setup(m => m.Expression).Returns(testCase.Families.Expression);
@@ -102,7 +102,7 @@ namespace MolluskRecognition.DAL.Tests
         [TestCaseSource(nameof(threeTablesTestCases))]
         public void GetBaseQuery_ShouldReturnCorrectTableFromThree(QueryProviderTestCase testCase)
         {
-            var contextStub = new Mock<IMolluskRecognitionContext>();
+            var contextStub = new Mock<MolluskRecognitionContext>();
             var familySetStub = new Mock<DbSet<Family>>();
             familySetStub.As<IQueryable<Family>>().Setup(m => m.Provider).Returns(testCase.Families.Provider);
             familySetStub.As<IQueryable<Family>>().Setup(m => m.Expression).Returns(testCase.Families.Expression);
@@ -147,7 +147,7 @@ namespace MolluskRecognition.DAL.Tests
         [Test]
         public void Negative_GetBaseQuery_ShouldThrowErrorIfNotFound()
         {
-            var contextStub = new Mock<IMolluskRecognitionContext>();
+            var contextStub = new Mock<MolluskRecognitionContext>();
             var queriesListStub = new Mock<IQueriesList>();
             queriesListStub.Setup(l => l.Queries)
                 .Returns(() => new List<IQueryWrapper>());

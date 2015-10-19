@@ -33,12 +33,12 @@ namespace MolluskRecognition.Presenters
 
         private readonly ISettingsProvider _settingsProvider;
 
-        //private readonly IQueryProvider
+        private readonly IDBQueryProvider _queryProvider;
 
         /// <summary>
         /// Constructor
         /// </summary>
-        public CatalogPresenter(ICatalogView view, Window windowHandler, IStartView mainView, ISettingsProvider settingsProvider)
+        public CatalogPresenter(ICatalogView view, Window windowHandler, IStartView mainView, ISettingsProvider settingsProvider, IDBQueryProvider _queryProvider)
         {
             this._view = view;
             this._windowHandler = windowHandler;
@@ -51,28 +51,11 @@ namespace MolluskRecognition.Presenters
         /// </summary>
         public void Activate()
         {
-            using (var query = new GenusQuery())
-            {
-                Genuses = new ObservableCollection<Genus>(query.Get().ToList());
-                SculptureTypes = new ObservableCollection<SculptureType>
-                {
-                    SculptureType.Concentric,
-                    SculptureType.Radial,
-                    SculptureType.RadialOrConcentric
-                };
-                ShellTypes = new ObservableCollection<ShellType>
-                {
-                    ShellType.A1,
-                    ShellType.A2,
-                    ShellType.B1,
-                    ShellType.B2,
-                    ShellType.G1,
-                    ShellType.G2,
-                    ShellType.G3
-                };
-                _view.SetDataContext(this);
-                _view.Activate(_windowHandler);
-            }
+            Genuses = new ObservableCollection<Genus>(_queryProvider.GetBaseQuery<Genus>());
+            SculptureTypes = new ObservableCollection<SculptureType>(_queryProvider.GetBaseQuery<SculptureType>());
+            ShellTypes = new ObservableCollection<ShellType>(_queryProvider.GetBaseQuery<ShellType>());
+            _view.SetDataContext(this);
+            _view.Activate(_windowHandler);
         }
 
         /// <summary>

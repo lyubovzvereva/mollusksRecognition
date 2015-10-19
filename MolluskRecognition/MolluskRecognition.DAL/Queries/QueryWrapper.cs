@@ -16,9 +16,9 @@ namespace MolluskRecognition.DAL.Queries
         where T : Entity
     {
         public string Type { get; }
-        public Func<IMolluskRecognitionContext, IQueryable<T>> Query { get; }
+        public Func<MolluskRecognitionContext, IQueryable<T>> Query { get; }
 
-        public QueryWrapper(string type, Func<IMolluskRecognitionContext, IQueryable<T>> query)
+        public QueryWrapper(string type, Func<MolluskRecognitionContext, IQueryable<T>> query)
         {
             Type = type;
             Query = query;
